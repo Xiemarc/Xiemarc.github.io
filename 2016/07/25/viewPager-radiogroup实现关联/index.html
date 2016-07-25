@@ -84,25 +84,33 @@
 
 
 
-<meta name="description" content="###PHP 函数参数的2种方式
+<meta name="description" content="###实现viewpager跟radioGroup关联
 
-1）实参的值传给形参，形参的值变化不影响到实参的值，体现了函数的封装性。
-2）引用传值，这种方式函数内部的语句会影响到函数外部的变量，破坏了函数的封装性，不推介使用。">
+先看效果图  
+
+
+代码撸出来">
 <meta property="og:type" content="article">
-<meta property="og:title" content="php函数的参数">
-<meta property="og:url" content="http://yoursite.com/2016/07/24/php函数的参数/index.html">
+<meta property="og:title" content="viewPager+radiogroup实现关联">
+<meta property="og:url" content="http://yoursite.com/2016/07/25/viewPager-radiogroup实现关联/index.html">
 <meta property="og:site_name" content="Marc | 一个简单的码农">
-<meta property="og:description" content="###PHP 函数参数的2种方式
+<meta property="og:description" content="###实现viewpager跟radioGroup关联
 
-1）实参的值传给形参，形参的值变化不影响到实参的值，体现了函数的封装性。
-2）引用传值，这种方式函数内部的语句会影响到函数外部的变量，破坏了函数的封装性，不推介使用。">
-<meta property="og:updated_time" content="2016-07-24T06:37:46.354Z">
+先看效果图  
+
+
+代码撸出来">
+<meta property="og:image" content="http://i.imgur.com/vDnr4eb.gif">
+<meta property="og:updated_time" content="2016-07-25T13:27:01.309Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="php函数的参数">
-<meta name="twitter:description" content="###PHP 函数参数的2种方式
+<meta name="twitter:title" content="viewPager+radiogroup实现关联">
+<meta name="twitter:description" content="###实现viewpager跟radioGroup关联
 
-1）实参的值传给形参，形参的值变化不影响到实参的值，体现了函数的封装性。
-2）引用传值，这种方式函数内部的语句会影响到函数外部的变量，破坏了函数的封装性，不推介使用。">
+先看效果图  
+
+
+代码撸出来">
+<meta name="twitter:image" content="http://i.imgur.com/vDnr4eb.gif">
 
 
 
@@ -123,9 +131,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/07/24/php函数的参数/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/07/25/viewPager-radiogroup实现关联/"/>
 
-  <title> php函数的参数 | Marc | 一个简单的码农 </title>
+  <title> viewPager+radiogroup实现关联 | Marc | 一个简单的码农 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -255,7 +263,7 @@
             
             
               
-                php函数的参数
+                viewPager+radiogroup实现关联
               
             
           </h1>
@@ -267,8 +275,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-24T14:34:11+08:00" content="2016-07-24">
-              2016-07-24
+            <time itemprop="dateCreated" datetime="2016-07-25T21:26:40+08:00" content="2016-07-25">
+              2016-07-25
             </time>
           </span>
 
@@ -295,65 +303,279 @@
       
 
       
-        <p>###PHP 函数参数的2种方式</p>
+        <p>###实现viewpager跟radioGroup关联</p>
+<ul>
+<li>先看效果图<br>  <img src="http://i.imgur.com/vDnr4eb.gif" alt=""></li>
+</ul>
 <blockquote>
-<p>1）实参的值传给形参，形参的值变化不影响到实参的值，体现了函数的封装性。</p>
-<p>2）引用传值，这种方式函数内部的语句会影响到函数外部的变量，破坏了函数的封装性，不推介使用。</p>
+<p>代码撸出来<br><a id="more"></a><br>布局xml</p>
 </blockquote>
-<a id="more"></a>
-<pre><code>    &lt;?php
-    // $tid = $_GET[&quot;tid&quot;];
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+android:layout_width=&quot;match_parent&quot;
+android:layout_height=&quot;match_parent&quot;
+android:orientation=&quot;vertical&quot;&gt;
 
-// $fr = fopen(&quot;./msg.txt&quot;,&quot;r&quot;);
+&lt;include layout=&quot;@layout/toolbar&quot; /&gt;
 
-// $i = 1;
-// $row = fgetcsv($fr);
-// while( $row != false){
-//     if($i == $tid){
-//             print_r($row);
-//     }    
-//     $i = $i+1;    
-// }
+&lt;android.support.v4.view.ViewPager
+    android:id=&quot;@+id/container&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;0dp&quot;
+    android:layout_weight=&quot;1&quot; /&gt;
 
-  //1、打开资源
-//  $fh = fopen(&quot;./msg.txt&quot;,&quot;r&quot;);
-//  //2、读取tid行的留言
-//  $row = fgetcsv($fh);
-//  $con = 1;
-// while(($rec = fgetcsv($fh)) != false){
-//     if($_GET[&apos;tid&apos;] == $con){
-//         print_r($rec);
-//     }
-//     $con++;
+&lt;LinearLayout
+    android:layout_width=&quot;fill_parent&quot;
+    android:layout_height=&quot;60dp&quot;
+    android:background=&quot;@drawable/tabbg&quot;
+    android:orientation=&quot;horizontal&quot;&gt;
 
+    &lt;RadioGroup
+        android:id=&quot;@+id/radiogroup&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;match_parent&quot;
+        android:orientation=&quot;horizontal&quot;&gt;
 
- // $b = 5;
- // $a= $b++;
- // var_dump($a,$b);
+        &lt;RadioButton
+            android:id=&quot;@+id/btn_1&quot;
+            style=&quot;@style/chart_radiobutton&quot;
+            android:text=&quot;高一&quot; /&gt;
 
-    //    $a=1;
-    // $b=$a++;    //运行两个步骤：一返回$a的值,二把$a的值加1.
-    // var_dump($a,$b);  
+        &lt;RadioButton
+            android:id=&quot;@+id/btn_2&quot;
+            style=&quot;@style/chart_radiobutton&quot;
+            android:text=&quot;高一&quot; /&gt;
 
-function t($a){
-    // $a +=1;
-    $a = $a +1;
+        &lt;RadioButton
+            android:id=&quot;@+id/btn_3&quot;
+            style=&quot;@style/chart_radiobutton&quot;
+            android:text=&quot;高一&quot; /&gt;
+
+        &lt;RadioButton
+            android:id=&quot;@+id/btn_4&quot;
+            style=&quot;@style/chart_radiobutton&quot;
+            android:text=&quot;高一&quot; /&gt;
+    &lt;/RadioGroup&gt;
+
+&lt;/LinearLayout&gt;
+</code></pre><blockquote>
+<p>java代码</p>
+</blockquote>
+<pre><code>public class ChartActivity extends MVPBaseActivity&lt;ChartView, ChartPresenter&gt; implements ChartView {
+
+@Bind(R.id.toolbar_tv)
+TextView mToobarTv;
+
+@Bind(R.id.toolbar)
+Toolbar mToolbar;
+
+@Bind(R.id.container)
+ViewPager mViewPager;
+
+@Bind(R.id.btn_1)
+RadioButton btn1;
+
+@Bind(R.id.btn_2)
+RadioButton btn2;
+
+@Bind(R.id.btn_3)
+RadioButton btn3;
+
+@Bind(R.id.btn_4)
+RadioButton btn4;
+
+MyAdapter mAdapter;
+@Bind(R.id.radiogroup)
+RadioGroup radiogroup;
+
+@Override
+protected void onCreate(@Nullable Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+    setContentView(R.layout.fragment_chart);
+    ButterKnife.bind(this);
+    mToolbar.setTitle(&quot;&quot;);
+    mToobarTv.setText(&quot;测试&quot;);
+    setSupportActionBar(mToolbar);
+    getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+    radiogroup.setOnCheckedChangeListener(new MyRadioGroupListener());
+    initControoler();
+
 }
-$b =3;
-t($b);
-echo &quot;b的值是:&quot;,$b,&quot;&lt;br&gt;&quot; .&quot;&lt;hr&gt;&quot;;
-var_dump(t($b));
-var_dump($b);
-echo &quot;&lt;hr&gt;&quot;;
 
-function t2(&amp;$a){
-    $a +=1;
+private class MyRadioGroupListener implements RadioGroup.OnCheckedChangeListener {
+
+    @Override
+    public void onCheckedChanged(RadioGroup group, int checkedId) {
+        switch (checkedId) {
+            case R.id.btn_1:
+                mViewPager.setCurrentItem(0);
+                break;
+            case R.id.btn_2:
+                mViewPager.setCurrentItem(1);
+                break;
+            case R.id.btn_3:
+                mViewPager.setCurrentItem(2);
+                break;
+            case R.id.btn_4:
+                mViewPager.setCurrentItem(3);
+                break;
+        }
+    }
 }
 
-$c=5;
-t2($c);
-var_dump($c);
-?&gt;
+private void initControoler() {
+    mAdapter = new MyAdapter(getSupportFragmentManager());
+    mViewPager.setAdapter(mAdapter);
+    mViewPager.setOnPageChangeListener(new ViewPager.OnPageChangeListener() {
+        @Override
+        public void onPageScrolled(int position, float positionOffset, int positionOffsetPixels) {
+
+        }
+
+        @Override
+        public void onPageSelected(int position) {
+            switch (position) {
+                case 0:
+                    radiogroup.check(R.id.btn_1);
+                    break;
+                case 1:
+                    radiogroup.check(R.id.btn_2);
+                    break;
+                case 2:
+                    radiogroup.check(R.id.btn_3);
+                    break;
+                case 3:
+                    radiogroup.check(R.id.btn_4);
+                    break;
+            }
+        }
+
+        @Override
+        public void onPageScrollStateChanged(int state) {
+
+        }
+    });
+}
+
+
+class MyAdapter extends FragmentStatePagerAdapter {
+
+    public MyAdapter(FragmentManager fm) {
+        super(fm);
+    }
+
+    @Override
+    public Fragment getItem(int position) {
+        BaseFragment fragment = FragmentFactory.getChartFragment(position);
+        return fragment;
+    }
+
+    @Override
+    public int getCount() {
+        return 4;
+    }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return super.getPageTitle(position);
+    }
+}
+
+
+@Override
+public boolean onOptionsItemSelected(MenuItem item) {
+    if (item.getItemId() == android.R.id.home) {
+        onBackPressed();
+    }
+    return super.onOptionsItemSelected(item);
+}
+
+@Override
+public void showProgress() {
+
+}
+
+@Override
+public void hideProgress() {
+
+}
+
+@Override
+public void showToast(String msg) {
+
+}
+
+@Override
+protected ChartPresenter createPresenter() {
+    ChartPresenter presenter = new ChartPresenter();
+    return presenter;
+}
+</code></pre><blockquote>
+<p>其中有的代码可以忽略不计。可以看到最主要的 是 要监听RadioGroup的RadioGroup.OnCheckedChangeListener,然后再监听viewpager的OnPagerChangeLisnterner 就好了。</p>
+</blockquote>
+<ul>
+<li><p>FragmentFactory的代码，这里推荐如果framgent少的话可以这样子写</p>
+<pre><code>/**
+ * Description:fragment工厂类&lt;br&gt;
+ * Created by Administrator on 2016/7/6.
+ */
+public class FragmentFactory {
+</code></pre></li>
+</ul>
+<pre><code>static SparseArrayCompat&lt;BaseFragment&gt; cachesFragment = new SparseArrayCompat&lt;&gt;();//
+static SparseArrayCompat&lt;BaseFragment&gt; cachesChartFragment = new SparseArrayCompat&lt;&gt;();//图表
+
+/**
+ * 图表
+ *
+ * @param position
+ * @return
+ */
+public static BaseFragment getChartFragment(int position) {
+    BaseFragment fragment = null;
+    BaseFragment tempFragment = cachesChartFragment.get(position);
+    if (tempFragment != null) {
+        fragment = tempFragment;
+        return fragment;
+    }
+    switch (position) {
+        case 0:
+            fragment = new FragmentOne();
+            break;
+        case 1:
+            fragment = new FragmentTwo();
+            break;
+        case 2:
+            fragment = new FragmentThree();
+            break;
+        case 3:
+            fragment = new FragmentFour();
+            break;
+    }
+    cachesChartFragment.put(position, fragment);
+    return fragment;
+}    
+
+    //移除所有    
+  public static void removeAllFragment() {
+if (cachesFragment != null &amp;&amp; cachesFragment.size() &gt; 0) {
+    cachesFragment.clear();
+}
+}
+//拿到列表
+public static SparseArrayCompat&lt;FragmentSupport&gt; getListFragment() {
+    if (cachesFragment != null &amp;&amp; cachesFragment.size() &gt; 0) {
+        return cachesFragment;
+    }
+    return null;
+}
+</code></pre><blockquote>
+<p>当然，有的可能会说怎么有时候里面的数据变了。或者重新进入，还有可能从cachesChartFragment 拿到原来存储的fragment，这里在activity的生命周期中设置下</p>
+</blockquote>
+<pre><code>在onDestory（）或者onPause（）中
+if (FragmentFactory.getListFragment() != null &amp;&amp; FragmentFactory.getListFragment().size() &gt; 0) {
+        FragmentFactory.removeAllFragment();
+    }
 </code></pre>
       
     </div>
@@ -385,17 +607,13 @@ var_dump($c);
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/07/23/关于登陆/" rel="next" title="关于登陆">
-                <i class="fa fa-chevron-left"></i> 关于登陆
+              <a href="/2016/07/25/加载3种状态/" rel="next" title="加载3种状态">
+                <i class="fa fa-chevron-left"></i> 加载3种状态
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/07/25/加载3种状态/" rel="prev" title="加载3种状态">
-                加载3种状态 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
