@@ -87,7 +87,7 @@
 <meta name="description" content="android开发">
 <meta property="og:type" content="website">
 <meta property="og:title" content="Marc | 一个简单的码农">
-<meta property="og:url" content="http://yoursite.com/archives/2016/07/page/2/index.html">
+<meta property="og:url" content="http://yoursite.com/page/4/index.html">
 <meta property="og:site_name" content="Marc | 一个简单的码农">
 <meta property="og:description" content="android开发">
 <meta name="twitter:card" content="summary">
@@ -113,9 +113,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/archives/2016/07/page/2/"/>
+  <link rel="canonical" href="http://yoursite.com/page/4/"/>
 
-  <title> 归档 | Marc | 一个简单的码农 </title>
+  <title> Marc | 一个简单的码农 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -136,7 +136,9 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left  page-archive  ">
+  <div class="container one-collumn sidebar-position-left 
+   page-home 
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -233,218 +235,134 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
+  <section id="posts" class="posts-expand">
+    
+      
 
-  <section id="posts" class="posts-collapse">
-    <span class="archive-move-on"></span>
+  
+  
 
-    <span class="archive-page-counter">
-      
-      
-      
-        
-      
-      嗯..! 目前共计 16 篇日志。 继续努力。
-    </span>
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
+      <header class="post-header">
 
-      
-      
-      
-
-      
         
-        <div class="collection-title">
-          <h2 class="archive-year motion-element" id="archive-year-2016">2016</h2>
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/07/21/my-new-post/" itemprop="url">
+                  关于线程池
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-21T22:13:33+08:00" content="2016-07-21">
+              2016-07-21
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/安卓/" itemprop="url" rel="index">
+                    <span itemprop="name">安卓</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
         </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
       
       
 
       
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
         
-            <a class="post-title-link" href="/2016/07/25/使用权重实现柱形图/" itemprop="url">
-              
-                <span itemprop="name">使用权重实现柱形图</span>
-              
+          <p>##线程的运行机制</p>
+<blockquote>
+<ul>
+<li>开启线程过多,会消耗cpu</li>
+<li>单核cpu,同一时刻只能处理一个线程,多核cpu同一时刻可以处理多个线程</li>
+<li>操作系统为每个运行线程安排一定的CPU时间—-<code>时间片</code>,系统通过一种循环的方式为线程提供时间片,线程在自己的时间内运行,因为时间相当短,多个线程频繁地发生切换,因此给用户的感觉就是好像多个线程同时运行一样,但是如果计算机有多个CPU,线程就能真正意义上的同时运行了.<br><img src="img/thread1.png" alt="">
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/21/my-new-post/#more" rel="contents">
+              阅读全文 &raquo;
             </a>
+          </div>
         
-      </h1>
+      
+    </div>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-25T22:18:57+08:00"
-              content="2016-07-25" >
-          07-25
-        </time>
-      </div>
+    <div>
+      
+    </div>
 
-    </header>
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
   </article>
 
 
-
     
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/07/25/自自定义view以及事件处理/" itemprop="url">
-              
-                <span itemprop="name">自自定义view以及事件处理</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-25T22:16:58+08:00"
-              content="2016-07-25" >
-          07-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/07/25/自定义view——实现半圆形进度条/" itemprop="url">
-              
-                <span itemprop="name">自定义view——实现半圆形进度条</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-25T22:14:37+08:00"
-              content="2016-07-25" >
-          07-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/07/25/自定义轮播图/" itemprop="url">
-              
-                <span itemprop="name">自定义轮播图</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-25T22:02:26+08:00"
-              content="2016-07-25" >
-          07-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
-      
-      
-      
-
-      
-      
-
-      
-
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
-
-      <h1 class="post-title">
-        
-            <a class="post-title-link" href="/2016/07/25/自定义下载圆形按钮/" itemprop="url">
-              
-                <span itemprop="name">自定义下载圆形按钮</span>
-              
-            </a>
-        
-      </h1>
-
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2016-07-25T21:29:47+08:00"
-              content="2016-07-25" >
-          07-25
-        </time>
-      </div>
-
-    </header>
-  </article>
-
-
-
-    
-
   </section>
 
   
   <nav class="pagination">
-    <a class="extend prev" rel="prev" href="/archives/2016/07/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/archives/2016/07/">1</a><span class="page-number current">2</span><a class="page-number" href="/archives/2016/07/page/3/">3</a><a class="page-number" href="/archives/2016/07/page/4/">4</a><a class="extend next" rel="next" href="/archives/2016/07/page/3/"><i class="fa fa-angle-right"></i></a>
+    <a class="extend prev" rel="prev" href="/page/3/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/3/">3</a><span class="page-number current">4</span>
   </nav>
-
 
 
 
@@ -655,12 +573,6 @@
 
 
   
-  
-    <script type="text/javascript" id="motion.page.archive">
-      $('.archive-year').velocity('transition.slideLeftIn');
-    </script>
-  
-
 
   
 
