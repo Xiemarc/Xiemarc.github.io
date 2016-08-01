@@ -258,6 +258,135 @@
             
               
                 
+                <a class="post-title-link" href="/2016/07/27/TextView相关/" itemprop="url">
+                  TextView相关
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-07-27T19:45:29+08:00" content="2016-07-27">
+              2016-07-27
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/安卓/" itemprop="url" rel="index">
+                    <span itemprop="name">安卓</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>###对于textView，大家肯定熟悉的不能再熟悉了。</p>
+<h4 id="TextView设置基础"><a href="#TextView设置基础" class="headerlink" title="TextView设置基础"></a>TextView设置基础</h4><p>通常给textView设置TextView的时候，会把string设置在xml中当做资源使用。例如下面的</p>
+<blockquote>
+<pre><code>&lt;string name=&quot;hello&quot;&gt;XXX，起床吃饭啦&lt;/string&gt;
+</code></pre></blockquote>
+<p>在程序中使用这个的话，就是XXX,起床吃饭啦。  但是有另外的需求，想要随时替换掉XXX，例如，张三，李四<br>这个时候可以使用占位符（我通常这么叫），用法如下：</p>
+<blockquote>
+<pre><code>&lt;string name=&quot;hello&quot;&gt;%1$s，起床吃饭啦&lt;/string&gt;
+</code></pre></blockquote>
+<p>程序中给值就好</p>
+<blockquote>
+<pre><code>String welcome = getString(R.string.hello, &quot;南波湾&quot;);
+
+这里的1代表第一个变量，多个变量的话依次递增即可。
+</code></pre></blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/07/27/TextView相关/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2016/07/27/Android-studio调试的技巧/" itemprop="url">
                   Android studio调试的技巧
                 </a>
@@ -708,122 +837,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/07/25/自定义view/" itemprop="url">
-                  自定义view
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-07-25T22:21:04+08:00" content="2016-07-25">
-              2016-07-25
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/安卓/" itemprop="url" rel="index">
-                    <span itemprop="name">安卓</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <ul>
-<li>首先需要我们知道android的控件架构：<br><img src="http://img.blog.csdn.net/20160527095450125" alt="这里写图片描述">
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/07/25/自定义view/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -869,7 +882,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/">
-              <span class="site-state-item-count">21</span>
+              <span class="site-state-item-count">22</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
