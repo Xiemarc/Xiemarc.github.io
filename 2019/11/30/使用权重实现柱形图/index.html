@@ -1,0 +1,704 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="android," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="先上图
+这里面的横向和竖向的都是使用权重实现的，一会会把代码贴出来，下面的那个viewpager是拽网上的
+横向柱形图的实现这里使用RecycleView实现的。其中item布局是关键。需要依据权重。不多说，直接上代码">
+<meta property="og:type" content="article">
+<meta property="og:title" content="使用权重实现柱形图">
+<meta property="og:url" content="http://yoursite.com/2019/11/30/使用权重实现柱形图/index.html">
+<meta property="og:site_name" content="Marc |">
+<meta property="og:description" content="先上图
+这里面的横向和竖向的都是使用权重实现的，一会会把代码贴出来，下面的那个viewpager是拽网上的
+横向柱形图的实现这里使用RecycleView实现的。其中item布局是关键。需要依据权重。不多说，直接上代码">
+<meta property="og:image" content="http://img.blog.csdn.net/20160624103852147">
+<meta property="og:image" content="http://img.blog.csdn.net/20160624103948513">
+<meta property="og:updated_time" content="2016-08-04T12:31:14.102Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="使用权重实现柱形图">
+<meta name="twitter:description" content="先上图
+这里面的横向和竖向的都是使用权重实现的，一会会把代码贴出来，下面的那个viewpager是拽网上的
+横向柱形图的实现这里使用RecycleView实现的。其中item布局是关键。需要依据权重。不多说，直接上代码">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20160624103852147">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2019/11/30/使用权重实现柱形图/"/>
+
+  <title> 使用权重实现柱形图 | Marc | </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Marc |</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">我的一生划船不用桨，全靠浪。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                使用权重实现柱形图
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2019-11-30T20:27:45+08:00" content="2019-11-30">
+              2019-11-30
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/安卓/" itemprop="url" rel="index">
+                    <span itemprop="name">安卓</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>先上图<br><img src="http://img.blog.csdn.net/20160624103852147" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20160624103948513" alt="这里写图片描述"></p>
+<p><strong>这里面的横向和竖向的都是使用权重实现的，一会会把代码贴出来，下面的那个viewpager是拽网上的</strong></p>
+<h3 id="横向柱形图的实现"><a href="#横向柱形图的实现" class="headerlink" title="横向柱形图的实现"></a>横向柱形图的实现</h3><p>这里使用RecycleView实现的。其中item布局是关键。需要依据权重。不多说，直接上代码<br><a id="more"></a><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div></pre></td><td class="code"><pre><div class="line">	<span class="comment">/**</span></div><div class="line"> * 描述：</div><div class="line"> * 作者：Marc on 2016/6/17 11:13</div><div class="line"> * 邮箱：aliali_ha@yeah.net</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">HoriAdapter</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">Adapter</span>&lt;<span class="title">HoriAdapter</span>.<span class="title">MyViewHolder</span>&gt; </span>&#123;</div><div class="line">    <span class="keyword">private</span> ArrayList&lt;String&gt; name;</div><div class="line">    <span class="keyword">private</span> ArrayList&lt;String&gt; count;</div><div class="line">    <span class="keyword">private</span> Context mContext;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">HoriAdapter</span><span class="params">(ArrayList&lt;String&gt; name, ArrayList&lt;String&gt; count, Context mContext)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">        <span class="keyword">this</span>.count = count;</div><div class="line">        <span class="keyword">this</span>.mContext = mContext;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> MyViewHolder <span class="title">onCreateViewHolder</span><span class="params">(ViewGroup parent, <span class="keyword">int</span> viewType)</span> </span>&#123;</div><div class="line">        View view = LayoutInflater.from(mContext).inflate(R.layout.hori_item, parent, <span class="keyword">false</span>);</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> MyViewHolder(view);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onBindViewHolder</span><span class="params">(MyViewHolder holder, <span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line">        String sName = name.get(position);</div><div class="line">        <span class="keyword">int</span> sCount = Integer.parseInt(count.get(position));</div><div class="line">        <span class="keyword">int</span> spaceHeight = ScreenUtils.dip2px(mContext, <span class="number">20f</span>);<span class="comment">//条形高</span></div><div class="line">        <span class="keyword">int</span> progressWeight = (<span class="keyword">int</span>) (<span class="number">100</span> * <span class="number">1.0</span> * sCount / <span class="number">100</span>);<span class="comment">//计算权重</span></div><div class="line">        holder.progressBar.setLayoutParams(<span class="keyword">new</span> LinearLayout.LayoutParams(<span class="number">0</span>, spaceHeight, progressWeight));</div><div class="line">        holder.space.setLayoutParams(<span class="keyword">new</span> LinearLayout.LayoutParams(<span class="number">0</span>, spaceHeight, <span class="number">100</span> - progressWeight));</div><div class="line">        holder.name.setText(sName);</div><div class="line">        holder.count.setText(sCount + <span class="string">"人"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getItemCount</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> name.size();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">MyViewHolder</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">ViewHolder</span> </span>&#123;</div><div class="line">        <span class="meta">@Bind</span>(R.id.disease_type_name)</div><div class="line">        TextView name;</div><div class="line"></div><div class="line">        <span class="meta">@Bind</span>(R.id.progress)</div><div class="line">        View progressBar;</div><div class="line"></div><div class="line">        <span class="meta">@Bind</span>(R.id.disease_type_count)</div><div class="line">        TextView count;</div><div class="line"></div><div class="line">        <span class="meta">@Bind</span>(R.id.space)</div><div class="line">        View space;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="title">MyViewHolder</span><span class="params">(View itemView)</span> </span>&#123;</div><div class="line">            <span class="keyword">super</span>(itemView);</div><div class="line">            ButterKnife.bind(<span class="keyword">this</span>, itemView);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>接下来是item的布局了。<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line">&lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"</div><div class="line">    android:layout_width="match_parent"</div><div class="line">    android:layout_height="wrap_content"</div><div class="line">    android:gravity="center_vertical"</div><div class="line">    android:orientation="horizontal"</div><div class="line">    android:padding="15dp"&gt;</div><div class="line">	</div><div class="line">    &lt;TextView</div><div class="line">        android:id="@+id/disease_type_name"</div><div class="line">        android:layout_width="78sp"</div><div class="line">        android:layout_height="wrap_content"</div><div class="line">        android:layout_marginRight="27dp"</div><div class="line">        android:text="名字"</div><div class="line">        android:textColor="#797b80"</div><div class="line">        android:textSize="13sp" /&gt;</div><div class="line">	&lt;!-- 进度条--&gt;</div><div class="line">    &lt;View</div><div class="line">        android:id="@+id/progress"</div><div class="line">        android:layout_width="1dp"</div><div class="line">        android:layout_height="6dp"</div><div class="line">        android:background="@drawable/count_type_progress" /&gt;</div><div class="line">	&lt;!-- 显示数值--&gt;</div><div class="line">    &lt;TextView</div><div class="line">        android:id="@+id/disease_type_count"</div><div class="line">        android:layout_width="wrap_content"</div><div class="line">        android:layout_height="wrap_content"</div><div class="line">        android:layout_marginLeft="8dp"</div><div class="line">        android:layout_marginRight="8dp"</div><div class="line">        android:text="676人"</div><div class="line">        android:textColor="#333333"</div><div class="line">        android:textSize="13sp" /&gt;</div><div class="line">	&lt;!--右侧空白 --&gt;</div><div class="line">    &lt;View</div><div class="line">        android:id="@+id/space"</div><div class="line">        android:layout_width="0dp"</div><div class="line">        android:layout_height="6dp" /&gt;</div><div class="line">&lt;/LinearLayout&gt;</div></pre></td></tr></table></figure></p>
+<p>其中count_type_progress的drawable文件<br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line">&lt;shape xmlns:android="http://schemas.android.com/apk/res/android"&gt;</div><div class="line">    &lt;corners</div><div class="line">        android:bottomLeftRadius="5dp"</div><div class="line">        android:bottomRightRadius="5dp"</div><div class="line">        android:topLeftRadius="5dp"</div><div class="line">        android:topRightRadius="5dp" /&gt;</div><div class="line">    &lt;solid android:color="@color/aat_blue" /&gt;</div><div class="line">&lt;/shape&gt;</div></pre></td></tr></table></figure></p>
+<p>其他的就是设置recycleview的内容了<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div></pre></td><td class="code"><pre><div class="line">  mRecycleView.setHasFixedSize(<span class="keyword">true</span>);</div><div class="line">        mManager = <span class="keyword">new</span> LinearLayoutManager(<span class="keyword">this</span>);</div><div class="line">        mRecycleView.setItemAnimator(<span class="keyword">new</span> DefaultItemAnimator());</div><div class="line">        mRecycleView.setLayoutManager(mManager);</div><div class="line">        mHoriAdapter = <span class="keyword">new</span> HoriAdapter(name, count, <span class="keyword">this</span>);</div><div class="line">        mRecycleView.setAdapter(mHoriAdapter);</div><div class="line">布局</div><div class="line">&lt;android.support.v7.widget.RecyclerView</div><div class="line">            android:id=<span class="string">"@+id/hori_recyclerview"</span></div><div class="line">            android:layout_width=<span class="string">"match_parent"</span></div><div class="line">            android:layout_height=<span class="string">"wrap_content"</span></div><div class="line">            android:padding=<span class="string">"5dp"</span></div><div class="line">            android:scrollbars=<span class="string">"vertical"</span></div><div class="line">            /&gt;</div></pre></td></tr></table></figure></p>
+<p>上面是实现的横向的柱形图的样子</p>
+<p>下面实现纵向的柱形图的样子（PS：因为项目需要的没那么麻烦，所以没考虑用图表实现）</p>
+<p>关键也是权重</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Hori2Adapter</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">Adapter</span>&lt;<span class="title">Hori2Adapter</span>.<span class="title">MyViewHolder</span>&gt; </span>&#123;</div><div class="line">    <span class="keyword">private</span> ArrayList&lt;String&gt; name;</div><div class="line">    <span class="keyword">private</span> ArrayList&lt;String&gt; count;</div><div class="line">    <span class="keyword">private</span> Context mContext;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">Hori2Adapter</span><span class="params">(ArrayList&lt;String&gt; name, ArrayList&lt;String&gt; count, Context mContext)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.name = name;</div><div class="line">        <span class="keyword">this</span>.count = count;</div><div class="line">        <span class="keyword">this</span>.mContext = mContext;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> MyViewHolder <span class="title">onCreateViewHolder</span><span class="params">(ViewGroup parent, <span class="keyword">int</span> viewType)</span> </span>&#123;</div><div class="line">        View view = LayoutInflater.from(mContext).inflate(R.layout.hori_item_vertial, parent, <span class="keyword">false</span>);</div><div class="line">        <span class="keyword">return</span> <span class="keyword">new</span> MyViewHolder(view);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onBindViewHolder</span><span class="params">(MyViewHolder holder, <span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line">        String sName = name.get(position);</div><div class="line">        <span class="keyword">int</span> sCount = Integer.parseInt(count.get(position));</div><div class="line">        <span class="keyword">int</span> spaceWidth = ScreenUtils.dip2px(mContext, <span class="number">20f</span>);<span class="comment">//条形宽度</span></div><div class="line">        <span class="keyword">int</span> progressWeight = (<span class="keyword">int</span>) (<span class="number">100</span> * <span class="number">1.0</span> * sCount / <span class="number">100</span>);<span class="comment">//计算权重   //这个100 你可以设置成你们数据的最大值</span></div><div class="line">	<span class="comment">//关键地方了</span></div><div class="line">        holder.progressBar.setLayoutParams(<span class="keyword">new</span> LinearLayout.LayoutParams(spaceWidth, <span class="number">0</span>, progressWeight));</div><div class="line">        holder.space.setLayoutParams(<span class="keyword">new</span> LinearLayout.LayoutParams(spaceWidth, <span class="number">0</span>, <span class="number">100</span> - progressWeight));</div><div class="line">        holder.grade.setText(sName);</div><div class="line">        holder.count.setText(sCount + <span class="string">"人"</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getItemCount</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> name.size();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="class"><span class="keyword">class</span> <span class="title">MyViewHolder</span> <span class="keyword">extends</span> <span class="title">RecyclerView</span>.<span class="title">ViewHolder</span> </span>&#123;</div><div class="line">        <span class="meta">@Bind</span>(R.id.tv_grade)</div><div class="line">        TextView grade;</div><div class="line"></div><div class="line">        <span class="meta">@Bind</span>(R.id.progress)</div><div class="line">        View progressBar;</div><div class="line"></div><div class="line">        <span class="meta">@Bind</span>(R.id.tv_type_count)</div><div class="line">        TextView count;</div><div class="line"></div><div class="line">        <span class="meta">@Bind</span>(R.id.space)</div><div class="line">        View space;</div><div class="line"></div><div class="line">        <span class="function"><span class="keyword">public</span> <span class="title">MyViewHolder</span><span class="params">(View itemView)</span> </span>&#123;</div><div class="line">            <span class="keyword">super</span>(itemView);</div><div class="line">            ButterKnife.bind(<span class="keyword">this</span>, itemView);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div></pre></td><td class="code"><pre><div class="line">//布局</div><div class="line">&lt;android.support.v7.widget.RecyclerView</div><div class="line">        android:id="@+id/hori_recyclerview"</div><div class="line">        android:layout_width="match_parent"</div><div class="line">        android:layout_height="0dp"</div><div class="line">        android:layout_weight="1"</div><div class="line">        android:padding="5dp"</div><div class="line">        android:scrollbars="horizontal" /&gt;</div><div class="line">  //代码中</div><div class="line"> mRecycleView.setHasFixedSize(true);</div><div class="line">        mManager = new LinearLayoutManager(getActivity());</div><div class="line">        mManager.setOrientation(LinearLayoutManager.HORIZONTAL);//横向</div><div class="line">        mRecycleView.setItemAnimator(new DefaultItemAnimator());</div><div class="line">        mRecycleView.setLayoutManager(mManager);</div><div class="line">        mAdapter = new Hori2Adapter(mName, mCount, getActivity());</div><div class="line">        mRecycleView.setAdapter(mAdapter);</div><div class="line"></div><div class="line">//item条目布局</div><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line">&lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"</div><div class="line">    android:layout_width="wrap_content"</div><div class="line">    android:layout_height="match_parent"</div><div class="line">    android:layout_gravity="bottom"</div><div class="line">    android:orientation="vertical"</div><div class="line">    android:padding="15dp"&gt;</div><div class="line">    //空白占比</div><div class="line">    &lt;View</div><div class="line">        android:id="@+id/space"</div><div class="line">        android:layout_width="6dp"</div><div class="line">        android:layout_height="0dp" /&gt;</div><div class="line">    &lt;!-- 显示人数--&gt;</div><div class="line">    &lt;TextView</div><div class="line">        android:id="@+id/tv_type_count"</div><div class="line">        android:layout_width="wrap_content"</div><div class="line">        android:layout_height="wrap_content"</div><div class="line">        android:text="15人"</div><div class="line">        android:textColor="#797b80"</div><div class="line">        android:textSize="13sp" /&gt;</div><div class="line"></div><div class="line">    &lt;!-- 具体进度--&gt;</div><div class="line">    &lt;View</div><div class="line">        android:id="@+id/progress"</div><div class="line">        android:layout_width="6dp"</div><div class="line">        android:layout_height="1dp"</div><div class="line">        android:background="@drawable/count_type_progress" /&gt;</div><div class="line"></div><div class="line">    &lt;TextView</div><div class="line">        android:id="@+id/tv_grade"</div><div class="line">        android:layout_width="wrap_content"</div><div class="line">        android:layout_height="wrap_content"</div><div class="line">        android:layout_marginBottom="8dp"</div><div class="line">        android:layout_marginTop="8dp"</div><div class="line">        android:text="高一"</div><div class="line">        android:textColor="#333333"</div><div class="line">        android:textSize="13sp" /&gt;</div><div class="line"></div><div class="line">&lt;/LinearLayout&gt;</div></pre></td></tr></table></figure>
+<p>这样子就实现了 纵向的柱形图<br>最下面的那个类似QQ附近人的。是看网上帖子，使用viewpager实现的，也一并贴出来<br><strong>首先是自定义的VIEWPAGER</strong><br>``java<br>/<em>* 使用viewpager实现类似QQ附近的人
+ </em>/<br>public class CustomViewPager extends ViewPager {<br>    private long downTime;<br>    private float LastX;<br>    private float mSpeed;</p>
+<pre><code>public CustomViewPager(Context context) {
+    super(context);
+}
+
+public CustomViewPager(Context context, AttributeSet attrs) {
+    super(context, attrs);
+}
+
+@Override
+public boolean dispatchTouchEvent(MotionEvent ev) {
+    float x = ev.getX();
+    switch (ev.getAction()) {
+        case MotionEvent.ACTION_DOWN:
+            downTime = System.currentTimeMillis();
+            LastX = x;
+            break;
+        case MotionEvent.ACTION_MOVE:
+            x = ev.getX();
+            break;
+        case MotionEvent.ACTION_UP:
+            //计算得到手指从按下到离开的滑动速度
+            mSpeed = (x - LastX) * 1000 / (System.currentTimeMillis() - downTime);
+            break;
+    }
+    return super.dispatchTouchEvent(ev);
+}
+
+public float getSpeed() {
+    return mSpeed;
+}
+
+public void setSpeed(float mSpeed) {
+    this.mSpeed = mSpeed;
+}
+}
+</code></pre><p><strong>page切换动画</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ZoomOutPageTransformer</span> <span class="keyword">implements</span> <span class="title">ViewPager</span>.<span class="title">PageTransformer</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">float</span> MIN_SCALE = <span class="number">0.70f</span>;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> <span class="keyword">float</span> MIN_ALPHA = <span class="number">0.5f</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">transformPage</span><span class="params">(View view, <span class="keyword">float</span> position)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> pageWidth = view.getWidth();</div><div class="line">        <span class="keyword">int</span> pageHeight = view.getHeight();</div><div class="line">        <span class="keyword">if</span> (position &lt; -<span class="number">1</span>) &#123; <span class="comment">// [-Infinity,-1)</span></div><div class="line">            <span class="comment">// This page is way off-screen to the left.</span></div><div class="line">            view.setAlpha(MIN_ALPHA);</div><div class="line">            view.setScaleX(MIN_SCALE);</div><div class="line">            view.setScaleY(MIN_SCALE);</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (position &lt;= <span class="number">1</span>) &#123; <span class="comment">// [-1,1]</span></div><div class="line">            <span class="comment">// Modify the default slide transition to shrink the page as well</span></div><div class="line">            <span class="keyword">float</span> scaleFactor = Math.max(MIN_SCALE, <span class="number">1</span> - Math.abs(position));</div><div class="line">            <span class="keyword">float</span> vertMargin = pageHeight * (<span class="number">1</span> - scaleFactor) / <span class="number">2</span>;</div><div class="line">            <span class="keyword">float</span> horzMargin = pageWidth * (<span class="number">1</span> - scaleFactor) / <span class="number">2</span>;</div><div class="line">            <span class="keyword">if</span> (position &lt; <span class="number">0</span>) &#123;</div><div class="line">                view.setTranslationX(horzMargin - vertMargin / <span class="number">2</span>);</div><div class="line">                view.setScaleX(<span class="number">1</span> + <span class="number">0.3f</span> * position);</div><div class="line">                view.setScaleY(<span class="number">1</span> + <span class="number">0.3f</span> * position);</div><div class="line">            &#125; <span class="keyword">else</span> &#123;</div><div class="line">                view.setTranslationX(-horzMargin + vertMargin / <span class="number">2</span>);</div><div class="line"></div><div class="line">                view.setScaleX(<span class="number">1</span> - <span class="number">0.3f</span> * position);</div><div class="line">                view.setScaleY(<span class="number">1</span> - <span class="number">0.3f</span> * position);</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="comment">// Scale the page down (between MIN_SCALE and 1)</span></div><div class="line"></div><div class="line">            <span class="comment">// Fade the page relative to its size.</span></div><div class="line">            view.setAlpha(MIN_ALPHA + (scaleFactor - MIN_SCALE) / (<span class="number">1</span> - MIN_SCALE) * (<span class="number">1</span> - MIN_ALPHA));</div><div class="line"></div><div class="line">        &#125; <span class="keyword">else</span> &#123; <span class="comment">// (1,+Infinity]</span></div><div class="line">            <span class="comment">// This page is way off-screen to the right.</span></div><div class="line">            view.setScaleX(MIN_SCALE);</div><div class="line">            view.setScaleY(MIN_SCALE);</div><div class="line">            view.setAlpha(MIN_ALPHA);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>手势滑动类</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">FixedSpeedScroller</span> <span class="keyword">extends</span> <span class="title">Scroller</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mDuration = <span class="number">1000</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">FixedSpeedScroller</span><span class="params">(Context context, AccelerateInterpolator accelerateInterpolator)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context,accelerateInterpolator);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startScroll</span><span class="params">(<span class="keyword">int</span> startX, <span class="keyword">int</span> startY, <span class="keyword">int</span> dx, <span class="keyword">int</span> dy)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.startScroll(startX, startY, dx, dy,mDuration);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startScroll</span><span class="params">(<span class="keyword">int</span> startX, <span class="keyword">int</span> startY, <span class="keyword">int</span> dx, <span class="keyword">int</span> dy, <span class="keyword">int</span> duration)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.startScroll(startX, startY, dx, dy, mDuration);</div><div class="line">    &#125;</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">setmDuration</span><span class="params">(<span class="keyword">int</span> time)</span> </span>&#123;</div><div class="line">        mDuration = time;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getmDuration</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mDuration;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>完整的xml文件</strong><br><figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div></pre></td><td class="code"><pre><div class="line">&lt;?xml version="1.0" encoding="utf-8"?&gt;</div><div class="line">&lt;LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"</div><div class="line">    android:layout_width="match_parent"</div><div class="line">    android:layout_height="match_parent"</div><div class="line">    android:orientation="vertical"&gt;</div><div class="line"></div><div class="line"></div><div class="line">    &lt;android.support.v7.widget.RecyclerView</div><div class="line">        android:id="@+id/hori_recyclerview"</div><div class="line">        android:layout_width="match_parent"</div><div class="line">        android:layout_height="0dp"</div><div class="line">        android:layout_weight="1"</div><div class="line">        android:padding="5dp"</div><div class="line">        android:scrollbars="horizontal" /&gt;</div><div class="line"></div><div class="line">    &lt;View</div><div class="line">        android:layout_width="match_parent"</div><div class="line">        android:layout_height="3dp"</div><div class="line">        android:background="@android:color/holo_red_light" /&gt;</div><div class="line"></div><div class="line">    &lt;RelativeLayout</div><div class="line">        android:id="@+id/ry_container"</div><div class="line">        android:layout_width="match_parent"</div><div class="line">        android:layout_height="0dp"</div><div class="line">        android:layout_alignParentBottom="true"</div><div class="line">        android:layout_marginBottom="25dp"</div><div class="line">        android:layout_weight="1"</div><div class="line">        android:clipChildren="false"&gt;</div><div class="line"></div><div class="line">        &lt;com.marc.chatpicture.widget.CustomViewPager</div><div class="line">            android:id="@+id/vp"</div><div class="line">            android:layout_width="130dp"</div><div class="line">            android:layout_height="160dp"</div><div class="line">            android:layout_centerInParent="true"</div><div class="line">            android:layout_marginLeft="120dp"</div><div class="line">            android:layout_marginRight="120dp" /&gt;</div><div class="line">    &lt;/RelativeLayout&gt;</div><div class="line">&lt;/LinearLayout&gt;</div></pre></td></tr></table></figure></p>
+<p><strong>viewpager适配器</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 描述：</div><div class="line"> * 作者：Marc on 2016/6/24 09:53</div><div class="line"> * 邮箱：aliali_ha@yeah.net</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">ViewpagerAdapter</span> <span class="keyword">extends</span> <span class="title">PagerAdapter</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> SparseArray&lt;Info&gt; mDatas;</div><div class="line">    <span class="keyword">private</span> Context mContext;</div><div class="line">    <span class="keyword">private</span> LayoutInflater inflater;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ViewpagerAdapter</span><span class="params">(SparseArray&lt;Info&gt; mDatas, Context mContext)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>.mDatas = mDatas;</div><div class="line">        <span class="keyword">this</span>.mContext = mContext;</div><div class="line">        inflater = LayoutInflater.from(mContext);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> Object <span class="title">instantiateItem</span><span class="params">(ViewGroup container, <span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line">        <span class="keyword">final</span> Info info = mDatas.get(position);</div><div class="line">        <span class="comment">//设置一大堆演示用的数据,数据啥的大家懂得,按照自己的来就好，这里就直接拿大神的了。项目紧</span></div><div class="line">        View view = inflater.inflate(R.layout.viewpager_layout,<span class="keyword">null</span>);</div><div class="line">        ImageView ivPortrait = (ImageView) view.findViewById(R.id.iv);</div><div class="line">        ImageView ivSex = (ImageView) view.findViewById(R.id.iv_sex);</div><div class="line">        TextView tvName = (TextView) view.findViewById(R.id.tv_name);</div><div class="line">        TextView tvDistance = (TextView) view.findViewById(R.id.tv_distance);</div><div class="line">        tvName.setText(info.getName());</div><div class="line">        tvDistance.setText(info.getDistance() + <span class="string">"km"</span>);</div><div class="line">        ivPortrait.setImageResource(info.getPortraitId());</div><div class="line">        <span class="keyword">if</span> (info.getSex()) &#123;</div><div class="line">            ivSex.setImageResource(R.drawable.girl);</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            ivSex.setImageResource(R.drawable.boy);</div><div class="line">        &#125;</div><div class="line">        ivPortrait.setOnClickListener(<span class="keyword">new</span> View.OnClickListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onClick</span><span class="params">(View v)</span> </span>&#123;</div><div class="line">                Toast.makeText(mContext, <span class="string">"这是 "</span> + info.getName() + <span class="string">" &gt;.&lt;"</span>, Toast.LENGTH_SHORT).show();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">        container.addView(view);</div><div class="line">        <span class="keyword">return</span> view;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">int</span> <span class="title">getCount</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> mDatas.size();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">isViewFromObject</span><span class="params">(View view, Object object)</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> view == object;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">destroyItem</span><span class="params">(ViewGroup container, <span class="keyword">int</span> position, Object object)</span> </span>&#123;</div><div class="line">        View view = (View) object;</div><div class="line">        container.removeView(view);</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p><strong>Fragment中</strong><br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div></pre></td><td class="code"><pre><div class="line"><span class="comment">/**</span></div><div class="line"> * 描述：</div><div class="line"> * 作者：Marc on 2016/6/24 08:50</div><div class="line"> * 邮箱：aliali_ha@yeah.net</div><div class="line"> */</div><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">SampleFragment</span> <span class="keyword">extends</span> <span class="title">RxFragment</span> <span class="keyword">implements</span> <span class="title">ViewPager</span>.<span class="title">OnPageChangeListener</span> </span>&#123;</div><div class="line">    LinearLayoutManager mManager;</div><div class="line">    <span class="meta">@Bind</span>(R.id.hori_recyclerview)</div><div class="line">    RecyclerView mRecycleView;</div><div class="line"></div><div class="line">    <span class="meta">@Bind</span>(R.id.vp)</div><div class="line">    CustomViewPager viewPager;</div><div class="line">    <span class="meta">@Bind</span>(R.id.ry_container)</div><div class="line">    RelativeLayout ryContainer;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> ArrayList&lt;String&gt; mName;</div><div class="line">    <span class="keyword">private</span> ArrayList&lt;String&gt; mCount;</div><div class="line">    <span class="keyword">private</span> Hori2Adapter mAdapter;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> String[] mNames = &#123;<span class="string">"ImmortalZ"</span>, <span class="string">"唐马儒"</span>, <span class="string">"王尼玛"</span>, <span class="string">"张全蛋"</span>, <span class="string">"蛋花"</span>, <span class="string">"王大锤"</span>, <span class="string">"叫兽"</span>, <span class="string">"哆啦A梦"</span>&#125;;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span>[] mImgs = &#123;R.drawable.len, R.drawable.leo, R.drawable.lep,</div><div class="line">            R.drawable.leq, R.drawable.ler, R.drawable.les, R.drawable.mln, R.drawable.mmz, R.drawable.mna,</div><div class="line">            R.drawable.mnj, R.drawable.leo, R.drawable.leq, R.drawable.les, R.drawable.lep&#125;;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mPosition;</div><div class="line">    <span class="keyword">private</span> FixedSpeedScroller scroller;</div><div class="line">    <span class="keyword">private</span> SparseArray&lt;Info&gt; mDatas = <span class="keyword">new</span> SparseArray&lt;&gt;();</div><div class="line">    <span class="keyword">private</span> ViewpagerAdapter mViewPagerAdapter;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">static</span> <span class="keyword">final</span> String TAG = <span class="string">"SampleFragment"</span>;</div><div class="line"></div><div class="line">    <span class="meta">@Nullable</span></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> View <span class="title">onCreateView</span><span class="params">(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        View view = inflater.inflate(R.layout.fragment_sample, <span class="keyword">null</span>);</div><div class="line">        ButterKnife.bind(<span class="keyword">this</span>, view);</div><div class="line">        <span class="keyword">return</span> view;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onActivityCreated</span><span class="params">(@Nullable Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onActivityCreated(savedInstanceState);</div><div class="line">        initData();</div><div class="line">        initRecycle();</div><div class="line">        <span class="comment">/**</span></div><div class="line">         * 将Viewpager所在容器的事件分发交给ViewPager</div><div class="line">         */</div><div class="line">        ryContainer.setOnTouchListener(<span class="keyword">new</span> View.OnTouchListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTouch</span><span class="params">(View v, MotionEvent event)</span> </span>&#123;</div><div class="line">                <span class="keyword">return</span> viewPager.dispatchTouchEvent(event);</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initRecycle</span><span class="params">()</span> </span>&#123;</div><div class="line">        mRecycleView.setHasFixedSize(<span class="keyword">true</span>);</div><div class="line">        mManager = <span class="keyword">new</span> LinearLayoutManager(getActivity());</div><div class="line">        mManager.setOrientation(LinearLayoutManager.HORIZONTAL);<span class="comment">//横向</span></div><div class="line">        mRecycleView.setItemAnimator(<span class="keyword">new</span> DefaultItemAnimator());</div><div class="line">        mRecycleView.setLayoutManager(mManager);</div><div class="line">        mAdapter = <span class="keyword">new</span> Hori2Adapter(mName, mCount, getActivity());</div><div class="line">        mRecycleView.setAdapter(mAdapter);</div><div class="line"></div><div class="line">        mViewPagerAdapter = <span class="keyword">new</span> ViewpagerAdapter(mDatas, getActivity());</div><div class="line">        viewPager.setAdapter(mViewPagerAdapter);</div><div class="line">        <span class="comment">//设置缓存数为展示的数目</span></div><div class="line">        viewPager.setOffscreenPageLimit(mImgs.length);</div><div class="line">        viewPager.setPageMargin(getResources().getDimensionPixelOffset(R.dimen.viewpager_margin));</div><div class="line">        <span class="comment">//设置切换动画</span></div><div class="line">        viewPager.setPageTransformer(<span class="keyword">true</span>, <span class="keyword">new</span> ZoomOutPageTransformer());</div><div class="line">        viewPager.addOnPageChangeListener(<span class="keyword">this</span>);</div><div class="line">        setViewPagerSpeed(<span class="number">250</span>);</div><div class="line"></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 设置viewpager切换速度</div><div class="line">     *</div><div class="line">     * <span class="doctag">@param</span> duration</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">setViewPagerSpeed</span><span class="params">(<span class="keyword">int</span> duration)</span> </span>&#123;</div><div class="line">        <span class="keyword">try</span> &#123;</div><div class="line">            Field field = ViewPager.class.getDeclaredField(<span class="string">"mScroller"</span>);</div><div class="line">            field.setAccessible(<span class="keyword">true</span>);</div><div class="line">            scroller = <span class="keyword">new</span> FixedSpeedScroller(getActivity(), <span class="keyword">new</span> AccelerateInterpolator());</div><div class="line">            field.set(viewPager, scroller);</div><div class="line">            scroller.setmDuration(duration);</div><div class="line">        &#125; <span class="keyword">catch</span> (NoSuchFieldException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125; <span class="keyword">catch</span> (IllegalAccessException e) &#123;</div><div class="line">            e.printStackTrace();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initData</span><span class="params">()</span> </span>&#123;</div><div class="line">        mName = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        mCount = <span class="keyword">new</span> ArrayList&lt;&gt;();</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; <span class="number">10</span>; i++) &#123;</div><div class="line">            mName.add(<span class="string">"MARC"</span> + i);</div><div class="line">            mCount.add(<span class="keyword">new</span> Random().nextInt(<span class="number">99</span>) + <span class="string">""</span>);</div><div class="line">        &#125;</div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = <span class="number">0</span>; i &lt; mImgs.length; i++) &#123;</div><div class="line">            Info info = <span class="keyword">new</span> Info();</div><div class="line">            info.setPortraitId(mImgs[i]);</div><div class="line">            info.setAge(((<span class="keyword">int</span>) Math.random() * <span class="number">25</span> + <span class="number">16</span>) + <span class="string">"岁"</span>);</div><div class="line">            info.setName(mNames[(<span class="keyword">int</span>) (Math.random() * mNames.length)]);</div><div class="line">            info.setSex(i % <span class="number">3</span> == <span class="number">0</span> ? <span class="keyword">false</span> : <span class="keyword">true</span>);</div><div class="line">            info.setDistance(Math.round((Math.random() * <span class="number">10</span>) * <span class="number">100</span>) / <span class="number">100</span>);</div><div class="line">            mDatas.put(i, info);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onDestroyView</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onDestroyView();</div><div class="line">        ButterKnife.unbind(<span class="keyword">this</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPageScrolled</span><span class="params">(<span class="keyword">int</span> position, <span class="keyword">float</span> positionOffset, <span class="keyword">int</span> positionOffsetPixels)</span> </span>&#123;</div><div class="line">        mPosition = position;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPageSelected</span><span class="params">(<span class="keyword">int</span> position)</span> </span>&#123;</div><div class="line">        LogUtils.e(TAG, <span class="string">"当前位置 "</span> + mPosition);</div><div class="line">        LogUtils.e(TAG, <span class="string">"速度 "</span> + viewPager.getSpeed());</div><div class="line">        <span class="comment">//当手指左滑速度大于2000时viewpager右滑（注意是item+2）</span></div><div class="line">        <span class="keyword">if</span> (viewPager.getSpeed() &lt; -<span class="number">1800</span>) &#123;</div><div class="line"></div><div class="line">            viewPager.setCurrentItem(mPosition + <span class="number">2</span>);</div><div class="line">            LogUtils.e(TAG, <span class="string">"位置 "</span> + mPosition);</div><div class="line">            viewPager.setSpeed(<span class="number">0</span>);</div><div class="line">        &#125; <span class="keyword">else</span> <span class="keyword">if</span> (viewPager.getSpeed() &gt; <span class="number">1800</span> &amp;&amp; mPosition &gt; <span class="number">0</span>) &#123;</div><div class="line">            <span class="comment">//当手指右滑速度大于2000时viewpager左滑（注意item-1即可）</span></div><div class="line">            viewPager.setCurrentItem(mPosition - <span class="number">1</span>);</div><div class="line">            LogUtils.e(TAG, <span class="string">"位置 "</span> + mPosition);</div><div class="line">            viewPager.setSpeed(<span class="number">0</span>);</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onPageScrollStateChanged</span><span class="params">(<span class="keyword">int</span> state)</span> </span>&#123;</div><div class="line"></div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>PS:网上的还有个雷达图，这里用不到，大家可以自行搜索</p>
+<p><a href="http://download.csdn.net/detail/u012721933/9563519" target="_blank" rel="external">资源下载</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/android/" rel="tag">#android</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2019/11/30/接口和自定义观察者模式/" rel="next" title="接口和自定义观察者模式">
+                <i class="fa fa-chevron-left"></i> 接口和自定义观察者模式
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2019/11/30/加载3种状态/" rel="prev" title="加载3种状态">
+                加载3种状态 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Xiemarc" />
+          <p class="site-author-name" itemprop="name">Xiemarc</p>
+          <p class="site-description motion-element" itemprop="description">android开发</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/">
+              <span class="site-state-item-count">24</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Xiemarc" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/1750579585/home?wvr=5&lf=reg" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/u012721933" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-fw fa-blog"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#横向柱形图的实现"><span class="nav-number">1.</span> <span class="nav-text">横向柱形图的实现</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiemarc</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
