@@ -84,36 +84,36 @@
 
 
 
-<meta name="description" content="直接上图
-这里使用了selected的新的定义方式
-&amp;lt;ImageButton
-    android:button=&amp;quot;@null&amp;quot;
-    android:id=&amp;quot;@+id/btn_click&amp;quot;
-    android:layout_width=&amp;quot;wrap_content&amp;quot;
-    android:layout_height=&amp;qu">
+<meta name="description" content="众所周知，现在recycleview也已经退出好久了。各种封装库也出现好多了。这里推荐下hongyang大神的。http://blog.csdn.net/lmj623565791/article/details/51854533
+这里是自己实现的一个小demo
+看效果图：
+
+使用过listview的都知道，就是根据不同的viewtype 加载不同的xml布局。接下来实现。
+
+    //这里注意">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一张图片做选择器">
-<meta property="og:url" content="http://yoursite.com/2019/11/30/一张图片做选择器/index.html">
+<meta property="og:title" content="RecycleView建立不同item">
+<meta property="og:url" content="http://yoursite.com/2019/11/30/RecycleView建立不同item/index.html">
 <meta property="og:site_name" content="Marc |">
-<meta property="og:description" content="直接上图
-这里使用了selected的新的定义方式
-&amp;lt;ImageButton
-    android:button=&amp;quot;@null&amp;quot;
-    android:id=&amp;quot;@+id/btn_click&amp;quot;
-    android:layout_width=&amp;quot;wrap_content&amp;quot;
-    android:layout_height=&amp;qu">
-<meta property="og:image" content="http://i.imgur.com/tTOia2U.gif">
-<meta property="og:updated_time" content="2016-08-04T12:31:23.982Z">
+<meta property="og:description" content="众所周知，现在recycleview也已经退出好久了。各种封装库也出现好多了。这里推荐下hongyang大神的。http://blog.csdn.net/lmj623565791/article/details/51854533
+这里是自己实现的一个小demo
+看效果图：
+
+使用过listview的都知道，就是根据不同的viewtype 加载不同的xml布局。接下来实现。
+
+    //这里注意">
+<meta property="og:image" content="http://i.imgur.com/PdaRfsu.gif">
+<meta property="og:updated_time" content="2016-08-08T13:32:21.327Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一张图片做选择器">
-<meta name="twitter:description" content="直接上图
-这里使用了selected的新的定义方式
-&amp;lt;ImageButton
-    android:button=&amp;quot;@null&amp;quot;
-    android:id=&amp;quot;@+id/btn_click&amp;quot;
-    android:layout_width=&amp;quot;wrap_content&amp;quot;
-    android:layout_height=&amp;qu">
-<meta name="twitter:image" content="http://i.imgur.com/tTOia2U.gif">
+<meta name="twitter:title" content="RecycleView建立不同item">
+<meta name="twitter:description" content="众所周知，现在recycleview也已经退出好久了。各种封装库也出现好多了。这里推荐下hongyang大神的。http://blog.csdn.net/lmj623565791/article/details/51854533
+这里是自己实现的一个小demo
+看效果图：
+
+使用过listview的都知道，就是根据不同的viewtype 加载不同的xml布局。接下来实现。
+
+    //这里注意">
+<meta name="twitter:image" content="http://i.imgur.com/PdaRfsu.gif">
 
 
 
@@ -134,9 +134,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/11/30/一张图片做选择器/"/>
+  <link rel="canonical" href="http://yoursite.com/2019/11/30/RecycleView建立不同item/"/>
 
-  <title> 一张图片做选择器 | Marc | </title>
+  <title> RecycleView建立不同item | Marc | </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -276,7 +276,7 @@
             
             
               
-                一张图片做选择器
+                RecycleView建立不同item
               
             
           </h1>
@@ -335,35 +335,105 @@
       
 
       
-        <p>直接上图<br><img src="http://i.imgur.com/tTOia2U.gif" alt=""></p>
-<p>这里使用了selected的新的定义方式</p>
-<pre><code>&lt;ImageButton
-    android:button=&quot;@null&quot;
-    android:id=&quot;@+id/btn_click&quot;
-    android:layout_width=&quot;wrap_content&quot;
-    android:layout_height=&quot;wrap_content&quot;
-    android:background=&quot;@drawable/btn_evg_selestor&quot; /&gt;
-</code></pre><a id="more"></a>
-<ul>
-<li><p>下面是选择器</p>
-<p>  btn_evg_selestor</p>
-</li>
-</ul>
-<pre><code>&lt;selector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;
-    &lt;item android:drawable=&quot;@drawable/img_1_1&quot; android:state_selected=&quot;true&quot; /&gt;
-    &lt;item android:drawable=&quot;@drawable/img_1&quot; /&gt;
-&lt;/selector&gt;
-</code></pre><blockquote>
-<p>img_1_1 的也贴出来</p>
+        <p>众所周知，现在recycleview也已经退出好久了。各种封装库也出现好多了。这里推荐下hongyang大神的。<br><a href="http://blog.csdn.net/lmj623565791/article/details/51854533" title="Android 优雅的为RecyclerView添加HeaderView和FooterView " target="_blank" rel="external">http://blog.csdn.net/lmj623565791/article/details/51854533</a></p>
+<p>这里是自己实现的一个小demo</p>
+<p>看效果图：<br><img src="http://i.imgur.com/PdaRfsu.gif" alt=""></p>
+<blockquote>
+<p>使用过listview的都知道，就是根据不同的viewtype 加载不同的xml布局。接下来实现。</p>
 </blockquote>
-<pre><code>&lt;bitmap xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-android:src=&quot;@drawable/img_1&quot;
-android:tintMode=&quot;multiply&quot;
-android:tint=&quot;#58ffd6&quot;
-&gt;
-&lt;/bitmap&gt;
+<pre><code>    //这里注意  泛型的类型
+    public class RecyclerViewAdapter extends RecyclerView.Adapter&lt;RecyclerView.ViewHolder&gt; {
+
+    private final Context context;
+    private static final int ITEM_COUNT = 10;//这里模拟10个item布局
+
+    private static final int TYPE_HEADER = 0;//header头部
+    private static final int TYPE_ITEM = 1;//item布局
+    private static final int TYPE_FOOTER = 2;//根布局
+
+    public RecyclerViewAdapter(Context context) {
+        this.context = context;
+    }
+
+    @Override
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        if (viewType == TYPE_HEADER) {
+            return new HeaderHolder(LayoutInflater.from(context).inflate(R.layout.recyclerview_header, parent, false));
+        } else if (viewType == TYPE_FOOTER) {
+            return new FooterHolder(LayoutInflater.from(context).inflate(R.layout.recycle_footer, parent, false));
+        } else {
+            return new ViewHolder(LayoutInflater.from(context).inflate(R.layout.recyclerview_item, parent, false));
+        }
+    }
+
+    @Override
+    public void onBindViewHolder(RecyclerView.ViewHolder holder, int position) {
+        //这里没使用数据
+    }
+
+    @Override
+    public int getItemCount() {
+        return ITEM_COUNT;
+    }
+
+    /**
+     * recycleview增加header什么的感觉确实比listview方便了好多
+     *
+     * @param position
+     * @return
+     */
+    @Override
+    public int getItemViewType(int position) {
+        if (position == 0) {
+            //第一个加载headerview
+            return TYPE_HEADER;
+        } else if (position == 9) {
+            // 最后一个加载footerview
+            return TYPE_FOOTER;
+        } else {
+
+            return TYPE_ITEM;
+        }
+    }
+
+    /**
+     * item的viewholder
+     */
+    public class ViewHolder extends RecyclerView.ViewHolder {
+        //TextView tv1;
+        //TextView tv2;
+
+        public ViewHolder(View itemView) {
+            super(itemView);
+          //  tv1 = (TextView) itemView.findViewById(R.id.tv1_item);
+          //  tv2 = (TextView) itemView.findViewById(R.id.tv2_item);
+        }
+    }
+
+    /**
+     * 头部viewholder
+     */
+    private class HeaderHolder extends RecyclerView.ViewHolder {
+        //TextView tvHeader;
+
+        public HeaderHolder(View itemView) {
+            super(itemView);
+            //tvHeader = (TextView) itemView.findViewById(R.id.tv_header);
+        }
+    }
+
+    /**
+     * 根部viewholder
+     */
+    private class FooterHolder extends RecyclerView.ViewHolder {
+
+        public FooterHolder(View itemView) {
+            super(itemView);
+        }
+    }
+}
 </code></pre><blockquote>
-<p>这里采用了android:tintMode=”multiply”<br><br>            android:tint=”#58ffd6”</p>
+<p>三个布局就不添加了。很简单。</p>
 </blockquote>
 
       
@@ -396,16 +466,16 @@ android:tint=&quot;#58ffd6&quot;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/11/30/Android-studio调试的技巧/" rel="next" title="Android studio调试的技巧">
-                <i class="fa fa-chevron-left"></i> Android studio调试的技巧
+              <a href="/2019/11/30/my-new-post/" rel="next" title="关于线程池">
+                <i class="fa fa-chevron-left"></i> 关于线程池
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/11/30/viewPager-radiogroup实现关联/" rel="prev" title="viewPager+radiogroup实现关联">
-                viewPager+radiogroup实现关联 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/11/30/自定义view/" rel="prev" title="自定义view">
+                自定义view <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
