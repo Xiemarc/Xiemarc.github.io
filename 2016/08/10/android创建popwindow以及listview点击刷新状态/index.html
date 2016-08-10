@@ -84,36 +84,15 @@
 
 
 
-<meta name="description" content="直接上图
-这里使用了selected的新的定义方式
-&amp;lt;ImageButton
-    android:button=&amp;quot;@null&amp;quot;
-    android:id=&amp;quot;@+id/btn_click&amp;quot;
-    android:layout_width=&amp;quot;wrap_content&amp;quot;
-    android:layout_height=&amp;qu">
 <meta property="og:type" content="article">
-<meta property="og:title" content="一张图片做选择器">
-<meta property="og:url" content="http://yoursite.com/2019/11/30/一张图片做选择器/index.html">
+<meta property="og:title" content="android创建popwindow以及listview点击刷新状态">
+<meta property="og:url" content="http://yoursite.com/2016/08/10/android创建popwindow以及listview点击刷新状态/index.html">
 <meta property="og:site_name" content="Marc |">
-<meta property="og:description" content="直接上图
-这里使用了selected的新的定义方式
-&amp;lt;ImageButton
-    android:button=&amp;quot;@null&amp;quot;
-    android:id=&amp;quot;@+id/btn_click&amp;quot;
-    android:layout_width=&amp;quot;wrap_content&amp;quot;
-    android:layout_height=&amp;qu">
-<meta property="og:image" content="http://i.imgur.com/tTOia2U.gif">
-<meta property="og:updated_time" content="2016-08-04T12:31:23.982Z">
+<meta property="og:image" content="http://i.imgur.com/GnHNird.gif">
+<meta property="og:updated_time" content="2016-08-10T13:51:33.168Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="一张图片做选择器">
-<meta name="twitter:description" content="直接上图
-这里使用了selected的新的定义方式
-&amp;lt;ImageButton
-    android:button=&amp;quot;@null&amp;quot;
-    android:id=&amp;quot;@+id/btn_click&amp;quot;
-    android:layout_width=&amp;quot;wrap_content&amp;quot;
-    android:layout_height=&amp;qu">
-<meta name="twitter:image" content="http://i.imgur.com/tTOia2U.gif">
+<meta name="twitter:title" content="android创建popwindow以及listview点击刷新状态">
+<meta name="twitter:image" content="http://i.imgur.com/GnHNird.gif">
 
 
 
@@ -134,9 +113,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/11/30/一张图片做选择器/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/08/10/android创建popwindow以及listview点击刷新状态/"/>
 
-  <title> 一张图片做选择器 | Marc | </title>
+  <title> android创建popwindow以及listview点击刷新状态 | Marc | </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -276,7 +255,7 @@
             
             
               
-                一张图片做选择器
+                android创建popwindow以及listview点击刷新状态
               
             
           </h1>
@@ -288,8 +267,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2019-11-30T20:27:45+08:00" content="2019-11-30">
-              2019-11-30
+            <time itemprop="dateCreated" datetime="2016-08-10T21:51:05+08:00" content="2016-08-10">
+              2016-08-10
             </time>
           </span>
 
@@ -335,36 +314,210 @@
       
 
       
-        <p>直接上图<br><img src="http://i.imgur.com/tTOia2U.gif" alt=""></p>
-<p>这里使用了selected的新的定义方式</p>
-<pre><code>&lt;ImageButton
-    android:button=&quot;@null&quot;
-    android:id=&quot;@+id/btn_click&quot;
-    android:layout_width=&quot;wrap_content&quot;
-    android:layout_height=&quot;wrap_content&quot;
-    android:background=&quot;@drawable/btn_evg_selestor&quot; /&gt;
-</code></pre><a id="more"></a>
+        <p><img src="http://i.imgur.com/GnHNird.gif" alt=""></p>
+<a id="more"></a>
+<ol>
+<li><p>popwindow的创建</p>
+<p> 图示例子中是点击textView弹出popwindow。</p>
+<pre><code>         /**
+ * 弹出popwindow
+ *
+ * @param tv
+ */
+private void showPopWindow(final TextView tv) {
+    int height = tv.getHeight();//得到控件的高度
+    int width = tv.getWidth();//得到控件的宽度
+    View contextView = LayoutInflater.from(activity).inflate(R.layout.item_home, null);
+    mRecycleView = (ListView) contextView.findViewById(R.id.home_recycleview);
+    mPopupWindow = new PopupWindow(contextView, width, ViewGroup.LayoutParams.WRAP_CONTENT);//构造
+    mPopupWindow.setOutsideTouchable(true);//设置外部可点击
+    mPopupWindow.setTouchable(true);
+    mPopupWindow.setBackgroundDrawable(new BitmapDrawable());
+    mPopupWindow.setFocusable(true);        // 设置窗体可以获得焦点, 默认不可以获得焦点
+    mPopupWindow.setFocusable(true);
+    mPopupWindow.showAsDropDown(tv, 0, 0);//正下方弹出  这里好几种方式
+    contextView.setOnTouchListener(new View.OnTouchListener() {
+        @Override
+        public boolean onTouch(View v, MotionEvent event) {
+            dissPopWindows();
+            return false;
+        }
+    });
+    //加载适配器
+    if (tv.getId() == R.id.tv_grade) {
+        adapter = new MyRecycleAdapter(list1, activity);
+        //年级
+    } else {
+        adapter = new MyRecycleAdapter(list2, activity);
+    }
+    mRecycleView.setAdapter(adapter);
+    mRecycleView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+        @Override
+        public void onItemClick(AdapterView&lt;?&gt; parent, View view, int position, long id) {
+            GradeBean gradeBean;
+            if (tv.getId() == R.id.tv_grade) {
+                gradeBean = list1.get(position);
+                //年级
+                for (GradeBean bean : list1
+                        ) {
+                    bean.setSelected(false);
+                }
+            } else {
+                gradeBean = list2.get(position);
+                for (GradeBean bean : list2
+                        ) {
+                    bean.setSelected(false);
+                }
+            }
+            gradeBean.setSelected(true);
+            tv.setText(gradeBean.getName());
+            dissPopWindows();
+        }
+    });
+}
+</code></pre></li>
+</ol>
+<ol>
+<li>listview或者recycleview更改状态</li>
+</ol>
 <ul>
-<li><p>下面是选择器</p>
-<p>  btn_evg_selestor</p>
-</li>
+<li><p>bean对象</p>
+<pre><code>        public class GradeBean {
+    private String name;
+    private int gradeId;
+    private boolean isSelected;
+
+    public GradeBean() {
+    }
+
+    public GradeBean(String name, int gradeId) {
+        this.name = name;
+        this.gradeId = gradeId;
+    }
+
+    public GradeBean(String name, int gradeId, boolean isSelected) {
+        this.name = name;
+        this.gradeId = gradeId;
+        this.isSelected = isSelected;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public int getGradeId() {
+        return gradeId;
+    }
+
+    public void setGradeId(int gradeId) {
+        this.gradeId = gradeId;
+    }
+
+    public boolean isSelected() {
+        return isSelected;
+    }
+
+    public void setSelected(boolean selected) {
+        isSelected = selected;
+    }
+}
+</code></pre></li>
 </ul>
-<pre><code>&lt;selector xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;&gt;
-    &lt;item android:drawable=&quot;@drawable/img_1_1&quot; android:state_selected=&quot;true&quot; /&gt;
-    &lt;item android:drawable=&quot;@drawable/img_1&quot; /&gt;
-&lt;/selector&gt;
+<ul>
+<li>Adapter </li>
+</ul>
+<pre><code>        public class MyRecycleAdapter extends BaseAdapter {
+    private List&lt;GradeBean&gt; list;
+    private Context context;
+    LayoutInflater inflater;
+    private String name;
+
+
+    public MyRecycleAdapter(List&lt;GradeBean&gt; list, Context context) {
+        this.list = list;
+        this.context = context;
+        inflater = LayoutInflater.from(context);
+    }
+
+
+    @Override
+    public int getCount() {
+        return list.size();
+    }
+
+    @Override
+    public Object getItem(int position) {
+        return list.get(position);
+    }
+
+    @Override
+    public long getItemId(int position) {
+        return position;
+    }
+
+    @Override
+    public View getView(int position, View convertView, ViewGroup parent) {
+        ViewHolder holder;
+        if (convertView == null) {
+            convertView = inflater.inflate(R.layout.item_home_adapter, null);
+            holder = new ViewHolder();
+            holder.iv = (ImageView) convertView.findViewById(R.id.item_iv);
+            holder.tv = (TextView) convertView.findViewById(R.id.item_tv);
+            convertView.setTag(holder);
+        } else {
+            holder = (ViewHolder) convertView.getTag();
+        }
+        GradeBean gradeBean = list.get(position);
+        if (gradeBean.isSelected()) {
+            holder.iv.setVisibility(View.VISIBLE);
+        } else {
+            holder.iv.setVisibility(View.INVISIBLE);
+        }
+        holder.tv.setText(gradeBean.getName());
+        return convertView;
+    }
+
+
+    private class ViewHolder {
+        TextView tv;
+        ImageView iv;
+    }
+
+}
 </code></pre><blockquote>
-<p>img_1_1 的也贴出来</p>
+<p>主要就是getView中的判断</p>
 </blockquote>
-<pre><code>&lt;bitmap xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-android:src=&quot;@drawable/img_1&quot;
-android:tintMode=&quot;multiply&quot;
-android:tint=&quot;#58ffd6&quot;
-&gt;
-&lt;/bitmap&gt;
-</code></pre><blockquote>
-<p>这里采用了android:tintMode=”multiply”<br><br>            android:tint=”#58ffd6”</p>
-</blockquote>
+<ul>
+<li><p>条目点击事件</p>
+<pre><code>       mRecycleView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+    @Override
+    public void onItemClick(AdapterView&lt;?&gt; parent, View view, int position, long id) {
+        GradeBean gradeBean;
+        if (tv.getId() == R.id.tv_grade) {
+            gradeBean = list1.get(position);
+            //年级
+            for (GradeBean bean : list1
+                    ) {
+                bean.setSelected(false);
+            }
+        } else {
+            gradeBean = list2.get(position);
+            for (GradeBean bean : list2
+                    ) {
+                bean.setSelected(false);
+            }
+        }
+        gradeBean.setSelected(true);
+        tv.setText(gradeBean.getName());
+        dissPopWindows();
+    }
+});
+</code></pre></li>
+</ul>
 
       
     </div>
@@ -396,16 +549,12 @@ android:tint=&quot;#58ffd6&quot;
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/11/30/my-new-post/" rel="next" title="关于线程池">
-                <i class="fa fa-chevron-left"></i> 关于线程池
-              </a>
-            
           </div>
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/11/30/viewPager-radiogroup实现关联/" rel="prev" title="viewPager+radiogroup实现关联">
-                viewPager+radiogroup实现关联 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/11/30/自自定义view以及事件处理/" rel="prev" title="自自定义view以及事件处理">
+                自自定义view以及事件处理 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
