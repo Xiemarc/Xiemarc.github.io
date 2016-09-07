@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="php基础," />
+  <meta name="keywords" content="android," />
 
 
 
@@ -84,24 +84,41 @@
 
 
 
-<meta name="description" content="php生成随机验证码效果图
+<meta name="description" content="好久没更新了，项目进度略紧。
 
-核心代码：">
+
+快速，高效，准确的将常用或自定义构造代码插入到你的源代码文件中
+
+通俗的讲，就是只需要输入几个简写的英文字母就可以快速自动插入一行或多行代码。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="php生成随机验证码">
-<meta property="og:url" content="http://yoursite.com/2016/08/10/php生成随机验证码/index.html">
+<meta property="og:title" content="Live Template">
+<meta property="og:url" content="http://yoursite.com/2016/09/07/android-studio创建Live-Template/index.html">
 <meta property="og:site_name" content="Marc |">
-<meta property="og:description" content="php生成随机验证码效果图
+<meta property="og:description" content="好久没更新了，项目进度略紧。
 
-核心代码：">
-<meta property="og:image" content="http://i.imgur.com/H9tv1I0.png">
-<meta property="og:updated_time" content="2016-09-07T13:11:45.528Z">
+
+快速，高效，准确的将常用或自定义构造代码插入到你的源代码文件中
+
+通俗的讲，就是只需要输入几个简写的英文字母就可以快速自动插入一行或多行代码。">
+<meta property="og:image" content="http://i.imgur.com/vODoNkt.png">
+<meta property="og:image" content="http://i.imgur.com/oveu4AL.png">
+<meta property="og:image" content="http://i.imgur.com/vIbXlUW.png">
+<meta property="og:image" content="http://i.imgur.com/zoOThO0.png">
+<meta property="og:image" content="http://i.imgur.com/OuvUpqF.png">
+<meta property="og:image" content="http://i.imgur.com/G9JgiGT.gif">
+<meta property="og:image" content="http://i.imgur.com/gh4OC6H.png">
+<meta property="og:image" content="http://i.imgur.com/FJWuHeG.png">
+<meta property="og:image" content="http://i.imgur.com/YrUegc1.gif">
+<meta property="og:updated_time" content="2016-09-07T13:44:12.997Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="php生成随机验证码">
-<meta name="twitter:description" content="php生成随机验证码效果图
+<meta name="twitter:title" content="Live Template">
+<meta name="twitter:description" content="好久没更新了，项目进度略紧。
 
-核心代码：">
-<meta name="twitter:image" content="http://i.imgur.com/H9tv1I0.png">
+
+快速，高效，准确的将常用或自定义构造代码插入到你的源代码文件中
+
+通俗的讲，就是只需要输入几个简写的英文字母就可以快速自动插入一行或多行代码。">
+<meta name="twitter:image" content="http://i.imgur.com/vODoNkt.png">
 
 
 
@@ -122,9 +139,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/08/10/php生成随机验证码/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/09/07/android-studio创建Live-Template/"/>
 
-  <title> php生成随机验证码 | Marc | </title>
+  <title> Live Template | Marc | </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -264,7 +281,7 @@
             
             
               
-                php生成随机验证码
+                Live Template
               
             
           </h1>
@@ -276,8 +293,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-10T21:51:05+08:00" content="2016-08-10">
-              2016-08-10
+            <time itemprop="dateCreated" datetime="2016-09-07T21:04:09+08:00" content="2016-09-07">
+              2016-09-07
             </time>
           </span>
 
@@ -290,8 +307,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP</span>
+                  <a href="/categories/安卓/" itemprop="url" rel="index">
+                    <span itemprop="name">安卓</span>
                   </a>
                 </span>
 
@@ -323,31 +340,68 @@
       
 
       
-        <p>php生成随机验证码<br>效果图</p>
-<p><img src="http://i.imgur.com/H9tv1I0.png" alt=""></p>
-<p>核心代码：<br><a id="more"></a><br>        &lt;?php<br>        /**简单的验证码</p>
-<pre><code> * Created by PhpStorm.
- * User: lenovo
- * Date: 2016/8/1
- * Time: 11:58
- */
-
-header(&quot;Content-Type: image/png&quot;);
-for ($i=0;$i&lt;4;$i++) {
-    $nmsg .= dechex(mt_rand(0,15));
-    echo $nmsg;
-}
-$im = imagecreatetruecolor(75,25);
-$blue = imagecolorallocate($im,0,102,255);
-$white = imagecolorallocate($im,255,255,255);
-imagefill($im,0,0,$blue);
-imagestring($im,5,20,4,$nmsg,$white);
-ob_clean();
-imagepng($im);
-imagedestroy($im);
-</code></pre><blockquote>
-<p>这里需要注意下 ob_clean();如果我不加这一句的话 在火狐中 显示..因其本身有错无法显示”的问题，作者也提示了说“如果浏览器显示“图像XXX因其本身有错无法显示”，在google浏览器直接显示个空的。</p>
+        <hr>
+<p>好久没更新了，项目进度略紧。</p>
+<hr>
+<blockquote>
+<p>快速，高效，准确的将常用或自定义构造代码插入到你的源代码文件中</p>
 </blockquote>
+<p>通俗的讲，就是只需要输入几个简写的英文字母就可以快速自动插入一行或多行代码。</p>
+<a id="more"></a>
+<p>可以为每个Template指定名字和语句（废话），并且指定适用的文件类型和语句块（修改底部的Applicable in … 即可）</p>
+<blockquote>
+<p>在语句中使用$…$ 表示待输入的变量（字符串内也可以用），你在每次输入的时候相同的变量会一起改变。（如在语句中含有两个$i$，则你使用模板时改变其中一个的值，另一个也会一起改变） </p>
+<p>可以使用Edit Variable 对它进行一部分修改，它可以修改以下部分</p>
+</blockquote>
+<p><img src="http://i.imgur.com/vODoNkt.png" alt=""></p>
+<p>在Expression内有很多供使用的非常方便的函数，如className(), methodName()等等。设置Expression后别忘了勾选Skip if defined， 这样在使用的时候光标就不会再停留在这个变量处。</p>
+<p>在Android Studio/IntelliJ编辑器中，默认使用</p>
+<blockquote>
+<p>CTRL+J</p>
+</blockquote>
+<p>快捷键可以调出Live Templates，可以自动补全所设置的模板的代码，善用它能够很大程度上减少开发时间。</p>
+<p>举个例子，输入</p>
+<blockquote>
+<p>psfi</p>
+</blockquote>
+<p>，然后按回车键，编辑器将会自动生成代码</p>
+<blockquote>
+<p>public static final int</p>
+</blockquote>
+<p>，这就节省了19个要输入的字母。</p>
+<p>Android Studio/IntelliJ编辑器中预置了一些常用的Live Templates，大家可以自行去查看，查看位置</p>
+<blockquote>
+<p>File ==&gt; Settings ==&gt; Editor ==&gt; Live Templates</p>
+</blockquote>
+<p><img src="http://i.imgur.com/oveu4AL.png" alt=""></p>
+<p>####如何创建自定义的Live Templates？</p>
+<ul>
+<li>找到Live Templates的位置，然后点击右上角的 <strong>+</strong>,然后选择Template Group</li>
+</ul>
+<p><img src="http://i.imgur.com/vIbXlUW.png" alt=""></p>
+<p><img src="http://i.imgur.com/zoOThO0.png" alt=""></p>
+<ul>
+<li>接着再点击 <strong>+</strong>,选择下面的Live Template，之后就是填写相关信息</li>
+</ul>
+<p><img src="http://i.imgur.com/OuvUpqF.png" alt=""></p>
+<p>####举个例子</p>
+<p><img src="http://i.imgur.com/G9JgiGT.gif" alt=""></p>
+<p>我用一个快速插入RecyclerView控件代码的例子来举例，设置如下图：</p>
+<p><img src="http://i.imgur.com/gh4OC6H.png" alt=""></p>
+<p>填写相关内容完毕之后 ，注意下方的一行红字，此时定义的Live Template还没生效，需要点击</p>
+<blockquote>
+<p>Define</p>
+</blockquote>
+<p>，然后选择该Live Template要应用到什么样的场景中。因为这里我定义的是安卓的控件代码，所以就归类为XML</p>
+<p><img src="http://i.imgur.com/FJWuHeG.png" alt=""></p>
+<p>点击Ok，按钮就生效了，注意勾选右下角的</p>
+<blockquote>
+<p>Reformat according to style</p>
+</blockquote>
+<p>要想使用刚才定义的Live Template，只需要在android的XML布局文件中输入rcv，然后按回车键就可以了，如下图所示：</p>
+<p><img src="http://i.imgur.com/YrUegc1.gif" alt=""></p>
+<hr>
+<p>参考：<a href="http://blog.csdn.net/DesmondJ/article/details/47017205" target="_blank" rel="external">http://blog.csdn.net/DesmondJ/article/details/47017205</a></p>
 
       
     </div>
@@ -370,7 +424,7 @@ imagedestroy($im);
       
         <div class="post-tags">
           
-            <a href="/tags/php基础/" rel="tag">#php基础</a>
+            <a href="/tags/android/" rel="tag">#android</a>
           
         </div>
       
@@ -379,17 +433,13 @@ imagedestroy($im);
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/10/shape打造圆形控件按钮/" rel="next" title="shape打造圆形控件按钮">
-                <i class="fa fa-chevron-left"></i> shape打造圆形控件按钮
+              <a href="/2016/09/07/phpStrom配置服务器以及调试/" rel="next" title="phpStrom配置服务器以及调试">
+                <i class="fa fa-chevron-left"></i> phpStrom配置服务器以及调试
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/10/php函数的参数/" rel="prev" title="php函数的参数">
-                php函数的参数 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
