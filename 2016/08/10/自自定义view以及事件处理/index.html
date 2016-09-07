@@ -1,0 +1,672 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="android," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="先看效果图">
+<meta property="og:type" content="article">
+<meta property="og:title" content="自自定义view以及事件处理">
+<meta property="og:url" content="http://yoursite.com/2016/08/10/自自定义view以及事件处理/index.html">
+<meta property="og:site_name" content="Marc |">
+<meta property="og:description" content="先看效果图">
+<meta property="og:image" content="http://img.blog.csdn.net/20160719113216362">
+<meta property="og:updated_time" content="2016-09-07T13:13:46.989Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="自自定义view以及事件处理">
+<meta name="twitter:description" content="先看效果图">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20160719113216362">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/08/10/自自定义view以及事件处理/"/>
+
+  <title> 自自定义view以及事件处理 | Marc | </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Marc |</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">我的一生划船不用桨，全靠浪。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-question-circle"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                自自定义view以及事件处理
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-10T21:51:05+08:00" content="2016-08-10">
+              2016-08-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/安卓/" itemprop="url" rel="index">
+                    <span itemprop="name">安卓</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>先看效果图<br><img src="http://img.blog.csdn.net/20160719113216362" alt="按住抬起"><br><a id="more"></a><br>自定义view其实完全可以集成自view，viewgroup，或者现有的view。</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">JumpCircleView</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">       <span class="keyword">this</span>(context, <span class="keyword">null</span>);<span class="comment">//可以直接new</span></div><div class="line">   &#125;</div><div class="line"></div><div class="line">   <span class="function"><span class="keyword">public</span> <span class="title">JumpCircleView</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</div><div class="line">       <span class="keyword">this</span>(context, attrs, <span class="number">0</span>);<span class="comment">//可以在xml文件中使用</span></div><div class="line">   &#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>  注释的很清楚了</p>
+</blockquote>
+<p>这里还有个构造方法，是3个参数的，可以使用自定义的属性<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div></pre></td><td class="code"><pre><div class="line">	</div><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">JumpCircleView</span><span class="params">(Context context, AttributeSet attrs, <span class="keyword">int</span> defStyleAttr)</span> </span>&#123;</div><div class="line">      <span class="keyword">super</span>(context, attrs, defStyleAttr);</div><div class="line"></div><div class="line">      TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.JumpCircleView, defStyleAttr, R.style.AppTheme);</div><div class="line"></div><div class="line">      custom_size = a.getDimensionPixelSize(R.styleable.JumpCircleView_size, SIZE);</div><div class="line">      custom_background = a.getColor(R.styleable.JumpCircleView_background_color, DEFAULT_COLOR);</div><div class="line"></div><div class="line">      a.recycle();</div><div class="line"></div><div class="line">      init();</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
+<blockquote>
+<p>第三个构造函数比第二个构造函数多了一个int型的值，名字叫defStyleAttr，从名称上判断，这是一个关于自定义属性的参数，实际上我们的猜测也是正确的，第三个构造函数不会被系统默认调用，而是需要我们自己去显式调用，比如在第二个构造函数里调用调用第三个函数，并将第三个参数设为0。 </p>
+</blockquote>
+<p><strong>onMeasure–&gt;onLayout–&gt;onDraw</strong><br>具体实行过程</p>
+<blockquote>
+<p>在Android里，一个view的绘制流程包括：Measure，Layout和Draw，通过onMeasure知道一个view要占界面的大小，然后通过onLayout知道这个控件应该放在哪个位置，最后通过onDraw方法将这个控件绘制出来，然后才能展现在用户面前，下面我将挨个分析一下这三个方法的作用.</p>
+</blockquote>
+<ul>
+<li>onMeasure 测量，通过测量知道一个一个view要占的大小，方法参数是两个int型的值，我们都知道，在java中，int型由4个字节（32bit）组成，在MeasureSpce中，用前两位表示mode，用后30位表示size<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line">	 <span class="keyword">int</span> widthMode = MeasureSpec.getMode(widthMeasureSpec);</div><div class="line">        <span class="keyword">int</span> widthSize = MeasureSpec.getSize(widthMeasureSpec);</div><div class="line"></div><div class="line">        <span class="keyword">int</span> heightMode = MeasureSpec.getMode(heightMeasureSpec);</div><div class="line">        <span class="keyword">int</span> heightSize = MeasureSpec.getSize(heightMeasureSpec);</div><div class="line"></div><div class="line">        <span class="keyword">int</span> measuredHeight, measuredWidth;</div><div class="line">        <span class="keyword">if</span> (widthMode == MeasureSpec.EXACTLY) &#123;</div><div class="line">            measuredWidth = widthSize;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            measuredWidth = SIZE;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (heightMode == MeasureSpec.EXACTLY) &#123;</div><div class="line">            measuredHeight = heightSize;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            measuredHeight = SIZE;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        setMeasuredDimension(measuredWidth, measuredHeight);</div><div class="line">```	</div><div class="line">	MeasureSpce的mode有三种：EXACTLY, AT_MOST，UNSPECIFIED，除却UNSPECIFIED不谈，其他两种mode：当父布局是EXACTLY时，子控件确定大小或者match_parent，mode都是EXACTLY，子控件是wrap_content时，mode为AT_MOST；当父布局是AT_MOST时，子控件确定大小，mode为EXACTLY，子控件wrap_content或者match_parent时，mode为AT_MOST。所以在确定控件大小时，需要判断MeasureSpec的mode，不能直接用MeasureSpec的size。在进行一些逻辑处理以后，调用setMeasureDimension()方法，将测量得到的宽高传进去供layout使用。</div><div class="line">	需要明白的一点是 ,测量所得的宽高不一定是最后展示的宽高，最后宽高确定是在onLayout方法里，layou（left，top，right，bottom），不过一般都是一样的。</div><div class="line"></div><div class="line">- onLayout 实际上，我在自定义SketchView的时候是没有重写onLayout方法的，因为SketchView只是一个单纯的view，它不是一个view容器，没有子view，而onLayout方法里主要是具体摆放子view的位置，水平摆放或者垂直摆放，所以在单纯的自定义view是不需要重写onLayout方法，不过需要注意的一点是，子view的margin属性是否生效就要看parent是否在自身的onLayout方法进行处理，而view得padding属性是在onDraw方法中生效的。</div><div class="line"></div><div class="line"></div><div class="line"></div><div class="line">- onDraw 终于说到了重头戏，一般自定义控件耗费心思最多的就是这个方法了，需要在这个方法里，用Paint在Canvas上画出你想要的图案，这样一个自定义view才算结束。下面会详细讲如何在画布上画出自己想要的图案。</div><div class="line"></div><div class="line">&gt; 关于onDraw方法，在补充一句，如果是直接继承的View，那么在重写onDraw的方法是时候完全可以把<span class="keyword">super</span>.ondraw(canvas)删掉，因为它的默认实现是空。其实任何时候都应该去点进入看一下<span class="keyword">super</span>（）方法是否是空实现。例如如果继承自button，那么ondraw方法的<span class="keyword">super</span>（）方法就不能删除。</div><div class="line">```java</div><div class="line">	  <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">    <span class="comment">//super（）前面是绘制想要的效果</span></div><div class="line">        <span class="keyword">if</span>(mProgressEnable)&#123;</div><div class="line">        </div><div class="line">            Drawable drawable = <span class="keyword">new</span> ColorDrawable(Color.BLUE);</div><div class="line">            <span class="keyword">int</span> left = <span class="number">0</span>;</div><div class="line">            <span class="keyword">int</span> top = <span class="number">0</span>;</div><div class="line">            <span class="keyword">int</span> right = (<span class="keyword">int</span>) (mProgress * <span class="number">1.0f</span> / mMax * getMeasuredWidth() + .<span class="number">5f</span>);</div><div class="line">            <span class="keyword">int</span> bottom = getBottom();</div><div class="line">            drawable.setBounds(left, top, right, bottom);<span class="comment">// 必须的.告知绘制的范围</span></div><div class="line">            drawable.draw(canvas);</div><div class="line">        &#125;</div><div class="line"></div><div class="line"></div><div class="line">        <span class="keyword">super</span>.onDraw(canvas);<span class="comment">// 绘制文本,还会绘制背景</span></div><div class="line">    &#125;</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h4 id="得到一个正方形"><a href="#得到一个正方形" class="headerlink" title="得到一个正方形"></a>得到一个正方形</h4><p>在日常开发中，我们偶尔会需要一个正方形的imageView，一般都是通过指定宽高，但是当宽高不确定时，我们就只能寄希望于Android原声支持定义view的比例，但是现实是残酷的，系统好像是没有提供类似属性的，所以我们就只能自己去实现，其实自己写起来也特别的简单，只需要改一个参数就OK了，</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="meta">@Override</span></div><div class="line">  <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onMeasure</span><span class="params">(<span class="keyword">int</span> widthMeasureSpec, <span class="keyword">int</span> heightMeasureSpec)</span> </span>&#123;</div><div class="line">      <span class="keyword">super</span>.onMeasure(widthMeasureSpec, widthMeasureSpec);</div><div class="line">  &#125;</div></pre></td></tr></table></figure>
+<blockquote>
+<p>不仔细观察是看不出来其中的奥妙的，虽然这里复写了view的onMeasure，但是貌似没有做任何处理，直接调用了super方法，但是仔细观察的话就会发现，在调用super方法的时候，第二个参数变了，本来应该是heightMeasureSpec却换成了widthMeasureSpec，这样view的高度就是view的宽度，一个SquareView就实现了，甚至如果通过自定义属性实现一个自定义比例view。</p>
+</blockquote>
+<h3 id="自定义属性"><a href="#自定义属性" class="headerlink" title="自定义属性"></a>自定义属性</h3><figure class="highlight xml"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment">&lt;!--自定义view蹦跳--&gt;</span></div><div class="line">  <span class="tag">&lt;<span class="name">declare-styleable</span> <span class="attr">name</span>=<span class="string">"JumpCircleView"</span>&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"background_color"</span> <span class="attr">format</span>=<span class="string">"color"</span> /&gt;</span></div><div class="line">      <span class="tag">&lt;<span class="name">attr</span> <span class="attr">name</span>=<span class="string">"size"</span> <span class="attr">format</span>=<span class="string">"dimension"</span> /&gt;</span></div><div class="line">  <span class="tag">&lt;/<span class="name">declare-styleable</span>&gt;</span></div></pre></td></tr></table></figure>
+<p>使用<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line">&lt;com.marc.chatpicture.widget.JumpCircleView</div><div class="line">              android:id=<span class="string">"@+id/sketch_view"</span></div><div class="line">              app:size=<span class="string">"24dp"</span></div><div class="line">              app:background_color=<span class="string">"@color/colorPrimary"</span></div><div class="line">              android:layout_width=<span class="string">"200dp"</span></div><div class="line">              android:layout_height=<span class="string">"200dp"</span></div><div class="line">              android:layout_gravity=<span class="string">"center"</span> /&gt;</div></pre></td></tr></table></figure></p>
+<p>如果想真正的使用，别忘了：<br><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">public</span> <span class="title">JumpCircleView</span><span class="params">(Context context, AttributeSet attrs, <span class="keyword">int</span> defStyleAttr)</span> </span>&#123;</div><div class="line">      <span class="keyword">super</span>(context, attrs, defStyleAttr);</div><div class="line"></div><div class="line">      TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.JumpCircleView, defStyleAttr, R.style.AppTheme);</div><div class="line"></div><div class="line">      custom_size = a.getDimensionPixelSize(R.styleable.JumpCircleView_size, SIZE);</div><div class="line">      custom_background = a.getColor(R.styleable.JumpCircleView_background_color, DEFAULT_COLOR);</div><div class="line"></div><div class="line">      a.recycle();</div><div class="line"></div><div class="line">      init();</div><div class="line">  &#125;</div></pre></td></tr></table></figure></p>
+<p>下面贴出来一个具体的例子：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div></pre></td><td class="code"><pre><div class="line">	<span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">JumpCircleView</span> <span class="keyword">extends</span> <span class="title">View</span> </span>&#123;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> custom_size;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> custom_background;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> Paint mPaint;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mHeight;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mWidth;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> scale = <span class="number">1f</span>;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> SIZE = <span class="number">15</span>;<span class="comment">//默认大小</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">final</span> <span class="keyword">int</span> DEFAULT_COLOR = Color.BLUE;<span class="comment">//默认球的颜色</span></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">JumpCircleView</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(context, <span class="keyword">null</span>);<span class="comment">//可以直接new</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">JumpCircleView</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(context, attrs, <span class="number">0</span>);<span class="comment">//可以在xml文件中使用</span></div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">JumpCircleView</span><span class="params">(Context context, AttributeSet attrs, <span class="keyword">int</span> defStyleAttr)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs, defStyleAttr);</div><div class="line"></div><div class="line">        TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.JumpCircleView, defStyleAttr, R.style.AppTheme);</div><div class="line"></div><div class="line">        custom_size = a.getDimensionPixelSize(R.styleable.JumpCircleView_size, SIZE);</div><div class="line">        custom_background = a.getColor(R.styleable.JumpCircleView_background_color, DEFAULT_COLOR);</div><div class="line"></div><div class="line">        a.recycle();</div><div class="line"></div><div class="line">        init();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</div><div class="line">        mPaint = <span class="keyword">new</span> Paint();</div><div class="line">        mPaint.setColor(custom_background);</div><div class="line">        mPaint.setAntiAlias(<span class="keyword">true</span>);</div><div class="line">        mPaint.setStyle(Paint.Style.FILL);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onMeasure</span><span class="params">(<span class="keyword">int</span> widthMeasureSpec, <span class="keyword">int</span> heightMeasureSpec)</span> </span>&#123;</div><div class="line">        <span class="keyword">int</span> widthMode = MeasureSpec.getMode(widthMeasureSpec);</div><div class="line">        <span class="keyword">int</span> widthSize = MeasureSpec.getSize(widthMeasureSpec);</div><div class="line"></div><div class="line">        <span class="keyword">int</span> heightMode = MeasureSpec.getMode(heightMeasureSpec);</div><div class="line">        <span class="keyword">int</span> heightSize = MeasureSpec.getSize(heightMeasureSpec);</div><div class="line"></div><div class="line">        <span class="keyword">int</span> measuredHeight, measuredWidth;</div><div class="line">        <span class="keyword">if</span> (widthMode == MeasureSpec.EXACTLY) &#123;</div><div class="line">            measuredWidth = widthSize;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            measuredWidth = SIZE;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        <span class="keyword">if</span> (heightMode == MeasureSpec.EXACTLY) &#123;</div><div class="line">            measuredHeight = heightSize;</div><div class="line">        &#125; <span class="keyword">else</span> &#123;</div><div class="line">            measuredHeight = SIZE;</div><div class="line">        &#125;</div><div class="line"></div><div class="line">        setMeasuredDimension(measuredWidth, measuredHeight);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onLayout</span><span class="params">(<span class="keyword">boolean</span> changed, <span class="keyword">int</span> left, <span class="keyword">int</span> top, <span class="keyword">int</span> right, <span class="keyword">int</span> bottom)</span> </span>&#123;</div><div class="line">        mHeight = getHeight();</div><div class="line">        mWidth = getWidth();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> ValueAnimator mAnimator;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">        <span class="comment">/*参数</span></div><div class="line">        * 圆心x  圆心y   半径（这里要一直改变的） 画笔</div><div class="line">        * */</div><div class="line">        canvas.drawCircle(mWidth / <span class="number">2</span>, mHeight / <span class="number">2</span>, custom_size * scale, mPaint);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startAnimation</span><span class="params">()</span> </span>&#123;</div><div class="line">        mAnimator = ValueAnimator.ofFloat(<span class="number">1</span>, <span class="number">2</span>);<span class="comment">//从1-2不断变化</span></div><div class="line">        mAnimator.addUpdateListener(<span class="keyword">new</span> ValueAnimator.AnimatorUpdateListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationUpdate</span><span class="params">(ValueAnimator animation)</span> </span>&#123;</div><div class="line">                <span class="comment">//拿到每时每刻变化的值</span></div><div class="line">                scale = (<span class="keyword">float</span>) animation.getAnimatedValue();</div><div class="line">                postInvalidate();</div><div class="line">            &#125;</div><div class="line">        &#125;);</div><div class="line"></div><div class="line">        <span class="comment">// 重复次数 -1表示无限循环</span></div><div class="line">        mAnimator.setRepeatCount(-<span class="number">1</span>);</div><div class="line"></div><div class="line">        <span class="comment">// 重复模式, RESTART: 重新开始 REVERSE:恢复初始状态再开始</span></div><div class="line">        mAnimator.setRepeatMode(ValueAnimator.REVERSE);</div><div class="line"></div><div class="line">        mAnimator.start();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">stopAnimation</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">if</span> (mAnimator != <span class="keyword">null</span>) &#123;</div><div class="line"><span class="comment">//            mAnimator.end();</span></div><div class="line">            mAnimator.cancel();</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line"><span class="comment">//    @Override</span></div><div class="line"><span class="comment">//    public boolean onTouchEvent(MotionEvent event) &#123;</span></div><div class="line"><span class="comment">//        switch (event.getAction()) &#123;</span></div><div class="line"><span class="comment">//            case MotionEvent.ACTION_DOWN:</span></div><div class="line"><span class="comment">//                mAnimator.end();</span></div><div class="line"><span class="comment">////                int scale = (int) mAnimator.getAnimatedValue();</span></div><div class="line"><span class="comment">//            case MotionEvent.ACTION_MOVE:</span></div><div class="line"><span class="comment">//                break;</span></div><div class="line"><span class="comment">//            case MotionEvent.ACTION_UP:</span></div><div class="line"><span class="comment">////                startAnimation();</span></div><div class="line"><span class="comment">//                mAnimator.start();</span></div><div class="line"><span class="comment">//                break;</span></div><div class="line"><span class="comment">//        &#125;</span></div><div class="line"><span class="comment">//        return true;</span></div><div class="line"><span class="comment">//    &#125;</span></div><div class="line"></div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDetachedFromWindow</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onDetachedFromWindow();</div><div class="line">        <span class="comment">//从视图移除</span></div><div class="line">        <span class="comment">// 关闭动画</span></div><div class="line">        mAnimator.end();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> Parcelable <span class="title">onSaveInstanceState</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="keyword">return</span> <span class="keyword">super</span>.onSaveInstanceState();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onRestoreInstanceState</span><span class="params">(Parcelable state)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onRestoreInstanceState(state);</div><div class="line">    &#125;</div><div class="line">&#125;</div><div class="line">使用</div><div class="line">	   jumpView.startAnimation();</div><div class="line">        jumpView.setOnTouchListener(<span class="keyword">new</span> View.OnTouchListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">boolean</span> <span class="title">onTouch</span><span class="params">(View v, MotionEvent event)</span> </span>&#123;</div><div class="line">                <span class="keyword">switch</span> (event.getAction())&#123;</div><div class="line">                    <span class="keyword">case</span> MotionEvent.ACTION_DOWN:</div><div class="line">                        jumpView.stopAnimation();</div><div class="line">                    <span class="keyword">case</span> MotionEvent.ACTION_MOVE:</div><div class="line">                        <span class="keyword">break</span>;</div><div class="line">                    <span class="keyword">case</span> MotionEvent.ACTION_UP:</div><div class="line">                        jumpView.startAnimation();</div><div class="line">                        <span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">                <span class="keyword">return</span> <span class="keyword">true</span>;</div><div class="line">            &#125;</div><div class="line">        &#125;);</div></pre></td></tr></table></figure>
+<blockquote>
+<p>注释已经非常清楚了 ,这里要注意的是，可以在view中 重写onTouchEvetn，也可以在调用的地方写。但是：如果要监听手势，一般会想到onTouch，但是我们发现View的onTouch事件只是相应action-down。原因：onTouch中return false。解决办法：1， return true2、在xml布局里加上  Android:longClickable=”true”这两者并不完全是等价的。return true就意味着该view会继续处理抬起事件，而不会将此时间传递给父View———这也意味着只有一个view可以继续监听touch事件因此必须注意ontouch事件的传递过程。由子view传给父view，如果return false，可以传给父view，true则不能。手势最好在activity中的dispatchTouchEvent中做，这个是无法被子view屏蔽的。另外onTouch如果返回true，则不能监听onClick</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/android/" rel="tag">#android</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/08/10/自定义轮播图/" rel="next" title="自定义轮播图">
+                <i class="fa fa-chevron-left"></i> 自定义轮播图
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+              <a href="/2016/08/10/自定义view——实现半圆形进度条/" rel="prev" title="自定义view——实现半圆形进度条">
+                自定义view——实现半圆形进度条 <i class="fa fa-chevron-right"></i>
+              </a>
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Xiemarc" />
+          <p class="site-author-name" itemprop="name">Xiemarc</p>
+          <p class="site-description motion-element" itemprop="description">android开发</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/">
+              <span class="site-state-item-count">27</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">3</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Xiemarc" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/1750579585/home?wvr=5&lf=reg" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/u012721933" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-fw fa-blog"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#得到一个正方形"><span class="nav-number">1.</span> <span class="nav-text">得到一个正方形</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#自定义属性"><span class="nav-number"></span> <span class="nav-text">自定义属性</span></a></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiemarc</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
