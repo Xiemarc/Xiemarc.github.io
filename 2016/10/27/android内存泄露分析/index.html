@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="android," />
 
 
 
@@ -84,15 +84,16 @@
 
 
 
-<meta name="description" content="android开发">
-<meta property="og:type" content="website">
-<meta property="og:title" content="Marc |">
-<meta property="og:url" content="http://yoursite.com/index.html">
+<meta name="description" content="内存泄露原因整理一、Java内存回收机制不论哪种语言的内存分配方式，都需要返回所分配内存的真实地址，也就是返回一个指针到内存块的首地址。Java中对象是采用new或者反射的方法创建的，这些对象的创建都是在堆（Heap）中分配的，所有对象的回收都是由Java虚拟机通过垃圾回收机制完成的。GC为了能够正确释放对象，会监控每个对象的运行状况，对他们的申请、引用、被引用、赋值等状况进行监控，Java会使用">
+<meta property="og:type" content="article">
+<meta property="og:title" content="android内存泄露分析">
+<meta property="og:url" content="http://yoursite.com/2016/10/27/android内存泄露分析/index.html">
 <meta property="og:site_name" content="Marc |">
-<meta property="og:description" content="android开发">
+<meta property="og:description" content="内存泄露原因整理一、Java内存回收机制不论哪种语言的内存分配方式，都需要返回所分配内存的真实地址，也就是返回一个指针到内存块的首地址。Java中对象是采用new或者反射的方法创建的，这些对象的创建都是在堆（Heap）中分配的，所有对象的回收都是由Java虚拟机通过垃圾回收机制完成的。GC为了能够正确释放对象，会监控每个对象的运行状况，对他们的申请、引用、被引用、赋值等状况进行监控，Java会使用">
+<meta property="og:updated_time" content="2016-10-27T12:09:06.826Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Marc |">
-<meta name="twitter:description" content="android开发">
+<meta name="twitter:title" content="android内存泄露分析">
+<meta name="twitter:description" content="内存泄露原因整理一、Java内存回收机制不论哪种语言的内存分配方式，都需要返回所分配内存的真实地址，也就是返回一个指针到内存块的首地址。Java中对象是采用new或者反射的方法创建的，这些对象的创建都是在堆（Heap）中分配的，所有对象的回收都是由Java虚拟机通过垃圾回收机制完成的。GC为了能够正确释放对象，会监控每个对象的运行状况，对他们的申请、引用、被引用、赋值等状况进行监控，Java会使用">
 
 
 
@@ -113,9 +114,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/10/27/android内存泄露分析/"/>
 
-  <title> Marc | </title>
+  <title> android内存泄露分析 | Marc | </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -136,9 +137,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-left 
-   page-home 
- ">
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -235,9 +234,9 @@
         <div class="content-wrap">
           <div id="content" class="content">
             
-  <section id="posts" class="posts-expand">
+
+  <div id="posts" class="posts-expand">
     
-      
 
   
   
@@ -257,10 +256,7 @@
             
             
               
-                
-                <a class="post-title-link" href="/2016/10/27/android内存泄露分析/" itemprop="url">
-                  android内存泄露分析
-                </a>
+                android内存泄露分析
               
             
           </h1>
@@ -319,9 +315,7 @@
       
 
       
-        
-          
-            <h3 id="内存泄露原因整理"><a href="#内存泄露原因整理" class="headerlink" title="内存泄露原因整理"></a>内存泄露原因整理</h3><h6 id="一、Java内存回收机制"><a href="#一、Java内存回收机制" class="headerlink" title="一、Java内存回收机制"></a>一、Java内存回收机制</h6><p>不论哪种语言的内存分配方式，都需要返回所分配内存的真实地址，也就是返回一个指针到内存块的首地址。Java中对象是采用new或者反射的方法创建的，这些对象的创建都是在堆（Heap）中分配的，所有对象的回收都是由Java虚拟机通过垃圾回收机制完成的。GC为了能够正确释放对象，会监控每个对象的运行状况，对他们的申请、引用、被引用、赋值等状况进行监控，Java会使用有向图的方法进行管理内存，实时监控对象是否可以达到，如果不可到达，则就将其回收，这样也可以消除引用循环的问题。在Java语言中，判断一个内存空间是否符合垃圾收集标准有两个：一个是给对象赋予了空值null，以下再没有调用过，另一个是给对象赋予了新值，这样重新分配了内存空间。 </p>
+        <h3 id="内存泄露原因整理"><a href="#内存泄露原因整理" class="headerlink" title="内存泄露原因整理"></a>内存泄露原因整理</h3><h6 id="一、Java内存回收机制"><a href="#一、Java内存回收机制" class="headerlink" title="一、Java内存回收机制"></a>一、Java内存回收机制</h6><p>不论哪种语言的内存分配方式，都需要返回所分配内存的真实地址，也就是返回一个指针到内存块的首地址。Java中对象是采用new或者反射的方法创建的，这些对象的创建都是在堆（Heap）中分配的，所有对象的回收都是由Java虚拟机通过垃圾回收机制完成的。GC为了能够正确释放对象，会监控每个对象的运行状况，对他们的申请、引用、被引用、赋值等状况进行监控，Java会使用有向图的方法进行管理内存，实时监控对象是否可以达到，如果不可到达，则就将其回收，这样也可以消除引用循环的问题。在Java语言中，判断一个内存空间是否符合垃圾收集标准有两个：一个是给对象赋予了空值null，以下再没有调用过，另一个是给对象赋予了新值，这样重新分配了内存空间。 </p>
 <h6 id="二、Java内存泄露引起原因"><a href="#二、Java内存泄露引起原因" class="headerlink" title="二、Java内存泄露引起原因"></a>二、Java内存泄露引起原因</h6><p>Java内存泄露根本原因：长生命周期的对象持有短生命周期对象的引用就很可能发生内存泄露，尽管短生命周期对象已经不再需要，但是因为长生命周期对象持有它的引用而导致不能被回收，这就是java中内存泄露的发生场景。具体主要有如下几大类：</p>
 <h2 id="1、静态集合类引起内存泄露："><a href="#1、静态集合类引起内存泄露：" class="headerlink" title="1、静态集合类引起内存泄露： "></a>1、静态集合类引起内存泄露： </h2><p>像HashMap、Vector、SparseArrayCompat等的使用最容易出现内存泄露，这些静态变量的生命周期和应用程序一致，他们所引用的所有的对象Object也不能被释放，因为他们也将一直被Vector等引用着。我项目中就是该原因。</p>
 <pre><code> static SparseArrayCompat&lt;FragmentSupport&gt; cachesFragment = new SparseArrayCompat&lt;&gt;();
@@ -399,512 +393,59 @@ class B{
 </code></pre><p>显然B采用singleton模式，它持有一个A对象的引用，而这个A类的对象将不能被回收。想象下如果A是个比较复杂的对象或者集合类型会发生什么情况</p>
 <p>######三 、总结<br>上面所讲的这些也启发我们如何去查找内存泄露问题，在代码复审的时候关注长生命周期对象：全局性的集合（变量）、单例模式的使用、类的static变量等等。在Java的实现过程中，也要考虑其对象释放，最好的方法是在不使用某对象时，显式地将此对象赋空。最好遵循谁创建谁释放的原则。</p>
 
-          
+      
+    </div>
+
+    <div>
+      
         
+
       
     </div>
 
     <div>
       
-    </div>
+        
 
-    <div>
       
     </div>
 
     <footer class="post-footer">
       
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/07/android-studio创建Live-Template/" itemprop="url">
-                  Live Template
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-07T21:04:09+08:00" content="2016-09-07">
-              2016-09-07
-            </time>
-          </span>
-
+        <div class="post-tags">
           
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/安卓/" itemprop="url" rel="index">
-                    <span itemprop="name">安卓</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
+            <a href="/tags/android/" rel="tag">#android</a>
           
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <hr>
-<p>好久没更新了，项目进度略紧。</p>
-<hr>
-<blockquote>
-<p>快速，高效，准确的将常用或自定义构造代码插入到你的源代码文件中</p>
-</blockquote>
-<p>通俗的讲，就是只需要输入几个简写的英文字母就可以快速自动插入一行或多行代码。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/09/07/android-studio创建Live-Template/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/09/07/android-studio创建Live-Template/" rel="next" title="Live Template">
+                <i class="fa fa-chevron-left"></i> Live Template
+              </a>
+            
           </div>
-        
-      
-    </div>
 
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
+          <div class="post-nav-prev post-nav-item">
             
-            
-              
-                
-                <a class="post-title-link" href="/2016/09/07/phpStrom配置服务器以及调试/" itemprop="url">
-                  phpStrom配置服务器以及调试
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-09-07T20:04:09+08:00" content="2016-09-07">
-              2016-09-07
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/JAVA/" itemprop="url" rel="index">
-                    <span itemprop="name">JAVA</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
+          </div>
         </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
       
 
       
-        
-          <ul>
-<li>这里使用的是WAMP 集成环境</li>
-</ul>
-<hr>
-<ol>
-<li>大多数第一次使用PhpStorm的都会出现在phpstorm写完代码，一点旁边浏览器看效果的时候，浏览器提示<br>502 Bad Gateway。。。phpstorm也提示<strong>configure PHP Interpreter</strong>的提示。解决就是
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/09/07/phpStrom配置服务器以及调试/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
-    
-      
 
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/10/关于登陆/" itemprop="url">
-                  关于登陆
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-10T21:51:05+08:00" content="2016-08-10">
-              2016-08-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/安卓/" itemprop="url" rel="index">
-                    <span itemprop="name">安卓</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>#登录</p>
-<p>###javaweb中如何去维持登录状态<br>    1.登录后 信息放入 session中<br>    2.页面内验证session中是否有登录信息<br>    3.如果有,不需要再次登录<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/10/关于登陆/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
+    <div class="post-spread">
       
     </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/10/android创建popwindow以及listview点击刷新状态/" itemprop="url">
-                  android创建popwindow以及listview点击刷新状态
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-10T21:51:05+08:00" content="2016-08-10">
-              2016-08-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/安卓/" itemprop="url" rel="index">
-                    <span itemprop="name">安卓</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><img src="http://i.imgur.com/GnHNird.gif" alt=""></p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/10/android创建popwindow以及listview点击刷新状态/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-  </section>
-
-  
-  <nav class="pagination">
-    <span class="page-number current">1</span><a class="page-number" href="/page/2/">2</a><span class="space">&hellip;</span><a class="page-number" href="/page/6/">6</a><a class="extend next" rel="next" href="/page/2/"><i class="fa fa-angle-right"></i></a>
-  </nav>
-
+  </div>
 
 
           </div>
@@ -912,6 +453,10 @@ class B{
 
 
           
+  <div class="comments" id="comments">
+    
+  </div>
+
 
         </div>
         
@@ -931,8 +476,17 @@ class B{
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel  sidebar-panel-active ">
+      <section class="site-overview sidebar-panel ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -1011,6 +565,17 @@ class B{
 
       </section>
 
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#内存泄露原因整理"><span class="nav-number">1.</span> <span class="nav-text">内存泄露原因整理</span></a><ol class="nav-child"><li class="nav-item nav-level-6"><a class="nav-link" href="#一、Java内存回收机制"><span class="nav-number">1.0.0.1.</span> <span class="nav-text">一、Java内存回收机制</span></a></li><li class="nav-item nav-level-6"><a class="nav-link" href="#二、Java内存泄露引起原因"><span class="nav-number">1.0.0.2.</span> <span class="nav-text">二、Java内存泄露引起原因</span></a></li></ol></li></ol></li></ol></li></ol></li><li class="nav-item nav-level-2"><a class="nav-link" href="#1、静态集合类引起内存泄露："><span class="nav-number"></span> <span class="nav-text">1、静态集合类引起内存泄露： </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#2、当集合里面的对象属性被修改后，再调用remove（）方法时不起作用。"><span class="nav-number"></span> <span class="nav-text">2、当集合里面的对象属性被修改后，再调用remove（）方法时不起作用。 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#3、监听器"><span class="nav-number"></span> <span class="nav-text">3、监听器 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#4、各种连接"><span class="nav-number"></span> <span class="nav-text">4、各种连接 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#5、内部类和外部模块等的引用"><span class="nav-number"></span> <span class="nav-text">5、内部类和外部模块等的引用 </span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#6、单例模式"><span class="nav-number"></span> <span class="nav-text">6、单例模式</span></a></div>
+            
+          </div>
+        </section>
       
 
     </div>
@@ -1114,6 +679,10 @@ class B{
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
 
   
 
