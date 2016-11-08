@@ -1,0 +1,1115 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/vendors/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/vendors/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="android," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="###重用
+
+include
+ &amp;lt; include&amp;gt;标签可以在一个布局中引入另外一个布局，这个的好处显而易见。类似于我们经常用到的工具类，随用随调。便于统一修改使用。
+&amp;lt;LinearLayout xmlns:android=&amp;quot;http://schemas.android.com/apk/res/android&amp;quot;
+    android:layout_width">
+<meta property="og:type" content="article">
+<meta property="og:title" content="android一些优化">
+<meta property="og:url" content="http://yoursite.com/2016/11/08/android一些优化/index.html">
+<meta property="og:site_name" content="Marc |">
+<meta property="og:description" content="###重用
+
+include
+ &amp;lt; include&amp;gt;标签可以在一个布局中引入另外一个布局，这个的好处显而易见。类似于我们经常用到的工具类，随用随调。便于统一修改使用。
+&amp;lt;LinearLayout xmlns:android=&amp;quot;http://schemas.android.com/apk/res/android&amp;quot;
+    android:layout_width">
+<meta property="og:image" content="http://img.blog.csdn.net/20161019171454432">
+<meta property="og:image" content="http://img.blog.csdn.net/20161022074920332">
+<meta property="og:image" content="http://img.blog.csdn.net/20161019173946841">
+<meta property="og:image" content="http://img.blog.csdn.net/20161019182024239">
+<meta property="og:updated_time" content="2016-11-08T13:00:13.676Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="android一些优化">
+<meta name="twitter:description" content="###重用
+
+include
+ &amp;lt; include&amp;gt;标签可以在一个布局中引入另外一个布局，这个的好处显而易见。类似于我们经常用到的工具类，随用随调。便于统一修改使用。
+&amp;lt;LinearLayout xmlns:android=&amp;quot;http://schemas.android.com/apk/res/android&amp;quot;
+    android:layout_width">
+<meta name="twitter:image" content="http://img.blog.csdn.net/20161019171454432">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2016/11/08/android一些优化/"/>
+
+  <title> android一些优化 | Marc | </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Marc |</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">我的一生划船不用桨，全靠浪。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                android一些优化
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-11-08T20:59:17+08:00" content="2016-11-08">
+              2016-11-08
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/安卓/" itemprop="url" rel="index">
+                    <span itemprop="name">安卓</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>###重用</p>
+<ol>
+<li><p>include</p>
+<p> &lt; include&gt;标签可以在一个布局中引入另外一个布局，这个的好处显而易见。类似于我们经常用到的工具类，随用随调。便于统一修改使用。</p>
+<pre><code>&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:fitsSystemWindows=&quot;true&quot;
+    android:orientation=&quot;vertical&quot;&gt;
+
+    &lt;include layout=&quot;@layout/toolbar&quot; /&gt;
+    ...省略
+&lt;/LinearLayout&gt;
+</code></pre></li>
+</ol>
+<a id="more"></a>
+<blockquote>
+<p>而我toolbar的布局是单独的一个，可以在任务需要的地方进行include</p>
+</blockquote>
+<pre><code>    &lt;android.support.v7.widget.Toolbar xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    xmlns:app=&quot;http://schemas.android.com/apk/res-auto&quot;
+    android:id=&quot;@+id/toolbar&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;?attr/actionBarSize&quot;
+    android:background=&quot;?attr/colorPrimary&quot;
+    android:navigationIcon=&quot;@drawable/back&quot;
+    app:layout_scrollFlags=&quot;scroll|enterAlways&quot;
+    app:navigationIcon=&quot;@drawable/back&quot;
+    app:popupTheme=&quot;@style/ThemeOverlay.AppCompat.Light&quot;&gt;
+
+    &lt;!--&lt;RelativeLayout--&gt;
+    &lt;!--android:layout_width=&quot;match_parent&quot;--&gt;
+    &lt;!--android:layout_height=&quot;wrap_content&quot;--&gt;
+    &lt;!--android:gravity=&quot;center&quot;&gt;--&gt;
+
+
+    &lt;TextView
+        android:id=&quot;@+id/toolbar_tv&quot;
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_centerInParent=&quot;true&quot;
+        android:layout_gravity=&quot;center&quot;
+        android:ellipsize=&quot;end&quot;
+        android:maxEms=&quot;9&quot;
+        android:singleLine=&quot;true&quot;
+        android:text=&quot;@string/gallery_app_name&quot;
+        android:textColor=&quot;@android:color/white&quot;
+        android:textSize=&quot;18sp&quot; /&gt;
+
+    &lt;FrameLayout
+        android:layout_width=&quot;wrap_content&quot;
+        android:layout_height=&quot;wrap_content&quot;
+        android:layout_gravity=&quot;right&quot;&gt;
+
+        &lt;TextView
+            android:id=&quot;@+id/title_right&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_alignParentRight=&quot;true&quot;
+            android:layout_centerVertical=&quot;true&quot;
+            android:layout_gravity=&quot;right&quot;
+            android:layout_marginRight=&quot;10dp&quot;
+            android:padding=&quot;10dp&quot;
+            android:textColor=&quot;@android:color/white&quot;
+            android:textSize=&quot;15sp&quot; /&gt;
+
+
+        &lt;ImageView
+            android:id=&quot;@+id/image_right&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;wrap_content&quot;
+            android:layout_alignParentRight=&quot;true&quot;
+            android:layout_centerVertical=&quot;true&quot;
+            android:layout_gravity=&quot;right&quot;
+            android:layout_marginRight=&quot;10dp&quot;
+            android:padding=&quot;10dp&quot; /&gt;
+    &lt;/FrameLayout&gt;
+
+&lt;/android.support.v7.widget.Toolbar&gt;
+</code></pre><p>2.合并</p>
+<hr>
+<p> 2.1 减少嵌套</p>
+<ul>
+<li><p>首先我们心中要有一个大原则：尽量保持布局层级的扁平化。在这个大原则下我们要知道：<br>在不影响层级深度的情况下，使用LinearLayout而不是RelativeLayout。因为RelativeLayout会让子View调用2次onMeasure，LinearLayout 在有weight时，才会让子View调用2次onMeasure。Measure的耗时越长那么绘制效率就低。</p>
+</li>
+<li><p>如果非要是嵌套，那么尽量避免RelativeLayout嵌套RelativeLayout。这简直就是恶性循环，丧心病狂</p>
+</li>
+</ul>
+<p>2.2 使用merge</p>
+<p>&lt; merge/&gt;主要用来去除不必要的FrameLayout。它的使用最理想的情况就是你的根布局是FrameLayout，同时没有使用background等属性。这时可以直接替换。因为我们布局外层就是FrameLayout，直接“合并”。</p>
+<p>PS： 上面已经说了同时## 没有使用background等属性。 ##</p>
+<p>2.3 用TextView同时显示图片和文字</p>
+<p><img src="http://img.blog.csdn.net/20161019171454432" alt=""></p>
+<p>这种效果很常见，一般实现方法是这样。（貌似没人这样写吧，哈哈）</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout
+    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;&gt;
+
+    &lt;LinearLayout
+        android:orientation=&quot;horizontal&quot;
+        android:background=&quot;@color/white&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;50dp&quot;&gt;
+
+        &lt;ImageView
+            android:layout_marginLeft=&quot;10dp&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:src=&quot;@drawable/icon_1&quot;
+            android:layout_height=&quot;match_parent&quot; /&gt;
+
+        &lt;TextView
+            android:paddingLeft=&quot;10dp&quot;
+            android:paddingRight=&quot;10dp&quot;
+            android:textSize=&quot;16sp&quot;
+            android:text=&quot;我的卡券&quot;
+            android:gravity=&quot;center_vertical&quot;
+            android:layout_width=&quot;0dp&quot;
+            android:layout_weight=&quot;1&quot;
+            android:layout_height=&quot;match_parent&quot; /&gt;
+
+        &lt;ImageView
+            android:layout_marginRight=&quot;10dp&quot;
+            android:src=&quot;@drawable/icon_4&quot;
+            android:layout_width=&quot;wrap_content&quot;
+            android:layout_height=&quot;match_parent&quot;/&gt;
+    &lt;/LinearLayout&gt;
+
+&lt;/LinearLayout&gt;    
+</code></pre><p>这里可以直接使用textview的drawable的right|left|top|bottom等</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;LinearLayout
+    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;&gt;
+
+    &lt;TextView
+        android:drawableLeft=&quot;@drawable/icon_1&quot;
+        android:drawableRight=&quot;@drawable/icon_4&quot;
+        android:drawablePadding=&quot;10dp&quot;
+        android:paddingLeft=&quot;10dp&quot;
+        android:paddingRight=&quot;10dp&quot;
+        android:textSize=&quot;16sp&quot;
+        android:text=&quot;我的卡券&quot;
+        android:background=&quot;@color/white&quot;
+        android:gravity=&quot;center_vertical&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;50dp&quot; /&gt;
+
+&lt;/LinearLayout&gt;
+</code></pre><p>你没有看错，少了两个ImageView和去除嵌套LinearLayout。效果不用说一样一样的</p>
+<p>这里也可以动态设置图片的。setCompoundDrawables(Drawable left, Drawable top, Drawable right, Drawable bottom)可以让我们动态去设置图片。</p>
+<p>2.4 使用textview的行间距</p>
+<p>想要实现的</p>
+<p><img src="http://img.blog.csdn.net/20161022074920332" alt=""></p>
+<p>我平时如果遇到这种之前是直接用下面的布局实现的</p>
+<pre><code>&lt;LinearLayout
+    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:layout_height=&quot;100dp&quot;
+    android:background=&quot;@color/white&quot;
+    android:layout_width=&quot;match_parent&quot;
+    xmlns:tools=&quot;http://schemas.android.com/tools&quot;&gt;
+
+    &lt;ImageView
+        android:padding=&quot;25dp&quot;
+        android:src=&quot;@drawable/kd_1&quot;
+        android:layout_width=&quot;100dp&quot;
+        android:layout_height=&quot;100dp&quot;/&gt;
+
+    &lt;LinearLayout
+        android:layout_width=&quot;match_parent&quot;
+        android:orientation=&quot;vertical&quot;
+        android:layout_height=&quot;100dp&quot;&gt;
+
+        &lt;TextView
+            tools:text=&quot;揽件方式：上门取件&quot;
+            android:gravity=&quot;center_vertical&quot;
+            android:layout_width=&quot;match_parent&quot;
+            android:layout_height=&quot;25dp&quot;/&gt;
+
+        &lt;TextView
+            tools:text=&quot;快递公司：顺丰快递&quot;
+            android:gravity=&quot;center_vertical&quot;
+            android:layout_width=&quot;match_parent&quot;
+            android:layout_height=&quot;25dp&quot;/&gt;
+
+        &lt;TextView
+            tools:text=&quot;预约时间：9月6日 立即取件&quot;
+            android:gravity=&quot;center_vertical&quot;
+            android:layout_width=&quot;match_parent&quot;
+            android:layout_height=&quot;25dp&quot;/&gt;
+
+        &lt;TextView
+            tools:text=&quot;快递费用：等待称重确定价格&quot;
+            android:gravity=&quot;center_vertical&quot;
+            android:layout_width=&quot;match_parent&quot;
+            android:layout_height=&quot;25dp&quot;/&gt;
+
+    &lt;/LinearLayout&gt;
+
+&lt;/LinearLayout
+</code></pre><p>优化后代码：</p>
+<pre><code>&lt;LinearLayout
+xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+android:layout_height=&quot;100dp&quot;
+android:background=&quot;@color/white&quot;
+android:layout_width=&quot;match_parent&quot;&gt;
+
+&lt;ImageView
+    android:padding=&quot;25dp&quot;
+    android:src=&quot;@drawable/kd_1&quot;
+    android:layout_width=&quot;100dp&quot;
+    android:layout_height=&quot;match_parent&quot;/&gt;
+
+&lt;TextView
+    android:textSize=&quot;14dp&quot;
+    android:lineSpacingExtra=&quot;8dp&quot;
+    android:gravity=&quot;center_vertical&quot;
+    android:text=&quot;揽件方式：上门取件\n快递公司：顺丰快递\n预约时间：9月6日 立即取件\n快递费用：等待称重确定价格&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot; /&gt;
+
+&lt;/LinearLayout&gt;
+</code></pre><blockquote>
+<p>老规矩，效果一样一样的。可以看到我们仅仅利用Android:lineSpacingExtra=”8dp”这一行<br>代码就省去了3个TextView，如果行数更多呢？是不是方便多了。</p>
+<p>其中：lineSpacingExtra属性代表的是行间距，他默认是0，是一个绝对高度值。同时还有&gt;lineSpacingMultiplier属性，它代表行间距倍数，默认为1.0f，是一个相对高度值。我们来使&gt;用一下：</p>
+</blockquote>
+<pre><code>&lt;LinearLayout
+    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:layout_height=&quot;100dp&quot;
+    android:background=&quot;@color/white&quot;
+    android:layout_width=&quot;match_parent&quot;&gt;
+
+    &lt;ImageView
+        android:padding=&quot;25dp&quot;
+        android:src=&quot;@drawable/kd_1&quot;
+        android:layout_width=&quot;100dp&quot;
+        android:layout_height=&quot;100dp&quot;/&gt;
+
+    &lt;TextView
+        android:textSize=&quot;14dp&quot;
+        android:lineSpacingMultiplier=&quot;1.3&quot;
+        android:gravity=&quot;center_vertical&quot;
+        android:text=&quot;揽件方式：上门取件\n快递公司：顺丰快递\n预约时间：9月6日 立即取件\n快递费用：等待称重确定价格&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;match_parent&quot; /&gt;
+
+&lt;/LinearLayout&gt;
+</code></pre><p>当然了这两条属性可以同时使用，查看源码可以知道，他们的高度计算规则为mTextPaint.getFontMetricsInt(null) * 行间距倍数 + 行间距</p>
+<p>####使用Spannable或Html.fromHtml</p>
+<p><img src="http://img.blog.csdn.net/20161019173946841" alt=""></p>
+<p>如果实现上图红框中的效果，笨办法就是写三个TextView，“￥”，“价格”，“门市价”分别实现，其实用一个TextVIew就可以实现，类似如下代码：</p>
+<pre><code>String text = String.format(&quot;￥%1$s  门市价:￥%2$s&quot;, 18.6, 22);
+int z = text.lastIndexOf(&quot;门&quot;);
+SpannableStringBuilder style = new SpannableStringBuilder(text);
+style.setSpan(new AbsoluteSizeSpan(DisplayUtil.dip2px(mContext,14)), 0, 1, Spannable.SPAN_EXCLUSIVE_INCLUSIVE); //字号
+style.setSpan(new ForegroundColorSpan(Color.parseColor(&quot;#afafaf&quot;)), z, text.length(), Spannable.SPAN_EXCLUSIVE_INCLUSIVE); //颜色
+style.setSpan(new AbsoluteSizeSpan(DisplayUtil.dip2px(mContext,14)), z, text.length(), Spannable.SPAN_EXCLUSIVE_INCLUSIVE); //字号
+
+tv.setText(style);
+</code></pre><p>####用LinearLayout自带的分割线</p>
+<p>还记得上文用TextView同时显示图片和文字中的例子吗？我们可以看到每个条目之间都是有一根分隔线的，那么怎么实现呢？别人我不知道，反正我原来是用一个View设置高度实现的。相信一定有人和我一样。</p>
+<p>那么老办法我就不演示了，直接上代码：</p>
+<pre><code>    &lt;LinearLayout
+    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:orientation=&quot;vertical&quot;
+    android:divider=&quot;@drawable/divider&quot;
+    android:showDividers=&quot;middle&quot;&gt;
+
+    &lt;TextView
+        android:drawableLeft=&quot;@drawable/icon_1&quot;
+        android:drawableRight=&quot;@drawable/icon_4&quot;
+        android:drawablePadding=&quot;10dp&quot;
+        android:paddingLeft=&quot;10dp&quot;
+        android:paddingRight=&quot;10dp&quot;
+        android:textSize=&quot;16sp&quot;
+        android:text=&quot;我的卡券&quot;
+        android:background=&quot;@color/white&quot;
+        android:gravity=&quot;center_vertical&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;50dp&quot; /&gt;
+
+    &lt;TextView
+        android:drawableLeft=&quot;@drawable/icon_2&quot;
+        android:drawableRight=&quot;@drawable/icon_4&quot;
+        android:drawablePadding=&quot;10dp&quot;
+        android:paddingLeft=&quot;10dp&quot;
+        android:paddingRight=&quot;10dp&quot;
+        android:textSize=&quot;16sp&quot;
+        android:text=&quot;地址管理&quot;
+        android:background=&quot;@color/white&quot;
+        android:gravity=&quot;center_vertical&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;50dp&quot; /&gt;
+
+    &lt;TextView
+        android:drawableLeft=&quot;@drawable/icon_3&quot;
+        android:drawableRight=&quot;@drawable/icon_4&quot;
+        android:drawablePadding=&quot;10dp&quot;
+        android:paddingLeft=&quot;10dp&quot;
+        android:paddingRight=&quot;10dp&quot;
+        android:textSize=&quot;16sp&quot;
+        android:text=&quot;检查更新&quot;
+        android:background=&quot;@color/white&quot;
+        android:gravity=&quot;center_vertical&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;50dp&quot; /&gt;
+
+&lt;/LinearLayout&gt;
+</code></pre><p>这里核心实现：</p>
+<pre><code>android:divider=&quot;@drawable/divider&quot;
+android:showDividers=&quot;middle&quot;
+</code></pre><p>其中divider.xml是分隔线样式</p>
+<pre><code>&lt;shape xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+       android:shape=&quot;rectangle&quot;&gt;
+
+    &lt;size android:width=&quot;1dp&quot;
+          android:height=&quot;1dp&quot;/&gt;
+
+    &lt;solid android:color=&quot;#e1e1e1&quot;/&gt;
+
+&lt;/shape&gt;
+</code></pre><p>showDividers 是分隔线的显示位置，beginning、middle、end分别代表显示在开始位置，中间，末尾。</p>
+<p>还有dividerPadding属性这里没有用到，意思很明确给divider添加padding。感兴趣可以试试。</p>
+<p>####Space控件</p>
+<p>还是接着上面的例子，如果要给条目中间添加间距，怎么实现呢？当然也很简单，比如添加一个高10dp的View，或者使用android:layout_marginTop=”10dp”等方法。但是增加View违背了我们的初衷，并且影响性能。使用过多的margin其实会影响代码的可读性。</p>
+<p>这时你就可以使用Space，他是一个轻量级的。我们可以看下源码：</p>
+<pre><code>public final class Space extends View {
+    /**
+     * {@inheritDoc}
+     */
+    public Space(Context context, AttributeSet attrs, int defStyleAttr, int defStyleRes) {
+        super(context, attrs, defStyleAttr, defStyleRes);
+        if (getVisibility() == VISIBLE) {
+            setVisibility(INVISIBLE);
+        }
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public Space(Context context, AttributeSet attrs, int defStyleAttr) {
+        this(context, attrs, defStyleAttr, 0);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public Space(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);
+    }
+
+    /**
+     * {@inheritDoc}
+     */
+    public Space(Context context) {
+        //noinspection NullableProblems
+        this(context, null);
+    }
+
+    /**
+     * Draw nothing.
+     *
+     * @param canvas an unused parameter.
+     */
+    @Override
+    public void draw(Canvas canvas) {
+    }
+
+    /**
+     * Compare to: {@link View#getDefaultSize(int, int)}
+     * If mode is AT_MOST, return the child size instead of the parent size
+     * (unless it is too big).
+     */
+    private static int getDefaultSize2(int size, int measureSpec) {
+        int result = size;
+        int specMode = MeasureSpec.getMode(measureSpec);
+        int specSize = MeasureSpec.getSize(measureSpec);
+
+        switch (specMode) {
+            case MeasureSpec.UNSPECIFIED:
+                result = size;
+                break;
+            case MeasureSpec.AT_MOST:
+                result = Math.min(size, specSize);
+                break;
+            case MeasureSpec.EXACTLY:
+                result = specSize;
+                break;
+        }
+        return result;
+    }
+
+    @Override
+    protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
+        setMeasuredDimension(
+                getDefaultSize2(getSuggestedMinimumWidth(), widthMeasureSpec),
+                getDefaultSize2(getSuggestedMinimumHeight(), heightMeasureSpec));
+    }
+}
+</code></pre><p>可以看到在draw方法没有绘制任何东西，那么性能也就几乎没有影响。</p>
+<pre><code>&lt;LinearLayout
+    xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;match_parent&quot;
+    android:orientation=&quot;vertical&quot;
+    android:divider=&quot;@drawable/divider&quot;
+    android:showDividers=&quot;middle|beginning|end&quot;&gt;
+
+    &lt;TextView
+        android:drawableLeft=&quot;@drawable/icon_1&quot;
+        android:drawableRight=&quot;@drawable/icon_4&quot;
+        android:drawablePadding=&quot;10dp&quot;
+        android:paddingLeft=&quot;10dp&quot;
+        android:paddingRight=&quot;10dp&quot;
+        android:textSize=&quot;16sp&quot;
+        android:text=&quot;我的卡券&quot;
+        android:background=&quot;@color/white&quot;
+        android:gravity=&quot;center_vertical&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;50dp&quot; /&gt;
+
+    &lt;TextView
+        android:drawableLeft=&quot;@drawable/icon_2&quot;
+        android:drawableRight=&quot;@drawable/icon_4&quot;
+        android:drawablePadding=&quot;10dp&quot;
+        android:paddingLeft=&quot;10dp&quot;
+        android:paddingRight=&quot;10dp&quot;
+        android:textSize=&quot;16sp&quot;
+        android:text=&quot;地址管理&quot;
+        android:background=&quot;@color/white&quot;
+        android:gravity=&quot;center_vertical&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;50dp&quot; /&gt;
+
+    &lt;Space
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;15dp&quot;/&gt;
+
+    &lt;TextView
+        android:drawableLeft=&quot;@drawable/icon_3&quot;
+        android:drawableRight=&quot;@drawable/icon_4&quot;
+        android:drawablePadding=&quot;10dp&quot;
+        android:paddingLeft=&quot;10dp&quot;
+        android:paddingRight=&quot;10dp&quot;
+        android:textSize=&quot;16sp&quot;
+        android:text=&quot;检查更新&quot;
+        android:background=&quot;@color/white&quot;
+        android:gravity=&quot;center_vertical&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;50dp&quot; /&gt;
+
+&lt;/LinearLayout&gt;
+</code></pre><p><img src="http://img.blog.csdn.net/20161019182024239" alt=""></p>
+<p>####防止过度绘制</p>
+<p><a href="http://blog.csdn.net/lmj623565791/article/details/45556391" title="这个完全可以看鸿洋大神这篇 《Android UI性能优化实战 识别绘制中的性能问题》" target="_blank" rel="external">http://blog.csdn.net/lmj623565791/article/details/45556391</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/android/" rel="tag">#android</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2016/10/27/android内存泄露分析/" rel="next" title="android内存泄露分析">
+                <i class="fa fa-chevron-left"></i> android内存泄露分析
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Xiemarc" />
+          <p class="site-author-name" itemprop="name">Xiemarc</p>
+          <p class="site-description motion-element" itemprop="description">android开发</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/">
+              <span class="site-state-item-count">30</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Xiemarc" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/1750579585/home?wvr=5&lf=reg" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/u012721933" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-fw fa-blog"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2016</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiemarc</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/vendors/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/vendors/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/vendors/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
