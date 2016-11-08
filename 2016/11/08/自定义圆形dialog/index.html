@@ -84,19 +84,19 @@
 
 
 
-<meta name="description" content="###接口回调、自定义观察者模式和EvnetBus
-众所周知，android中经常要用到activity、fragment中互相传递参数。或者framgent中的数据改变，另外的fragment或者activity中需要跟着改变。这个时候 通常都会用接口的方式实现。        }">
+<meta name="description" content="###自定义弹出圆角框不多说，直接上效果图">
 <meta property="og:type" content="article">
-<meta property="og:title" content="接口和自定义观察者模式">
-<meta property="og:url" content="http://yoursite.com/2016/08/10/接口和自定义观察者模式/index.html">
+<meta property="og:title" content="自定义圆形dialog">
+<meta property="og:url" content="http://yoursite.com/2016/11/08/自定义圆形dialog/index.html">
 <meta property="og:site_name" content="Marc |">
-<meta property="og:description" content="###接口回调、自定义观察者模式和EvnetBus
-众所周知，android中经常要用到activity、fragment中互相传递参数。或者framgent中的数据改变，另外的fragment或者activity中需要跟着改变。这个时候 通常都会用接口的方式实现。        }">
-<meta property="og:updated_time" content="2016-09-07T13:12:22.982Z">
+<meta property="og:description" content="###自定义弹出圆角框不多说，直接上效果图">
+<meta property="og:image" content="http://i.imgur.com/Qy2k8dE.png">
+<meta property="og:image" content="http://i.imgur.com/9OXgMkC.png">
+<meta property="og:updated_time" content="2016-11-08T13:06:20.083Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="接口和自定义观察者模式">
-<meta name="twitter:description" content="###接口回调、自定义观察者模式和EvnetBus
-众所周知，android中经常要用到activity、fragment中互相传递参数。或者framgent中的数据改变，另外的fragment或者activity中需要跟着改变。这个时候 通常都会用接口的方式实现。        }">
+<meta name="twitter:title" content="自定义圆形dialog">
+<meta name="twitter:description" content="###自定义弹出圆角框不多说，直接上效果图">
+<meta name="twitter:image" content="http://i.imgur.com/Qy2k8dE.png">
 
 
 
@@ -117,9 +117,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/08/10/接口和自定义观察者模式/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/08/自定义圆形dialog/"/>
 
-  <title> 接口和自定义观察者模式 | Marc | </title>
+  <title> 自定义圆形dialog | Marc | </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -259,7 +259,7 @@
             
             
               
-                接口和自定义观察者模式
+                自定义圆形dialog
               
             
           </h1>
@@ -271,8 +271,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-10T21:51:05+08:00" content="2016-08-10">
-              2016-08-10
+            <time itemprop="dateCreated" datetime="2016-11-08T21:05:35+08:00" content="2016-11-08">
+              2016-11-08
             </time>
           </span>
 
@@ -318,53 +318,126 @@
       
 
       
-        <p>###接口回调、自定义观察者模式和EvnetBus</p>
-<p>众所周知，android中经常要用到activity、fragment中互相传递参数。或者framgent中的数据改变，另外的fragment或者activity中需要跟着改变。这个时候 通常都会用接口的方式实现。<br>        }<br><a id="more"></a></p>
-<p>###接口回调</p>
-<ul>
-<li>定义一个接口</li>
-</ul>
-<pre><code>public interface OnShakeListener {
-    void onShakeClistenerClick(View v, String data);
-</code></pre><ul>
-<li><p>声明 </p>
-<pre><code>private OnShakeListener mOnShakeListener;
+        <p>###自定义弹出圆角框<br>不多说，直接上效果图</p>
+<p><img src="http://i.imgur.com/Qy2k8dE.png" alt=""><br><img src="http://i.imgur.com/9OXgMkC.png" alt=""></p>
+<a id="more"></a>
+<p>关键代码：</p>
+<ol>
+<li><p>在自己的style中定义一个style</p>
+<pre><code>&lt;!--弹出时间选择的dialog背景--&gt;
+&lt;style name=&quot;mydialog&quot; parent=&quot;android:style/Theme.Dialog&quot;&gt;
+    &lt;!-- 背景透明 --&gt;
+    &lt;item name=&quot;android:windowBackground&quot;&gt;@android:color/transparent&lt;/item&gt;
+    &lt;!-- 没有标题 --&gt;
+    &lt;item name=&quot;android:windowNoTitle&quot;&gt;true&lt;/item&gt;
+    &lt;!-- 背景模糊 --&gt;
+    &lt;item name=&quot;android:backgroundDimEnabled&quot;&gt;true&lt;/item&gt;
+&lt;/style&gt;
 </code></pre></li>
-<li><p>绑定(我自己的叫法，勿喷)</p>
-<pre><code>public  void setOnShakeListner(OnShakeListener listner){
-this.mOnShakeListener = listner;
+<li><p>编写自定义dialog类，继承自dialog</p>
+<pre><code>/**
+ * 描述： 选择日期时间类
+ * 作者：Marc on 2016/11/3 13:56
+ * 邮箱：aliali_ha@yeah.net
+ */
+public class MyTimePickerDialog extends Dialog {
+
+    private TextView positiveButton, negativeButton;
+    private View view;
+    private WLQQTimePicker timePickerStart;
+    private Display display;
+
+    public MyTimePickerDialog(Context context) {
+        super(context, R.style.mydialog);
+        WindowManager windowManager = (WindowManager) context
+                .getSystemService(Context.WINDOW_SERVICE);
+        display = windowManager.getDefaultDisplay();
+        view = LayoutInflater.from(getContext()).inflate(R.layout.item_timepicker, null);
+        LinearLayout lLayout_bg = (LinearLayout) view.findViewById(R.id.lLayout_bg);
+        timePickerStart = (WLQQTimePicker) view.findViewById(R.id.timepicker);
+        positiveButton = (TextView) view.findViewById(R.id.confirm);
+        negativeButton = (TextView) view.findViewById(R.id.cancel);
+        timePickerStart.setDate(new Date().getTime());
+        setContentView(view);
+        // 调整dialog背景大小
+        lLayout_bg.setLayoutParams(new FrameLayout.LayoutParams((int) (display
+                .getWidth() * 0.85), LinearLayout.LayoutParams.WRAP_CONTENT, Gravity.CENTER));
+
+    }
+</code></pre></li>
+</ol>
+<pre><code>    //确定按钮监听
+    public MyTimePickerDialog setOnPositiveListener(View.OnClickListener listener) {
+        positiveButton.setOnClickListener(listener);
+        return this;
+    }
+
+    public WLQQTimePicker getTimePicker() {
+        if (timePickerStart != null) {
+            return timePickerStart;
+        }
+        return null;
+    }
+
+    /**
+     * 取消监听按钮
+     *
+     * @param listener
+     */
+    public MyTimePickerDialog setOnNegativeListener(View.OnClickListener listener) {
+        negativeButton.setOnClickListener(listener);
+        return this;
+    }
 }
+</code></pre><ol>
+<li>其中view的布局</li>
+</ol>
+<pre><code>&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:id=&quot;@+id/lLayout_bg&quot;
+    android:layout_width=&quot;match_parent&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:layout_gravity=&quot;center&quot;
+    android:background=&quot;@drawable/time_bg&quot;
+    android:gravity=&quot;center&quot;
+    android:orientation=&quot;vertical&quot;&gt;
+
+    &lt;!-- 这里要注意，wrap_content，会显示不出来，
+        我这里显示出来时因为我的WLQQTimePicker里面也加载的布局给定了个具体高度值--&gt;
+
+    &lt;com.marc.aatmonitol.widget.WLQQTimePicker
+        android:id=&quot;@+id/timepicker&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;wrap_content&quot; /&gt;
+&lt;/LinearLayout&gt;
+</code></pre><ol>
+<li><p>圆角drawable</p>
+<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+&lt;shape xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+    android:shape=&quot;rectangle&quot;&gt;
+    &lt;solid android:color=&quot;@android:color/white&quot; /&gt;
+    &lt;corners android:radius=&quot;14dp&quot; /&gt;
+&lt;/shape&gt;
 </code></pre></li>
 <li><p>使用</p>
-</li>
-</ul>
-<pre><code>tv.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        mOnShakeListener.onShakeClistenerClick(tv,tv.getText().toString());
-    }
-});
-</code></pre><p>其实还有个另外的写法</p>
-<ul>
-<li><p>同样是定义接口不变    </p>
-<pre><code> public interface OnShakeListener {
-    void onShakeClistenerClick(View v, String data);
-}
+<pre><code>dialog = new MyTimePickerDialog(MissonContainerActivity.this);
+            dialog.setCanceledOnTouchOutside(false);//外部不能取消
+            dialog.setOnNegativeListener(v -&gt;
+                    dialog.dismiss()
+            ).setOnPositiveListener(v -&gt; {
+                endTime = dialog.getTimePicker().getmPickerTitle().getText().toString();
+                showToast(endTime);
+                tvMissionEndTime.setText(endTime);
+                dialog.dismiss();
+            }).show();
 </code></pre></li>
-<li><p>直接使用</p>
-</li>
-</ul>
-<pre><code>context是成员变量
-tv.setOnClickListener(new View.OnClickListener() {
-       @Override
-       public void onClick(View v) {
-           Toast.makeText(UIUtils.getContext(), mDatas.get(index), Toast.LENGTH_SHORT).show();
-           if (context instanceof OnShakeListener) {
-               ((OnShakeListener) context).onShakeClistenerClick(tv, tv.getText().toString());
-           }
-       }
-   });
-</code></pre>
+</ol>
+<hr>
+<blockquote>
+<p>第二章图显示的是recycleivew加4个edittext，每个editeext不抢夺焦点，主要给每个editext设置<br>android:focusable=”true”</p>
+<p>android:focusableInTouchMode=”true”</p>
+<p>这2个属性</p>
+</blockquote>
+
       
     </div>
 
@@ -395,17 +468,13 @@ tv.setOnClickListener(new View.OnClickListener() {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/10/圆形imageview以及Blur实现/" rel="next" title="圆形imageview以及Blur实现">
-                <i class="fa fa-chevron-left"></i> 圆形imageview以及Blur实现
+              <a href="/2016/11/08/android一些优化/" rel="next" title="android一些优化">
+                <i class="fa fa-chevron-left"></i> android一些优化
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/10/加载3种状态/" rel="prev" title="加载3种状态">
-                加载3种状态 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
