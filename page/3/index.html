@@ -246,7 +246,7 @@
   
   
 
-  <article class="post post-type-PHP " itemscope itemtype="http://schema.org/Article">
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
 
     
       <header class="post-header">
@@ -258,8 +258,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/10/我的总结-1/" itemprop="url">
-                  我的总结
+                <a class="post-title-link" href="/2016/08/10/my-new-post/" itemprop="url">
+                  关于线程池
                 </a>
               
             
@@ -277,6 +277,25 @@
             </time>
           </span>
 
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/安卓/" itemprop="url" rel="index">
+                    <span itemprop="name">安卓</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
           
 
           
@@ -301,9 +320,253 @@
 
       
         
-          <h3 id="PHP字符串处理函数"><a href="#PHP字符串处理函数" class="headerlink" title="PHP字符串处理函数"></a>PHP字符串处理函数</h3><p>addcslashes — 为字符串里面的部分字符添加反斜线转义字符<br>addslashes — 用指定的方式对字符串里面的字符进行转义<br>bin2hex — 将二进制数据转换成十六进制表示<br>chop — rtrim() 的别名函数<br>chr — 返回一个字符的ASCII码<br>chunk_split — 按一定的字符长度将字符串分割成小块<br>convert_cyr_string — 将斯拉夫语字符转换为别的字符<br>convert_uudecode — 解密一个字符串<br>convert_uuencode — 加密一个字符串<br>
+          <p>##线程的运行机制</p>
+<blockquote>
+<ul>
+<li>开启线程过多,会消耗cpu</li>
+<li>单核cpu,同一时刻只能处理一个线程,多核cpu同一时刻可以处理多个线程</li>
+<li>操作系统为每个运行线程安排一定的CPU时间—-<code>时间片</code>,系统通过一种循环的方式为线程提供时间片,线程在自己的时间内运行,因为时间相当短,多个线程频繁地发生切换,因此给用户的感觉就是好像多个线程同时运行一样,但是如果计算机有多个CPU,线程就能真正意义上的同时运行了.<br><img src="img/thread1.png" alt="">
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/10/我的总结-1/#more" rel="contents">
+            <a class="btn" href="/2016/08/10/my-new-post/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/10/TextView相关/" itemprop="url">
+                  TextView相关
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-10T21:51:05+08:00" content="2016-08-10">
+              2016-08-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/安卓/" itemprop="url" rel="index">
+                    <span itemprop="name">安卓</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>###对于textView，大家肯定熟悉的不能再熟悉了。</p>
+<h4 id="TextView设置基础"><a href="#TextView设置基础" class="headerlink" title="TextView设置基础"></a>TextView设置基础</h4><p>通常给textView设置TextView的时候，会把string设置在xml中当做资源使用。例如下面的</p>
+<blockquote>
+<pre><code>&lt;string name=&quot;hello&quot;&gt;XXX，起床吃饭啦&lt;/string&gt;
+</code></pre></blockquote>
+<p>在程序中使用这个的话，就是XXX,起床吃饭啦。  但是有另外的需求，想要随时替换掉XXX，例如，张三，李四<br>这个时候可以使用占位符（我通常这么叫），用法如下：<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/10/TextView相关/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/10/php函数的参数/" itemprop="url">
+                  php函数的参数
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-10T21:51:05+08:00" content="2016-08-10">
+              2016-08-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>###PHP 函数参数的2种方式</p>
+<blockquote>
+<p>1）实参的值传给形参，形参的值变化不影响到实参的值，体现了函数的封装性。</p>
+<p>2）引用传值，这种方式函数内部的语句会影响到函数外部的变量，破坏了函数的封装性，不推介使用。</p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/10/php函数的参数/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -471,8 +734,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/10/RecycleView建立不同item/" itemprop="url">
-                  RecycleView建立不同item
+                <a class="post-title-link" href="/2016/08/10/shape打造圆形控件按钮/" itemprop="url">
+                  shape打造圆形控件按钮
                 </a>
               
             
@@ -533,253 +796,11 @@
 
       
         
-          <p>众所周知，现在recycleview也已经退出好久了。各种封装库也出现好多了。这里推荐下hongyang大神的。<br><a href="http://blog.csdn.net/lmj623565791/article/details/51854533" title="Android 优雅的为RecyclerView添加HeaderView和FooterView ">http://blog.csdn.net/lmj623565791/article/details/51854533</a></p>
-<p>这里是自己实现的一个小demo<br>
+          <p>Android Button Maker是一个可以在线生成按钮代码的工具。Android API提供了XML文件定义的几何形状的Drawable资源，包括颜色、边界和梯度。这些按钮的生成是基于drawable形态的XML代码，这样可以比普通的png按钮加载得更快。你可以在设置面板上自定义按钮的属性，然后获取其源码。</p>
+<p><a href="http://angrytools.com/android/button/">飞机票</a></p>
+<p>这里记录下<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/10/RecycleView建立不同item/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/10/一张图片做选择器/" itemprop="url">
-                  一张图片做选择器
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-10T21:51:05+08:00" content="2016-08-10">
-              2016-08-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/安卓/" itemprop="url" rel="index">
-                    <span itemprop="name">安卓</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>直接上图<br><img src="http://i.imgur.com/tTOia2U.gif" alt=""></p>
-<p>这里使用了selected的新的定义方式</p>
-<pre><code>&lt;ImageButton
-    android:button=&quot;@null&quot;
-    android:id=&quot;@+id/btn_click&quot;
-    android:layout_width=&quot;wrap_content&quot;
-    android:layout_height=&quot;wrap_content&quot;
-    android:background=&quot;@drawable/btn_evg_selestor&quot; /&gt;
-</code></pre>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/10/一张图片做选择器/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/10/viewPager-radiogroup实现关联/" itemprop="url">
-                  viewPager+radiogroup实现关联
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-10T21:51:05+08:00" content="2016-08-10">
-              2016-08-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/安卓/" itemprop="url" rel="index">
-                    <span itemprop="name">安卓</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>###实现viewpager跟radioGroup关联</p>
-<ul>
-<li>先看效果图<br>  <img src="http://i.imgur.com/vDnr4eb.gif" alt=""></li>
-</ul>
-<blockquote>
-<p>代码撸出来<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/10/viewPager-radiogroup实现关联/#more" rel="contents">
+            <a class="btn" href="/2016/08/10/shape打造圆形控件按钮/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
