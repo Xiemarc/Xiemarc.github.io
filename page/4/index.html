@@ -258,8 +258,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/10/viewPager-radiogroup实现关联/" itemprop="url">
-                  viewPager+radiogroup实现关联
+                <a class="post-title-link" href="/2016/08/10/shape打造圆形控件按钮/" itemprop="url">
+                  shape打造圆形控件按钮
                 </a>
               
             
@@ -320,14 +320,11 @@
 
       
         
-          <p>###实现viewpager跟radioGroup关联</p>
-<ul>
-<li>先看效果图<br>  <img src="http://i.imgur.com/vDnr4eb.gif" alt=""></li>
-</ul>
-<blockquote>
-<p>代码撸出来<br>
+          <p>Android Button Maker是一个可以在线生成按钮代码的工具。Android API提供了XML文件定义的几何形状的Drawable资源，包括颜色、边界和梯度。这些按钮的生成是基于drawable形态的XML代码，这样可以比普通的png按钮加载得更快。你可以在设置面板上自定义按钮的属性，然后获取其源码。</p>
+<p><a href="http://angrytools.com/android/button/">飞机票</a></p>
+<p>这里记录下<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/10/viewPager-radiogroup实现关联/#more" rel="contents">
+            <a class="btn" href="/2016/08/10/shape打造圆形控件按钮/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -378,8 +375,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/10/RecycleView建立不同item/" itemprop="url">
-                  RecycleView建立不同item
+                <a class="post-title-link" href="/2016/08/10/Fragment取消预加载/" itemprop="url">
+                  Fragment取消预加载
                 </a>
               
             
@@ -440,129 +437,25 @@
 
       
         
-          <p>众所周知，现在recycleview也已经退出好久了。各种封装库也出现好多了。这里推荐下hongyang大神的。<br><a href="http://blog.csdn.net/lmj623565791/article/details/51854533" title="Android 优雅的为RecyclerView添加HeaderView和FooterView ">http://blog.csdn.net/lmj623565791/article/details/51854533</a></p>
-<p>这里是自己实现的一个小demo<br>
+          <pre><code>public abstract class BaseFragment extends Fragment {
+
+
+protected boolean isViewInitiated;
+protected boolean isVisiableToUser;
+protected boolean isDataInitiated;
+
+@Override
+public void onCreate(@Nullable Bundle savedInstanceState) {
+    super.onCreate(savedInstanceState);
+}
+
+@Override
+public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+
+}
+</code></pre>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/10/RecycleView建立不同item/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/10/drawable动画以及CounterView计数/" itemprop="url">
-                  drawable动画以及CounterView计数
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-10T21:51:05+08:00" content="2016-08-10">
-              2016-08-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/安卓/" itemprop="url" rel="index">
-                    <span itemprop="name">安卓</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>照例：效果图</p>
-</blockquote>
-<p><img src="http://i.imgur.com/ZEoXES4.gif" alt=""></p>
-<p>###具体实现<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/10/drawable动画以及CounterView计数/#more" rel="contents">
+            <a class="btn" href="/2016/08/10/Fragment取消预加载/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -730,8 +623,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/10/加载3种状态/" itemprop="url">
-                  加载3种状态
+                <a class="post-title-link" href="/2016/08/10/一张图片做选择器/" itemprop="url">
+                  一张图片做选择器
                 </a>
               
             
@@ -792,15 +685,133 @@
 
       
         
-          <h3 id="基类LoadintPager（加载三种状态）"><a href="#基类LoadintPager（加载三种状态）" class="headerlink" title="基类LoadintPager（加载三种状态）"></a>基类LoadintPager（加载三种状态）</h3><p>通常都知道，android中一个页面的加载，无非三种状态：</p>
-<ul>
-<li>加载中</li>
-<li>加载成功 </li>
-<li>加载失败 </li>
-</ul>
-<p>当然，如果从网络获取数据，可能会出现数据为空的情况。这里也要考虑进去<br>具体看下截图</p>
+          <p>直接上图<br><img src="http://i.imgur.com/tTOia2U.gif" alt=""></p>
+<p>这里使用了selected的新的定义方式</p>
+<pre><code>&lt;ImageButton
+    android:button=&quot;@null&quot;
+    android:id=&quot;@+id/btn_click&quot;
+    android:layout_width=&quot;wrap_content&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:background=&quot;@drawable/btn_evg_selestor&quot; /&gt;
+</code></pre>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/10/加载3种状态/#more" rel="contents">
+            <a class="btn" href="/2016/08/10/一张图片做选择器/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/10/关于登陆/" itemprop="url">
+                  关于登陆
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-10T21:51:05+08:00" content="2016-08-10">
+              2016-08-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/安卓/" itemprop="url" rel="index">
+                    <span itemprop="name">安卓</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>#登录</p>
+<p>###javaweb中如何去维持登录状态<br>    1.登录后 信息放入 session中<br>    2.页面内验证session中是否有登录信息<br>    3.如果有,不需要再次登录<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/10/关于登陆/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -875,7 +886,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/">
-              <span class="site-state-item-count">32</span>
+              <span class="site-state-item-count">33</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
