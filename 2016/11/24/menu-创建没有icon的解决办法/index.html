@@ -84,40 +84,31 @@
 
 
 
-<meta name="description" content="public abstract class BaseFragment extends Fragment {
+<meta name="description" content="今天突然发现的一个问题，竟然不显示menu的icon图标了
 
+如下图
 
-protected boolean isViewInitiated;
-protected boolean isVisiableToUser;
-protected boolean isDataInitiated;
-
-@Override
-public void onCreate(@Nulla">
+最后在csdn上面找到了解决办法。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Fragment取消预加载">
-<meta property="og:url" content="http://yoursite.com/2016/08/10/Fragment取消预加载/index.html">
+<meta property="og:title" content="menu 创建没有icon的解决办法">
+<meta property="og:url" content="http://yoursite.com/2016/11/24/menu-创建没有icon的解决办法/index.html">
 <meta property="og:site_name" content="Marc |">
-<meta property="og:description" content="public abstract class BaseFragment extends Fragment {
+<meta property="og:description" content="今天突然发现的一个问题，竟然不显示menu的icon图标了
 
+如下图
 
-protected boolean isViewInitiated;
-protected boolean isVisiableToUser;
-protected boolean isDataInitiated;
-
-@Override
-public void onCreate(@Nulla">
-<meta property="og:updated_time" content="2016-09-07T13:11:26.110Z">
+最后在csdn上面找到了解决办法。">
+<meta property="og:image" content="http://ogrzkg62w.bkt.clouddn.com/222.png">
+<meta property="og:image" content="http://ogrzkg62w.bkt.clouddn.com/11111.png">
+<meta property="og:updated_time" content="2016-11-24T14:32:51.122Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Fragment取消预加载">
-<meta name="twitter:description" content="public abstract class BaseFragment extends Fragment {
+<meta name="twitter:title" content="menu 创建没有icon的解决办法">
+<meta name="twitter:description" content="今天突然发现的一个问题，竟然不显示menu的icon图标了
 
+如下图
 
-protected boolean isViewInitiated;
-protected boolean isVisiableToUser;
-protected boolean isDataInitiated;
-
-@Override
-public void onCreate(@Nulla">
+最后在csdn上面找到了解决办法。">
+<meta name="twitter:image" content="http://ogrzkg62w.bkt.clouddn.com/222.png">
 
 
 
@@ -138,9 +129,9 @@ public void onCreate(@Nulla">
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/08/10/Fragment取消预加载/"/>
+  <link rel="canonical" href="http://yoursite.com/2016/11/24/menu-创建没有icon的解决办法/"/>
 
-  <title> Fragment取消预加载 | Marc | </title>
+  <title> menu 创建没有icon的解决办法 | Marc | </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -280,7 +271,7 @@ public void onCreate(@Nulla">
             
             
               
-                Fragment取消预加载
+                menu 创建没有icon的解决办法
               
             
           </h1>
@@ -292,8 +283,8 @@ public void onCreate(@Nulla">
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-10T21:51:05+08:00" content="2016-08-10">
-              2016-08-10
+            <time itemprop="dateCreated" datetime="2016-11-24T22:32:13+08:00" content="2016-11-24">
+              2016-11-24
             </time>
           </span>
 
@@ -339,74 +330,43 @@ public void onCreate(@Nulla">
       
 
       
-        <pre><code>public abstract class BaseFragment extends Fragment {
-
-
-protected boolean isViewInitiated;
-protected boolean isVisiableToUser;
-protected boolean isDataInitiated;
-
-@Override
-public void onCreate(@Nullable Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-}
-
-@Override
-public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-}
-</code></pre><a id="more"></a>
-<pre><code>@Override
-public void onActivityCreated(Bundle savedInstanceState) {
-    super.onActivityCreated(savedInstanceState);
-    LogUtils.sf(getClass().getSimpleName() + &quot;onActivityCreated&quot;);
-    isViewInitiated = true;
-    prepareFetchData();
-}
-
-
-@Override
-public void setUserVisibleHint(boolean isVisibleToUser) {
-    super.setUserVisibleHint(isVisibleToUser);
-    LogUtils.sf(getClass().getSimpleName() + &quot;setVisiableToUser&quot; + &quot;==&quot; + isVisibleToUser);
-    this.isVisiableToUser = isVisibleToUser;
-    prepareFetchData();
-}
-
-
-public abstract void fetchData();
-
-public boolean prepareFetchData() {
-    boolean b = prepareFetchData(false);
-    return b;
-}
-
-/**
- * 是否预加载
- *
- * @param forceUpdate
- * @return
- */
-public boolean prepareFetchData(boolean forceUpdate) {
-    if (isVisiableToUser &amp;&amp; isViewInitiated &amp;&amp; (!isDataInitiated || forceUpdate)) {
-        fetchData();
-        isDataInitiated = true;
+        <ul>
+<li>今天突然发现的一个问题，竟然不显示menu的icon图标了</li>
+</ul>
+<p>如下图</p>
+<p><img src="http://ogrzkg62w.bkt.clouddn.com/222.png" alt=""></p>
+<p>最后在csdn上面找到了解决办法。</p>
+<a id="more"></a>
+<p><a href="http://blog.csdn.net/heisejiuhuche/article/details/46653999" title="飞机票" target="_blank" rel="external">http://blog.csdn.net/heisejiuhuche/article/details/46653999</a></p>
+<pre><code> @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+//        setIconsVisible(menu,true);
+        getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
-    return false;
-}
 
-
+    /**
+     * 解决menu不显示图标问题
+     * @param menu
+     * @param flag
+     */
+    private void setIconsVisible(Menu menu, boolean flag) {
+        //判断menu是否为空
+        if(menu != null) {
+            try {
+                //如果不为空,就反射拿到menu的setOptionalIconsVisible方法
+                Method method = menu.getClass().getDeclaredMethod(&quot;setOptionalIconsVisible&quot;, Boolean.TYPE);
+                //暴力访问该方法
+                method.setAccessible(true);
+                //调用该方法显示icon
+                method.invoke(menu, flag);
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+        }
     }
-</code></pre><p>###接下来在子类实现</p>
-<pre><code>  /**
- * 主动加载数据
- */
-@Override
-public void fetchData() {
-   //加载网络数据
-}
-</code></pre>
+</code></pre><p><img src="http://ogrzkg62w.bkt.clouddn.com/11111.png" alt=""></p>
+
       
     </div>
 
@@ -437,17 +397,13 @@ public void fetchData() {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/08/10/my-new-post/" rel="next" title="关于线程池">
-                <i class="fa fa-chevron-left"></i> 关于线程池
+              <a href="/2016/11/08/自定义圆形dialog/" rel="next" title="自定义圆形dialog">
+                <i class="fa fa-chevron-left"></i> 自定义圆形dialog
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/08/10/TextView相关/" rel="prev" title="TextView相关">
-                TextView相关 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
