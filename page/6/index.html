@@ -258,125 +258,6 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/10/自定义view——实现半圆形进度条/" itemprop="url">
-                  自定义view——实现半圆形进度条
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-10T21:51:05+08:00" content="2016-08-10">
-              2016-08-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/安卓/" itemprop="url" rel="index">
-                    <span itemprop="name">安卓</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>图表控件很多，这个多少能跟图表控件扯上边吧。<br>废话不多说，看图：<br><img src="http://img.blog.csdn.net/20160630085842248" alt="这里写图片描述"></p>
-<blockquote>
-<p>上面可以看到效果，支持各种自定义，支持点击</p>
-</blockquote>
-<p>这里没有用到 自定义属性。有兴趣的可以自己设置下。直接看代码<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/10/自定义view——实现半圆形进度条/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
                 <a class="post-title-link" href="/2016/08/10/自定义下载圆形按钮/" itemprop="url">
                   自定义下载圆形按钮
                 </a>
@@ -492,8 +373,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/10/自定义view实现下载进度button/" itemprop="url">
-                  自定义view实现下载进度button
+                <a class="post-title-link" href="/2016/08/10/自定义view/" itemprop="url">
+                  自定义view
                 </a>
               
             
@@ -554,9 +435,10 @@
 
       
         
-          <p>先看效果图<br><img src="http://img.blog.csdn.net/20160719135153025" alt="marc专属"><br>
+          <ul>
+<li>首先需要我们知道android的控件架构：<br><img src="http://img.blog.csdn.net/20160527095450125" alt="这里写图片描述">
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/10/自定义view实现下载进度button/#more" rel="contents">
+            <a class="btn" href="/2016/08/10/自定义view/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -607,8 +489,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/10/TextView相关/" itemprop="url">
-                  TextView相关
+                <a class="post-title-link" href="/2016/08/10/java排序/" itemprop="url">
+                  java排序
                 </a>
               
             
@@ -669,133 +551,266 @@
 
       
         
-          <p>###对于textView，大家肯定熟悉的不能再熟悉了。</p>
-<h4 id="TextView设置基础"><a href="#TextView设置基础" class="headerlink" title="TextView设置基础"></a>TextView设置基础</h4><p>通常给textView设置TextView的时候，会把string设置在xml中当做资源使用。例如下面的</p>
+          <p>java中对集合排序的方法提供了2种方式。</p>
+<p>######这里使用的集合</p>
+<pre><code>final List&lt;TestNumModel&gt; list = new ArrayList&lt;&gt;();
+</code></pre><ol>
+<li><p>使用的时候传入比较器</p>
+<pre><code>private class Sort implements Comparator&lt;TestNumModel&gt; {
+    public Sort() {
+    }
+
+    public int compare(TestNumModel tl1, TestNumModel tl2) {
+        if (tl1.getNum() &lt; tl2.getNum())
+            return -1;
+        else if (tl1.getTimePoint() &gt; tl2.getTimePoint())
+            return 1;
+        else
+            return 0;
+        }
+    }
+</code></pre><p> 使用</p>
+<pre><code>Collections.sort(list,new Sort());
+</code></pre>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/10/java排序/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/10/自定义轮播图/" itemprop="url">
+                  自定义轮播图
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-10T21:51:05+08:00" content="2016-08-10">
+              2016-08-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/安卓/" itemprop="url" rel="index">
+                    <span itemprop="name">安卓</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>先看效果图：</p>
+<h3 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h3><p>viewpager +handler  实现</p>
+<ul>
+<li><p>首先定义一个类集成自Runnalbe </p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/10/自定义轮播图/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/10/自定义view——实现半圆形进度条/" itemprop="url">
+                  自定义view——实现半圆形进度条
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-10T21:51:05+08:00" content="2016-08-10">
+              2016-08-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/安卓/" itemprop="url" rel="index">
+                    <span itemprop="name">安卓</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>图表控件很多，这个多少能跟图表控件扯上边吧。<br>废话不多说，看图：<br><img src="http://img.blog.csdn.net/20160630085842248" alt="这里写图片描述"></p>
 <blockquote>
-<pre><code>&lt;string name=&quot;hello&quot;&gt;XXX，起床吃饭啦&lt;/string&gt;
-</code></pre></blockquote>
-<p>在程序中使用这个的话，就是XXX,起床吃饭啦。  但是有另外的需求，想要随时替换掉XXX，例如，张三，李四<br>这个时候可以使用占位符（我通常这么叫），用法如下：<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/10/TextView相关/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/10/drawable动画以及CounterView计数/" itemprop="url">
-                  drawable动画以及CounterView计数
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-10T21:51:05+08:00" content="2016-08-10">
-              2016-08-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/安卓/" itemprop="url" rel="index">
-                    <span itemprop="name">安卓</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <blockquote>
-<p>照例：效果图</p>
+<p>上面可以看到效果，支持各种自定义，支持点击</p>
 </blockquote>
-<p><img src="http://i.imgur.com/ZEoXES4.gif" alt=""></p>
-<p>###具体实现<br>
+<p>这里没有用到 自定义属性。有兴趣的可以自己设置下。直接看代码<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/10/drawable动画以及CounterView计数/#more" rel="contents">
+            <a class="btn" href="/2016/08/10/自定义view——实现半圆形进度条/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -870,7 +885,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/">
-              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -953,7 +968,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

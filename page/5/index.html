@@ -258,8 +258,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/10/圆形imageview以及Blur实现/" itemprop="url">
-                  圆形imageview以及Blur实现
+                <a class="post-title-link" href="/2016/08/10/使用权重实现柱形图/" itemprop="url">
+                  使用权重实现柱形图
                 </a>
               
             
@@ -320,10 +320,11 @@
 
       
         
-          <p>###圆形Imageview以及Blur<br>首先效果图</p>
-<p><img src="http://i.imgur.com/cQ2vE7e.gif" alt=""><br><img src="http://i.imgur.com/tbZqygR.gif" alt=""><br>
+          <p>先上图<br><img src="http://img.blog.csdn.net/20160624103852147" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20160624103948513" alt="这里写图片描述"></p>
+<p><strong>这里面的横向和竖向的都是使用权重实现的，一会会把代码贴出来，下面的那个viewpager是拽网上的</strong></p>
+<h3 id="横向柱形图的实现"><a href="#横向柱形图的实现" class="headerlink" title="横向柱形图的实现"></a>横向柱形图的实现</h3><p>这里使用RecycleView实现的。其中item布局是关键。需要依据权重。不多说，直接上代码<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/10/圆形imageview以及Blur实现/#more" rel="contents">
+            <a class="btn" href="/2016/08/10/使用权重实现柱形图/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -374,8 +375,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/10/加载3种状态/" itemprop="url">
-                  加载3种状态
+                <a class="post-title-link" href="/2016/08/10/TextView相关/" itemprop="url">
+                  TextView相关
                 </a>
               
             
@@ -436,131 +437,14 @@
 
       
         
-          <h3 id="基类LoadintPager（加载三种状态）"><a href="#基类LoadintPager（加载三种状态）" class="headerlink" title="基类LoadintPager（加载三种状态）"></a>基类LoadintPager（加载三种状态）</h3><p>通常都知道，android中一个页面的加载，无非三种状态：</p>
-<ul>
-<li>加载中</li>
-<li>加载成功 </li>
-<li>加载失败 </li>
-</ul>
-<p>当然，如果从网络获取数据，可能会出现数据为空的情况。这里也要考虑进去<br>具体看下截图</p>
+          <p>###对于textView，大家肯定熟悉的不能再熟悉了。</p>
+<h4 id="TextView设置基础"><a href="#TextView设置基础" class="headerlink" title="TextView设置基础"></a>TextView设置基础</h4><p>通常给textView设置TextView的时候，会把string设置在xml中当做资源使用。例如下面的</p>
+<blockquote>
+<pre><code>&lt;string name=&quot;hello&quot;&gt;XXX，起床吃饭啦&lt;/string&gt;
+</code></pre></blockquote>
+<p>在程序中使用这个的话，就是XXX,起床吃饭啦。  但是有另外的需求，想要随时替换掉XXX，例如，张三，李四<br>这个时候可以使用占位符（我通常这么叫），用法如下：<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/10/加载3种状态/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/10/接口和自定义观察者模式/" itemprop="url">
-                  接口和自定义观察者模式
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-10T21:51:05+08:00" content="2016-08-10">
-              2016-08-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/安卓/" itemprop="url" rel="index">
-                    <span itemprop="name">安卓</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>###接口回调、自定义观察者模式和EvnetBus</p>
-<p>众所周知，android中经常要用到activity、fragment中互相传递参数。或者framgent中的数据改变，另外的fragment或者activity中需要跟着改变。这个时候 通常都会用接口的方式实现。<br>        }<br>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/10/接口和自定义观察者模式/#more" rel="contents">
+            <a class="btn" href="/2016/08/10/TextView相关/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -707,8 +591,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/10/自定义view/" itemprop="url">
-                  自定义view
+                <a class="post-title-link" href="/2016/08/10/圆形imageview以及Blur实现/" itemprop="url">
+                  圆形imageview以及Blur实现
                 </a>
               
             
@@ -769,10 +653,126 @@
 
       
         
-          <ul>
-<li>首先需要我们知道android的控件架构：<br><img src="http://img.blog.csdn.net/20160527095450125" alt="这里写图片描述">
+          <p>###圆形Imageview以及Blur<br>首先效果图</p>
+<p><img src="http://i.imgur.com/cQ2vE7e.gif" alt=""><br><img src="http://i.imgur.com/tbZqygR.gif" alt=""><br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/10/自定义view/#more" rel="contents">
+            <a class="btn" href="/2016/08/10/圆形imageview以及Blur实现/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/10/接口和自定义观察者模式/" itemprop="url">
+                  接口和自定义观察者模式
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-10T21:51:05+08:00" content="2016-08-10">
+              2016-08-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/安卓/" itemprop="url" rel="index">
+                    <span itemprop="name">安卓</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>###接口回调、自定义观察者模式和EvnetBus</p>
+<p>众所周知，android中经常要用到activity、fragment中互相传递参数。或者framgent中的数据改变，另外的fragment或者activity中需要跟着改变。这个时候 通常都会用接口的方式实现。<br>        }<br>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/10/接口和自定义观察者模式/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -847,7 +847,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/">
-              <span class="site-state-item-count">33</span>
+              <span class="site-state-item-count">34</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
@@ -930,7 +930,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2016</span>
+  <span itemprop="copyrightYear">2017</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>

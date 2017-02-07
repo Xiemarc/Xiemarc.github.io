@@ -84,19 +84,22 @@
 
 
 
-<meta name="description" content="###自定义弹出圆角框不多说，直接上效果图">
+<meta name="description" content="热更新技术我这里使用没有使用阿里巴巴的黑科技，腾讯的之类的。
+首先看效果图">
 <meta property="og:type" content="article">
-<meta property="og:title" content="自定义圆形dialog">
-<meta property="og:url" content="http://yoursite.com/2016/11/08/自定义圆形dialog/index.html">
+<meta property="og:title" content="热更新实践">
+<meta property="og:url" content="http://yoursite.com/2017/02/07/热更新实践/index.html">
 <meta property="og:site_name" content="Marc |">
-<meta property="og:description" content="###自定义弹出圆角框不多说，直接上效果图">
-<meta property="og:image" content="http://i.imgur.com/Qy2k8dE.png">
-<meta property="og:image" content="http://i.imgur.com/9OXgMkC.png">
-<meta property="og:updated_time" content="2016-11-08T13:06:20.083Z">
+<meta property="og:description" content="热更新技术我这里使用没有使用阿里巴巴的黑科技，腾讯的之类的。
+首先看效果图">
+<meta property="og:image" content="http://ogrzkg62w.bkt.clouddn.com/%E7%83%AD%E6%9B%B4%E6%96%B0%E6%8F%90%E7%A4%BA%E9%94%99%E8%AF%AF.png">
+<meta property="og:image" content="http://ogrzkg62w.bkt.clouddn.com/%E6%AD%A3%E5%B8%B8.png">
+<meta property="og:updated_time" content="2017-02-07T11:29:12.464Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="自定义圆形dialog">
-<meta name="twitter:description" content="###自定义弹出圆角框不多说，直接上效果图">
-<meta name="twitter:image" content="http://i.imgur.com/Qy2k8dE.png">
+<meta name="twitter:title" content="热更新实践">
+<meta name="twitter:description" content="热更新技术我这里使用没有使用阿里巴巴的黑科技，腾讯的之类的。
+首先看效果图">
+<meta name="twitter:image" content="http://ogrzkg62w.bkt.clouddn.com/%E7%83%AD%E6%9B%B4%E6%96%B0%E6%8F%90%E7%A4%BA%E9%94%99%E8%AF%AF.png">
 
 
 
@@ -117,9 +120,9 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/11/08/自定义圆形dialog/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/02/07/热更新实践/"/>
 
-  <title> 自定义圆形dialog | Marc | </title>
+  <title> 热更新实践 | Marc | </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -259,7 +262,7 @@
             
             
               
-                自定义圆形dialog
+                热更新实践
               
             
           </h1>
@@ -271,8 +274,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-08T21:05:35+08:00" content="2016-11-08">
-              2016-11-08
+            <time itemprop="dateCreated" datetime="2017-02-07T19:28:04+08:00" content="2017-02-07">
+              2017-02-07
             </time>
           </span>
 
@@ -318,125 +321,223 @@
       
 
       
-        <p>###自定义弹出圆角框<br>不多说，直接上效果图</p>
-<p><img src="http://i.imgur.com/Qy2k8dE.png" alt=""><br><img src="http://i.imgur.com/9OXgMkC.png" alt=""></p>
+        <p>热更新技术<br>我这里使用没有使用阿里巴巴的黑科技，腾讯的之类的。</p>
+<p>首先看效果图</p>
 <a id="more"></a>
-<p>关键代码：</p>
+<ul>
+<li>出现错误界面</li>
+</ul>
+<p><img src="http://ogrzkg62w.bkt.clouddn.com/%E7%83%AD%E6%9B%B4%E6%96%B0%E6%8F%90%E7%A4%BA%E9%94%99%E8%AF%AF.png" alt=""></p>
+<ul>
+<li>正常界面 弹出toast。</li>
+</ul>
+<p><img src="http://ogrzkg62w.bkt.clouddn.com/%E6%AD%A3%E5%B8%B8.png" alt=""></p>
+<ul>
+<li>详细看demo中的代码</li>
+</ul>
 <ol>
-<li><p>在自己的style中定义一个style</p>
-<pre><code>&lt;!--弹出时间选择的dialog背景--&gt;
-&lt;style name=&quot;mydialog&quot; parent=&quot;android:style/Theme.Dialog&quot;&gt;
-    &lt;!-- 背景透明 --&gt;
-    &lt;item name=&quot;android:windowBackground&quot;&gt;@android:color/transparent&lt;/item&gt;
-    &lt;!-- 没有标题 --&gt;
-    &lt;item name=&quot;android:windowNoTitle&quot;&gt;true&lt;/item&gt;
-    &lt;!-- 背景模糊 --&gt;
-    &lt;item name=&quot;android:backgroundDimEnabled&quot;&gt;true&lt;/item&gt;
-&lt;/style&gt;
-</code></pre></li>
-<li><p>编写自定义dialog类，继承自dialog</p>
-<pre><code>/**
- * 描述： 选择日期时间类
- * 作者：Marc on 2016/11/3 13:56
- * 邮箱：aliali_ha@yeah.net
- */
-public class MyTimePickerDialog extends Dialog {
+<li>首先是Test类。很简单。就是个测试，故意出错报个错误</li>
+</ol>
+<pre><code>public class Test {
+    public static void show(Context context) {
+        int i = 10;
+        //这里过一会 会把j的值改成1。这样子就正确
+        int j = 0;
 
-    private TextView positiveButton, negativeButton;
-    private View view;
-    private WLQQTimePicker timePickerStart;
-    private Display display;
+        Toast.makeText(context, &quot;shit:&quot; + i / j, Toast.LENGTH_SHORT).show();
+        }
+}
+</code></pre><ol>
+<li><p>Activity的代码,具体作用会在下面写出来</p>
+<pre><code>public class FixDesActivity extends AppCompatActivity {
 
-    public MyTimePickerDialog(Context context) {
-        super(context, R.style.mydialog);
-        WindowManager windowManager = (WindowManager) context
-                .getSystemService(Context.WINDOW_SERVICE);
-        display = windowManager.getDefaultDisplay();
-        view = LayoutInflater.from(getContext()).inflate(R.layout.item_timepicker, null);
-        LinearLayout lLayout_bg = (LinearLayout) view.findViewById(R.id.lLayout_bg);
-        timePickerStart = (WLQQTimePicker) view.findViewById(R.id.timepicker);
-        positiveButton = (TextView) view.findViewById(R.id.confirm);
-        negativeButton = (TextView) view.findViewById(R.id.cancel);
-        timePickerStart.setDate(new Date().getTime());
-        setContentView(view);
-        // 调整dialog背景大小
-        lLayout_bg.setLayoutParams(new FrameLayout.LayoutParams((int) (display
-                .getWidth() * 0.85), LinearLayout.LayoutParams.WRAP_CONTENT, Gravity.CENTER));
-
+    @Override
+    protected void onCreate(@Nullable Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_fix);
     }
 </code></pre></li>
 </ol>
-<pre><code>    //确定按钮监听
-    public MyTimePickerDialog setOnPositiveListener(View.OnClickListener listener) {
-        positiveButton.setOnClickListener(listener);
-        return this;
-    }
+<pre><code>    public void inject(View view) {
+        // 无bug的classes2.dex文件存放地址
+        String sourceFile = Environment.getExternalStorageDirectory().getAbsolutePath() + File.separator
+                + &quot;classes2.dex&quot;;
+        // 系统的私有目录
+        String targetFile = this.getDir(&quot;odex&quot;, Context.MODE_PRIVATE).getAbsolutePath() + File.separator
+                + &quot;classes2.dex&quot;;
+        try {
+            // 复制文件到私有目录
+            FileUtils.copyFile(sourceFile, targetFile);
 
-    public WLQQTimePicker getTimePicker() {
-        if (timePickerStart != null) {
-            return timePickerStart;
+            // 加载.dex文件
+            FixDexUtils.loadFixDex(this.getApplication());
+
+        } catch (Exception e) {
+            e.printStackTrace();
         }
-        return null;
     }
 
-    /**
-     * 取消监听按钮
-     *
-     * @param listener
-     */
-    public MyTimePickerDialog setOnNegativeListener(View.OnClickListener listener) {
-        negativeButton.setOnClickListener(listener);
-        return this;
+    public void test(View view) {
+        Test.show(this);
     }
 }
 </code></pre><ol>
-<li>其中view的布局</li>
+<li>FixDexUtils类的代码</li>
 </ol>
-<pre><code>&lt;LinearLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-    android:id=&quot;@+id/lLayout_bg&quot;
-    android:layout_width=&quot;match_parent&quot;
-    android:layout_height=&quot;wrap_content&quot;
-    android:layout_gravity=&quot;center&quot;
-    android:background=&quot;@drawable/time_bg&quot;
-    android:gravity=&quot;center&quot;
-    android:orientation=&quot;vertical&quot;&gt;
+<pre><code>public class FixDexUtils {
 
-    &lt;!-- 这里要注意，wrap_content，会显示不出来，
-        我这里显示出来时因为我的WLQQTimePicker里面也加载的布局给定了个具体高度值--&gt;
+    private static HashSet&lt;File&gt; loadedDex = new HashSet&lt;File&gt;();
 
-    &lt;com.marc.aatmonitol.widget.WLQQTimePicker
-        android:id=&quot;@+id/timepicker&quot;
-        android:layout_width=&quot;match_parent&quot;
-        android:layout_height=&quot;wrap_content&quot; /&gt;
-&lt;/LinearLayout&gt;
-</code></pre><ol>
-<li><p>圆角drawable</p>
-<pre><code>&lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
-&lt;shape xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
-    android:shape=&quot;rectangle&quot;&gt;
-    &lt;solid android:color=&quot;@android:color/white&quot; /&gt;
-    &lt;corners android:radius=&quot;14dp&quot; /&gt;
-&lt;/shape&gt;
-</code></pre></li>
-<li><p>使用</p>
-<pre><code>dialog = new MyTimePickerDialog(MissonContainerActivity.this);
-            dialog.setCanceledOnTouchOutside(false);//外部不能取消
-            dialog.setOnNegativeListener(v -&gt;
-                    dialog.dismiss()
-            ).setOnPositiveListener(v -&gt; {
-                endTime = dialog.getTimePicker().getmPickerTitle().getText().toString();
-                showToast(endTime);
-                tvMissionEndTime.setText(endTime);
-                dialog.dismiss();
-            }).show();
-</code></pre></li>
+    static {
+        loadedDex.clear();
+    }
+
+    public static void loadFixDex(Context context) {
+        // 获取到系统的odex 目录
+        File fileDir = context.getDir(&quot;odex&quot;, Context.MODE_PRIVATE);
+        File[] listFiles = fileDir.listFiles();
+
+        for (File file : listFiles) {
+            if (file.getName().endsWith(&quot;.dex&quot;)) {
+                //存储该目录下的.dex结尾的文件(补丁)
+                loadedDex.add(file);
+            }
+        }
+        doDexInject(context, fileDir);
+    }
+
+    /**
+     * 合并之前的apk
+     *
+     * @param context
+     * @param fileDir
+     */
+    private static void doDexInject(Context context, File fileDir) {
+        // .dex 的加载需要一个临时目录
+        String optimizeDir = fileDir.getAbsolutePath() + File.separator + &quot;opt_dex&quot;;
+        File fopt = new File(optimizeDir);
+        if (!fopt.exists()) {
+            fopt.mkdirs();
+        }
+        //加载应用程序的dex
+        // 根据.dex 文件创建对应的DexClassLoader 类
+        for (File file : loadedDex) {
+            DexClassLoader classLoader = new DexClassLoader(file.getAbsolutePath()
+                    , fopt.getAbsolutePath(), null, context.getClassLoader());
+            inject(classLoader, context);
+        }
+    }
+
+    private static void inject(DexClassLoader classLoader, Context context) {
+        // 获取到系统的DexClassLoader 类
+        PathClassLoader pathLoader = (PathClassLoader) context.getClassLoader();
+        try {
+            // 分别获取到补丁的dexElements和系统的dexElements
+            Object dexElements = combineArray(getDexElements(getPathList(classLoader)),
+                    getDexElements(getPathList(pathLoader)));
+            // 获取到系统的pathList 对象
+            Object pathList = getPathList(pathLoader);
+            // 设置系统的dexElements 的值
+            setField(pathList, pathList.getClass(), &quot;dexElements&quot;, dexElements);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    }
+
+    /**
+     * 通过反射设置字段值
+     */
+    private static void setField(Object obj, Class&lt;?&gt; cl, String field, Object value)
+            throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
+
+        Field localField = cl.getDeclaredField(field);
+        localField.setAccessible(true);
+        localField.set(obj, value);
+    }
+
+    /**
+     * 通过反射获取 BaseDexClassLoader中的PathList对象
+     */
+    private static Object getPathList(Object baseDexClassLoader)
+            throws IllegalArgumentException, NoSuchFieldException, IllegalAccessException, ClassNotFoundException {
+        return getField(baseDexClassLoader, Class.forName(&quot;dalvik.system.BaseDexClassLoader&quot;), &quot;pathList&quot;);
+    }
+
+    /**
+     * 通过反射获取指定字段的值
+     */
+    private static Object getField(Object obj, Class&lt;?&gt; cl, String field)
+            throws NoSuchFieldException, IllegalArgumentException, IllegalAccessException {
+        Field localField = cl.getDeclaredField(field);
+        localField.setAccessible(true);
+        return localField.get(obj);
+    }
+
+    /**
+     * 通过反射获取DexPathList中dexElements
+     */
+    private static Object getDexElements(Object paramObject)
+            throws IllegalArgumentException, NoSuchFieldException, IllegalAccessException {
+        return getField(paramObject, paramObject.getClass(), &quot;dexElements&quot;);
+    }
+
+
+    /**
+     * 合并两个数组
+     *
+     * @param arrayLhs
+     * @param arrayRhs
+     * @return
+     */
+    private static Object combineArray(Object arrayLhs, Object arrayRhs) {
+        Class&lt;?&gt; localClass = arrayLhs.getClass().getComponentType();
+        int i = Array.getLength(arrayLhs);
+        int j = i + Array.getLength(arrayRhs);
+        Object result = Array.newInstance(localClass, j);
+        for (int k = 0; k &lt; j; ++k) {
+            if (k &lt; i) {
+                Array.set(result, k, Array.get(arrayLhs, k));
+            } else {
+                Array.set(result, k, Array.get(arrayRhs, k - i));
+            }
+        }
+        return result;
+    }
+}    
+</code></pre><h3 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h3><p>这里先说下 热更新吧</p>
+<p>通常的技术有</p>
+<ul>
+<li><p>阿里巴巴的黑科技</p>
+<p>  底层c入手。杀到进程加载的类二进制数据，把内存里面的二进制数据修改。Dexposed、andfix这些。</p>
+</li>
+<li><p>腾讯的开源tinker</p>
+<p>  基于android和java的类加载机制入手<br>  ClassLoader—-&gt; .class文件</p>
+</li>
+</ul>
+<p>######这里就得知道android是如果加载classes.dex文件的</p>
+<p>dalvik虚拟机：</p>
+<p>PathClassLoader</p>
+<p>用来加载应用程序的dex</p>
+<p>DexClassLoader可以用来加载指定的某些dex文件</p>
+<p>android studio中使用的 instant run  使用的就是。</p>
+<p>####接下来就明白了。当用户手机上的版本出现问题时。程序员在修改好之后。拿到没问题的版本的 class打包成class.dex文件，发送到用户客户端。把classes2.dex加载dexElements(DexPathList中)。就达到目的了</p>
+<ul>
+<li>上面的也就是使用步骤了.</li>
+</ul>
+<ol>
+<li><p>错误客户端在客户手机上面。</p>
+</li>
+<li><p>修改成功后，把class2.dex放到服务器，客户端下载该文件。</p>
+</li>
+<li><p>客户端下载完成后，执行方法实现热更新。</p>
+</li>
 </ol>
-<hr>
-<blockquote>
-<p>第二章图显示的是recycleivew加4个edittext，每个editeext不抢夺焦点，主要给每个editext设置<br>android:focusable=”true”</p>
-<p>android:focusableInTouchMode=”true”</p>
-<p>这2个属性</p>
-</blockquote>
+<p>对应到我的demo中就是把</p>
+<ol>
+<li>test方法中的j=0， 出现除0异常</li>
+<li>下载这一步直接手动放到sd卡的根目录了。这里其实应该放到包目录下。也无所谓了。然后进入app，点击inject。实现替换。</li>
+<li>再点击test。正常谈toast。</li>
+</ol>
 
       
     </div>
@@ -468,17 +569,13 @@ public class MyTimePickerDialog extends Dialog {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/08/android一些优化/" rel="next" title="android一些优化">
-                <i class="fa fa-chevron-left"></i> android一些优化
+              <a href="/2016/11/24/自定义观察者模式实现对状态的监听/" rel="next" title="自定义观察者模式实现对状态的监听">
+                <i class="fa fa-chevron-left"></i> 自定义观察者模式实现对状态的监听
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2016/11/24/menu-创建没有icon的解决办法/" rel="prev" title="menu 创建没有icon的解决办法">
-                menu 创建没有icon的解决办法 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -621,7 +718,7 @@ public class MyTimePickerDialog extends Dialog {
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#原理"><span class="nav-number">1.</span> <span class="nav-text">原理</span></a></li></ol></div>
             
           </div>
         </section>
