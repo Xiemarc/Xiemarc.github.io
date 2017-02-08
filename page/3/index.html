@@ -258,8 +258,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/10/使用权重实现柱形图/" itemprop="url">
-                  使用权重实现柱形图
+                <a class="post-title-link" href="/2016/09/07/phpStrom配置服务器以及调试/" itemprop="url">
+                  phpStrom配置服务器以及调试
                 </a>
               
             
@@ -272,8 +272,8 @@
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-10T21:51:05+08:00" content="2016-08-10">
-              2016-08-10
+            <time itemprop="dateCreated" datetime="2016-09-07T20:04:09+08:00" content="2016-09-07">
+              2016-09-07
             </time>
           </span>
 
@@ -286,8 +286,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/安卓/" itemprop="url" rel="index">
-                    <span itemprop="name">安卓</span>
+                  <a href="/categories/JAVA/" itemprop="url" rel="index">
+                    <span itemprop="name">JAVA</span>
                   </a>
                 </span>
 
@@ -320,11 +320,14 @@
 
       
         
-          <p>先上图<br><img src="http://img.blog.csdn.net/20160624103852147" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20160624103948513" alt="这里写图片描述"></p>
-<p><strong>这里面的横向和竖向的都是使用权重实现的，一会会把代码贴出来，下面的那个viewpager是拽网上的</strong></p>
-<h3 id="横向柱形图的实现"><a href="#横向柱形图的实现" class="headerlink" title="横向柱形图的实现"></a>横向柱形图的实现</h3><p>这里使用RecycleView实现的。其中item布局是关键。需要依据权重。不多说，直接上代码<br>
+          <ul>
+<li>这里使用的是WAMP 集成环境</li>
+</ul>
+<hr>
+<ol>
+<li>大多数第一次使用PhpStorm的都会出现在phpstorm写完代码，一点旁边浏览器看效果的时候，浏览器提示<br>502 Bad Gateway。。。phpstorm也提示<strong>configure PHP Interpreter</strong>的提示。解决就是
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/10/使用权重实现柱形图/#more" rel="contents">
+            <a class="btn" href="/2016/09/07/phpStrom配置服务器以及调试/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -375,8 +378,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/10/my-new-post/" itemprop="url">
-                  关于线程池
+                <a class="post-title-link" href="/2016/08/10/加载3种状态/" itemprop="url">
+                  加载3种状态
                 </a>
               
             
@@ -437,14 +440,15 @@
 
       
         
-          <p>##线程的运行机制</p>
-<blockquote>
+          <h3 id="基类LoadintPager（加载三种状态）"><a href="#基类LoadintPager（加载三种状态）" class="headerlink" title="基类LoadintPager（加载三种状态）"></a>基类LoadintPager（加载三种状态）</h3><p>通常都知道，android中一个页面的加载，无非三种状态：</p>
 <ul>
-<li>开启线程过多,会消耗cpu</li>
-<li>单核cpu,同一时刻只能处理一个线程,多核cpu同一时刻可以处理多个线程</li>
-<li>操作系统为每个运行线程安排一定的CPU时间—-<code>时间片</code>,系统通过一种循环的方式为线程提供时间片,线程在自己的时间内运行,因为时间相当短,多个线程频繁地发生切换,因此给用户的感觉就是好像多个线程同时运行一样,但是如果计算机有多个CPU,线程就能真正意义上的同时运行了.<br><img src="img/thread1.png" alt="">
+<li>加载中</li>
+<li>加载成功 </li>
+<li>加载失败 </li>
+</ul>
+<p>当然，如果从网络获取数据，可能会出现数据为空的情况。这里也要考虑进去<br>具体看下截图</p>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/10/my-new-post/#more" rel="contents">
+            <a class="btn" href="/2016/08/10/加载3种状态/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -495,8 +499,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/10/php函数的参数/" itemprop="url">
-                  php函数的参数
+                <a class="post-title-link" href="/2016/08/10/RecycleView建立不同item/" itemprop="url">
+                  RecycleView建立不同item
                 </a>
               
             
@@ -523,8 +527,8 @@
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP</span>
+                  <a href="/categories/安卓/" itemprop="url" rel="index">
+                    <span itemprop="name">安卓</span>
                   </a>
                 </span>
 
@@ -557,13 +561,10 @@
 
       
         
-          <p>###PHP 函数参数的2种方式</p>
-<blockquote>
-<p>1）实参的值传给形参，形参的值变化不影响到实参的值，体现了函数的封装性。</p>
-<p>2）引用传值，这种方式函数内部的语句会影响到函数外部的变量，破坏了函数的封装性，不推介使用。</p>
-</blockquote>
+          <p>众所周知，现在recycleview也已经退出好久了。各种封装库也出现好多了。这里推荐下hongyang大神的。<br><a href="http://blog.csdn.net/lmj623565791/article/details/51854533" title="Android 优雅的为RecyclerView添加HeaderView和FooterView ">http://blog.csdn.net/lmj623565791/article/details/51854533</a></p>
+<p>这里是自己实现的一个小demo<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/10/php函数的参数/#more" rel="contents">
+            <a class="btn" href="/2016/08/10/RecycleView建立不同item/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -731,8 +732,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/10/RecycleView建立不同item/" itemprop="url">
-                  RecycleView建立不同item
+                <a class="post-title-link" href="/2016/08/10/一张图片做选择器/" itemprop="url">
+                  一张图片做选择器
                 </a>
               
             
@@ -793,10 +794,17 @@
 
       
         
-          <p>众所周知，现在recycleview也已经退出好久了。各种封装库也出现好多了。这里推荐下hongyang大神的。<br><a href="http://blog.csdn.net/lmj623565791/article/details/51854533" title="Android 优雅的为RecyclerView添加HeaderView和FooterView ">http://blog.csdn.net/lmj623565791/article/details/51854533</a></p>
-<p>这里是自己实现的一个小demo<br>
+          <p>直接上图<br><img src="http://i.imgur.com/tTOia2U.gif" alt=""></p>
+<p>这里使用了selected的新的定义方式</p>
+<pre><code>&lt;ImageButton
+    android:button=&quot;@null&quot;
+    android:id=&quot;@+id/btn_click&quot;
+    android:layout_width=&quot;wrap_content&quot;
+    android:layout_height=&quot;wrap_content&quot;
+    android:background=&quot;@drawable/btn_evg_selestor&quot; /&gt;
+</code></pre>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/10/RecycleView建立不同item/#more" rel="contents">
+            <a class="btn" href="/2016/08/10/一张图片做选择器/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -871,7 +879,7 @@
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/">
-              <span class="site-state-item-count">36</span>
+              <span class="site-state-item-count">37</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
