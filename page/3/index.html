@@ -258,8 +258,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/10/Android-studio调试的技巧/" itemprop="url">
-                  Android studio调试的技巧
+                <a class="post-title-link" href="/2016/08/10/使用权重实现柱形图/" itemprop="url">
+                  使用权重实现柱形图
                 </a>
               
             
@@ -320,15 +320,11 @@
 
       
         
-          <h3 id="android调试技巧"><a href="#android调试技巧" class="headerlink" title="android调试技巧"></a>android调试技巧</h3><p>平常开发需要调试的时候都是打个断点，然后debugRun()。然后一步步的下一步啦什么的。。。<br>其实还是有很方便的调试技巧的。</p>
-<ul>
-<li><p>条件断点(Conditional Breakpoints)</p>
-<p> 这个调试模式是我最喜欢的，简直不能再方便了，以前遇到在循环里面打断点，需要看某个条件下的值，我只能一遍遍点击，直到满足条件。</p>
-<p> 那么这个条件断点改怎么用呢，在你的断点上点击右键，就会弹出一个选择对话框，在里面的condition框里面填写上你所需要中断的条件即可，这有程序就会在满足你的条件下才会断点停下。下面放张动态图，一看就明白，之后的几个技巧也都会附一张动态图来形象的展示。</p>
-</li>
-</ul>
+          <p>先上图<br><img src="http://img.blog.csdn.net/20160624103852147" alt="这里写图片描述"><br><img src="http://img.blog.csdn.net/20160624103948513" alt="这里写图片描述"></p>
+<p><strong>这里面的横向和竖向的都是使用权重实现的，一会会把代码贴出来，下面的那个viewpager是拽网上的</strong></p>
+<h3 id="横向柱形图的实现"><a href="#横向柱形图的实现" class="headerlink" title="横向柱形图的实现"></a>横向柱形图的实现</h3><p>这里使用RecycleView实现的。其中item布局是关键。需要依据权重。不多说，直接上代码<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/10/Android-studio调试的技巧/#more" rel="contents">
+            <a class="btn" href="/2016/08/10/使用权重实现柱形图/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -379,127 +375,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/10/php函数的参数/" itemprop="url">
-                  php函数的参数
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-08-10T21:51:05+08:00" content="2016-08-10">
-              2016-08-10
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/PHP/" itemprop="url" rel="index">
-                    <span itemprop="name">PHP</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>###PHP 函数参数的2种方式</p>
-<blockquote>
-<p>1）实参的值传给形参，形参的值变化不影响到实参的值，体现了函数的封装性。</p>
-<p>2）引用传值，这种方式函数内部的语句会影响到函数外部的变量，破坏了函数的封装性，不推介使用。</p>
-</blockquote>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/10/php函数的参数/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/08/10/Fragment取消预加载/" itemprop="url">
-                  Fragment取消预加载
+                <a class="post-title-link" href="/2016/08/10/RecycleView建立不同item/" itemprop="url">
+                  RecycleView建立不同item
                 </a>
               
             
@@ -560,25 +437,10 @@
 
       
         
-          <pre><code>public abstract class BaseFragment extends Fragment {
-
-
-protected boolean isViewInitiated;
-protected boolean isVisiableToUser;
-protected boolean isDataInitiated;
-
-@Override
-public void onCreate(@Nullable Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-}
-
-@Override
-public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-}
-</code></pre>
+          <p>众所周知，现在recycleview也已经退出好久了。各种封装库也出现好多了。这里推荐下hongyang大神的。<br><a href="http://blog.csdn.net/lmj623565791/article/details/51854533" title="Android 优雅的为RecyclerView添加HeaderView和FooterView ">http://blog.csdn.net/lmj623565791/article/details/51854533</a></p>
+<p>这里是自己实现的一个小demo<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/10/Fragment取消预加载/#more" rel="contents">
+            <a class="btn" href="/2016/08/10/RecycleView建立不同item/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -699,6 +561,125 @@ public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle sa
 <li>操作系统为每个运行线程安排一定的CPU时间—-<code>时间片</code>,系统通过一种循环的方式为线程提供时间片,线程在自己的时间内运行,因为时间相当短,多个线程频繁地发生切换,因此给用户的感觉就是好像多个线程同时运行一样,但是如果计算机有多个CPU,线程就能真正意义上的同时运行了.<br><img src="img/thread1.png" alt="">
           <div class="post-more-link text-center">
             <a class="btn" href="/2016/08/10/my-new-post/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2016/08/10/php函数的参数/" itemprop="url">
+                  php函数的参数
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2016-08-10T21:51:05+08:00" content="2016-08-10">
+              2016-08-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/PHP/" itemprop="url" rel="index">
+                    <span itemprop="name">PHP</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <p>###PHP 函数参数的2种方式</p>
+<blockquote>
+<p>1）实参的值传给形参，形参的值变化不影响到实参的值，体现了函数的封装性。</p>
+<p>2）引用传值，这种方式函数内部的语句会影响到函数外部的变量，破坏了函数的封装性，不推介使用。</p>
+</blockquote>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/10/php函数的参数/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>

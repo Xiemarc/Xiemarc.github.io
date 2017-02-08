@@ -90,7 +90,7 @@
 <meta property="og:url" content="http://yoursite.com/2017/02/08/关于单例模式/index.html">
 <meta property="og:site_name" content="Marc |">
 <meta property="og:description" content="在开发中，我们经常用到，且一定要用到的一个设计模式就是单例模式。但是想要写好用好它也不容易。">
-<meta property="og:updated_time" content="2017-02-08T00:59:26.501Z">
+<meta property="og:updated_time" content="2017-02-08T01:01:35.118Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于单例模式">
 <meta name="twitter:description" content="在开发中，我们经常用到，且一定要用到的一个设计模式就是单例模式。但是想要写好用好它也不容易。">
@@ -317,42 +317,34 @@
       
         <p>在开发中，我们经常用到，且一定要用到的一个设计模式就是单例模式。但是想要写好用好它也不容易。</p>
 <a id="more"></a>
-<ol>
-<li><p>简单的单例模式</p>
-<p> public class Student{</p>
-<pre><code>private static Student mStudent=new Student();
+<h4 id="简单的单例模式"><a href="#简单的单例模式" class="headerlink" title="简单的单例模式"></a>简单的单例模式</h4><pre><code>public class Student{
+    private static Student mStudent=new Student();
 
-private Student(){
+    private Student(){
+    }
+
+    public static Student getStudent(){
+        return mStudent;
+    }    
 }
 
-public static Student getStudent(){
-    return mStudent;
-}    
-</code></pre><p> }</p>
-<blockquote>
-<p>这种写法最好不要。</p>
-</blockquote>
-</li>
-<li><p>进阶写法</p>
-<p>  public class Student{</p>
-<pre><code>private static Student instantce;
+&gt; 这种写法最好不要。
+</code></pre><h4 id="进阶写法"><a href="#进阶写法" class="headerlink" title="进阶写法"></a>进阶写法</h4><pre><code> public class Student{
+    private static Student instantce;
 
-private Student(){
+    private Student(){
+    }
+
+    public static synchronized Student getInstancce(){
+        if(instantce == null){
+            instance = new Student();
+            }
+        return mStudent;
+    }    
 }
 
-public static synchronized Student getInstancce(){
-    if(instantce == null){
-        instance = new Student();
-        }
-    return mStudent;
-}    
-</code></pre><p> }</p>
-<blockquote>
-<p>这种相对于1肯定好很多</p>
-</blockquote>
-</li>
-<li><p>完善写法</p>
-<pre><code>public class Student{
+&gt; 这种相对于1肯定好很多
+</code></pre><h4 id="完善写法"><a href="#完善写法" class="headerlink" title="完善写法"></a>完善写法</h4><pre><code>public class Student{
 private static Student instantce;
 
 private Student(){
@@ -370,32 +362,28 @@ public static Student getInstancce(){
     return mStudent;
     }    
 }
-</code></pre></li>
-<li><p>推荐写法</p>
-<pre><code>public class Student {
+</code></pre><h4 id="推荐写法"><a href="#推荐写法" class="headerlink" title="推荐写法"></a>推荐写法</h4><pre><code>    public class Student {
 
-    private Student() {
+        private Student() {
+
+        }
+
+        public static Student getInstance() {
+            return StudentHolder.mInstance;
+        }
+
+        /**
+         * 静态内部类
+         */
+        private static class StudentHolder {
+            private static final Student mInstance = new Student();
+        }
+
 
     }
-
-    public static Student getInstance() {
-        return StudentHolder.mInstance;
-    }
-
-    /**
-     * 静态内部类
-     */
-    private static class StudentHolder {
-        private static final Student mInstance = new Student();
-    }
-</code></pre></li>
-</ol>
-<pre><code>    }
 
 &gt; 当第一次加载Student类的时候并不会初始化mInstance，只有在第一次调用Student的getInstance（）方法的时候才会导致mInstance被初始化。因此，第一次调用getInsatance方法会导致虚拟机加载StudentHolder类，这种方法保证了线程安全。和对象的唯一性。，同时也延迟了单例的实例化。
-</code></pre><ol>
-<li><p>枚举单例</p>
-<pre><code>public enum SingletonEmun{
+</code></pre><h4 id="枚举单例"><a href="#枚举单例" class="headerlink" title="枚举单例"></a>枚举单例</h4><pre><code>public enum SingletonEmun{
 
     INSTANCE;
 
@@ -403,9 +391,7 @@ public static Student getInstancce(){
         System.out.println(&quot;do something&quot;);
     }
 }
-</code></pre></li>
-</ol>
-
+</code></pre>
       
     </div>
 
@@ -585,7 +571,7 @@ public static Student getInstancce(){
               
             
             
-              <p class="post-toc-empty">此文章未包含目录</p>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#简单的单例模式"><span class="nav-number">1.</span> <span class="nav-text">简单的单例模式</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#进阶写法"><span class="nav-number">2.</span> <span class="nav-text">进阶写法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#完善写法"><span class="nav-number">3.</span> <span class="nav-text">完善写法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#推荐写法"><span class="nav-number">4.</span> <span class="nav-text">推荐写法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#枚举单例"><span class="nav-number">5.</span> <span class="nav-text">枚举单例</span></a></li></ol></div>
             
           </div>
         </section>
