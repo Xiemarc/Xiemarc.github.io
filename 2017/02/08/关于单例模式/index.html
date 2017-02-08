@@ -84,43 +84,16 @@
 
 
 
-<meta name="description" content="这里我主要分为4个步骤
-
-定义被观察者Observabler接口
-public interface MainTvClick {
-    void onChangeListener(String string);
-}
-
-创建观察者集合
-//观察者集合
-List&amp;lt;MainTvClick&amp;gt; mainTvClickList = new LinkedList&amp;lt;&amp;gt;();">
+<meta name="description" content="在开发中，我们经常用到，且一定要用到的一个设计模式就是单例模式。但是想要写好用好它也不容易。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="自定义观察者模式实现对状态的监听">
-<meta property="og:url" content="http://yoursite.com/2016/11/24/自定义观察者模式实现对状态的监听/index.html">
+<meta property="og:title" content="关于单例模式">
+<meta property="og:url" content="http://yoursite.com/2017/02/08/关于单例模式/index.html">
 <meta property="og:site_name" content="Marc |">
-<meta property="og:description" content="这里我主要分为4个步骤
-
-定义被观察者Observabler接口
-public interface MainTvClick {
-    void onChangeListener(String string);
-}
-
-创建观察者集合
-//观察者集合
-List&amp;lt;MainTvClick&amp;gt; mainTvClickList = new LinkedList&amp;lt;&amp;gt;();">
-<meta property="og:updated_time" content="2016-11-24T15:04:57.466Z">
+<meta property="og:description" content="在开发中，我们经常用到，且一定要用到的一个设计模式就是单例模式。但是想要写好用好它也不容易。">
+<meta property="og:updated_time" content="2017-02-08T00:59:26.501Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="自定义观察者模式实现对状态的监听">
-<meta name="twitter:description" content="这里我主要分为4个步骤
-
-定义被观察者Observabler接口
-public interface MainTvClick {
-    void onChangeListener(String string);
-}
-
-创建观察者集合
-//观察者集合
-List&amp;lt;MainTvClick&amp;gt; mainTvClickList = new LinkedList&amp;lt;&amp;gt;();">
+<meta name="twitter:title" content="关于单例模式">
+<meta name="twitter:description" content="在开发中，我们经常用到，且一定要用到的一个设计模式就是单例模式。但是想要写好用好它也不容易。">
 
 
 
@@ -141,9 +114,9 @@ List&amp;lt;MainTvClick&amp;gt; mainTvClickList = new LinkedList&amp;lt;&amp;gt;
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/11/24/自定义观察者模式实现对状态的监听/"/>
+  <link rel="canonical" href="http://yoursite.com/2017/02/08/关于单例模式/"/>
 
-  <title> 自定义观察者模式实现对状态的监听 | Marc | </title>
+  <title> 关于单例模式 | Marc | </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -283,7 +256,7 @@ List&amp;lt;MainTvClick&amp;gt; mainTvClickList = new LinkedList&amp;lt;&amp;gt;
             
             
               
-                自定义观察者模式实现对状态的监听
+                关于单例模式
               
             
           </h1>
@@ -295,8 +268,8 @@ List&amp;lt;MainTvClick&amp;gt; mainTvClickList = new LinkedList&amp;lt;&amp;gt;
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-24T22:54:05+08:00" content="2016-11-24">
-              2016-11-24
+            <time itemprop="dateCreated" datetime="2017-02-08T08:58:04+08:00" content="2017-02-08">
+              2017-02-08
             </time>
           </span>
 
@@ -342,101 +315,96 @@ List&amp;lt;MainTvClick&amp;gt; mainTvClickList = new LinkedList&amp;lt;&amp;gt;
       
 
       
-        <p>这里我主要分为4个步骤</p>
+        <p>在开发中，我们经常用到，且一定要用到的一个设计模式就是单例模式。但是想要写好用好它也不容易。</p>
+<a id="more"></a>
 <ol>
-<li><p>定义被观察者Observabler接口</p>
-<pre><code>public interface MainTvClick {
-    void onChangeListener(String string);
-}
-</code></pre></li>
-<li><p>创建观察者集合</p>
-<pre><code>//观察者集合
-List&lt;MainTvClick&gt; mainTvClickList = new LinkedList&lt;&gt;();
-</code></pre><a id="more"></a>
-</li>
-<li><p>添加观察者</p>
-<pre><code>    /**
- * 添加观察者
- *
- * @param observer
- */
-public void addObserver(MainTvClick observer) {
-    if (null == observer) {
-        throw new NullPointerException(&quot;observer == null&quot;);
-    }
-    synchronized (this) {
-        if (!mainTvClickList.contains(observer)) {
-            mainTvClickList.add(observer);
-        }
-    }
-}
-</code></pre></li>
-<li><p>删除观察者</p>
-<pre><code> /**
- * 删除观察者
- *
- * @param observr
- */
-public synchronized void deleteMainObserver(MainTvClick observr) {
-    mainTvClickList.remove(observr);
-}
-</code></pre></li>
-<li><p>通知观察者</p>
-<pre><code>/**
-     * 通知观察者
-     *
-     * @param info
-     */
-    public void notifyMainObserver(String info) {
-        for (MainTvClick observer :
-                mainTvClickList) {
-            observer.onChangeListener(info);
-        }
-    }    
-</code></pre></li>
-<li><p>记得单例哟</p>
-<pre><code>public static MainActivity instance;
+<li><p>简单的单例模式</p>
+<p> public class Student{</p>
+<pre><code>private static Student mStudent=new Student();
 
-/**
- * 单例
- *
- * @return
- */
-public static MainActivity getInstance() {
-    if (instance == null) {
-        synchronized (MainActivity.class) {
-            if (instance == null) {
-                instance = new MainActivity();
-            }
+private Student(){
+}
+
+public static Student getStudent(){
+    return mStudent;
+}    
+</code></pre><p> }</p>
+<blockquote>
+<p>这种写法最好不要。</p>
+</blockquote>
+</li>
+<li><p>进阶写法</p>
+<p>  public class Student{</p>
+<pre><code>private static Student instantce;
+
+private Student(){
+}
+
+public static synchronized Student getInstancce(){
+    if(instantce == null){
+        instance = new Student();
         }
+    return mStudent;
+}    
+</code></pre><p> }</p>
+<blockquote>
+<p>这种相对于1肯定好很多</p>
+</blockquote>
+</li>
+<li><p>完善写法</p>
+<pre><code>public class Student{
+private static Student instantce;
+
+private Student(){
     }
-    return instance;
+
+public static Student getInstancce(){
+    if(instantce == null){
+        synchronized(Student.class){
+                if(instance == null){
+                    instance = new Student();
+                    }
+            }
+
+        }
+    return mStudent;
+    }    
+}
+</code></pre></li>
+<li><p>推荐写法</p>
+<pre><code>public class Student {
+
+    private Student() {
+
+    }
+
+    public static Student getInstance() {
+        return StudentHolder.mInstance;
+    }
+
+    /**
+     * 静态内部类
+     */
+    private static class StudentHolder {
+        private static final Student mInstance = new Student();
+    }
+</code></pre></li>
+</ol>
+<pre><code>    }
+
+&gt; 当第一次加载Student类的时候并不会初始化mInstance，只有在第一次调用Student的getInstance（）方法的时候才会导致mInstance被初始化。因此，第一次调用getInsatance方法会导致虚拟机加载StudentHolder类，这种方法保证了线程安全。和对象的唯一性。，同时也延迟了单例的实例化。
+</code></pre><ol>
+<li><p>枚举单例</p>
+<pre><code>public enum SingletonEmun{
+
+    INSTANCE;
+
+    public void soSomthing(){
+        System.out.println(&quot;do something&quot;);
+    }
 }
 </code></pre></li>
 </ol>
-<hr>
-<p>接下来就是使用了.</p>
-<ul>
-<li><p>实现观察者 并且添加到 集合中</p>
-<pre><code>public class HomeFragment extends BaseFragment implements MainActivity.MainTvClick 
-{...
-这里其实就是实现接口方法
-
-         fragment = new HomeFragment();
-//                HomeFragment fragment1 = new HomeFragment();
-                MainActivity.getInstance().addObserver((MainActivity.MainTvClick) fragment);
-</code></pre></li>
-<li><p>被观察者做出改变，通知观察者</p>
-<pre><code> mToolbarTv.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        MainActivity.getInstance().notifyMainObserver(&quot;234&quot;);
-    }
-});
-</code></pre></li>
-</ul>
-<p>╔════════════════════════════════════════════════════════════════════════════════════════<br>1 ║ Thread: main<br>1 ╟────────────────────────────────────────────────────────────────────────────────────────<br>1 ║ APPFragment.onChangeListener  (APPFragment.java:72)<br>1 ║    Logger.e  (Logger.java:106)<br>1 ╟────────────────────────────────────────────────────────────────────────────────────────<br>11-24 13:34:31.936 11226-11226/com.tescoo.aat E/debugTAG: ║ 234</p>
-<p>可以看到打印出来234了</p>
 
       
     </div>
@@ -468,17 +436,13 @@ public static MainActivity getInstance() {
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2016/11/24/menu-创建没有icon的解决办法/" rel="next" title="menu 创建没有icon的解决办法">
-                <i class="fa fa-chevron-left"></i> menu 创建没有icon的解决办法
+              <a href="/2017/02/08/简单的防止双击/" rel="next" title="简单的防止双击">
+                <i class="fa fa-chevron-left"></i> 简单的防止双击
               </a>
             
           </div>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/07/热更新实践/" rel="prev" title="热更新实践">
-                热更新实践 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>

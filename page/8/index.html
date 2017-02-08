@@ -68,7 +68,7 @@
 <link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="android," />
+  <meta name="keywords" content="Hexo, NexT" />
 
 
 
@@ -84,43 +84,15 @@
 
 
 
-<meta name="description" content="这里我主要分为4个步骤
-
-定义被观察者Observabler接口
-public interface MainTvClick {
-    void onChangeListener(String string);
-}
-
-创建观察者集合
-//观察者集合
-List&amp;lt;MainTvClick&amp;gt; mainTvClickList = new LinkedList&amp;lt;&amp;gt;();">
-<meta property="og:type" content="article">
-<meta property="og:title" content="自定义观察者模式实现对状态的监听">
-<meta property="og:url" content="http://yoursite.com/2016/11/24/自定义观察者模式实现对状态的监听/index.html">
+<meta name="description" content="android开发">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Marc |">
+<meta property="og:url" content="http://yoursite.com/page/8/index.html">
 <meta property="og:site_name" content="Marc |">
-<meta property="og:description" content="这里我主要分为4个步骤
-
-定义被观察者Observabler接口
-public interface MainTvClick {
-    void onChangeListener(String string);
-}
-
-创建观察者集合
-//观察者集合
-List&amp;lt;MainTvClick&amp;gt; mainTvClickList = new LinkedList&amp;lt;&amp;gt;();">
-<meta property="og:updated_time" content="2016-11-24T15:04:57.466Z">
+<meta property="og:description" content="android开发">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="自定义观察者模式实现对状态的监听">
-<meta name="twitter:description" content="这里我主要分为4个步骤
-
-定义被观察者Observabler接口
-public interface MainTvClick {
-    void onChangeListener(String string);
-}
-
-创建观察者集合
-//观察者集合
-List&amp;lt;MainTvClick&amp;gt; mainTvClickList = new LinkedList&amp;lt;&amp;gt;();">
+<meta name="twitter:title" content="Marc |">
+<meta name="twitter:description" content="android开发">
 
 
 
@@ -141,9 +113,9 @@ List&amp;lt;MainTvClick&amp;gt; mainTvClickList = new LinkedList&amp;lt;&amp;gt;
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2016/11/24/自定义观察者模式实现对状态的监听/"/>
+  <link rel="canonical" href="http://yoursite.com/page/8/"/>
 
-  <title> 自定义观察者模式实现对状态的监听 | Marc | </title>
+  <title> Marc | </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -164,7 +136,9 @@ List&amp;lt;MainTvClick&amp;gt; mainTvClickList = new LinkedList&amp;lt;&amp;gt;
     
   
 
-  <div class="container one-collumn sidebar-position-left page-post-detail ">
+  <div class="container one-collumn sidebar-position-left 
+   page-home 
+ ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -261,9 +235,9 @@ List&amp;lt;MainTvClick&amp;gt; mainTvClickList = new LinkedList&amp;lt;&amp;gt;
         <div class="content-wrap">
           <div id="content" class="content">
             
-
-  <div id="posts" class="posts-expand">
+  <section id="posts" class="posts-expand">
     
+      
 
   
   
@@ -283,7 +257,10 @@ List&amp;lt;MainTvClick&amp;gt; mainTvClickList = new LinkedList&amp;lt;&amp;gt;
             
             
               
-                自定义观察者模式实现对状态的监听
+                
+                <a class="post-title-link" href="/2016/08/10/解决hexo的command-not-fount/" itemprop="url">
+                  解决hexo的command not fount
+                </a>
               
             
           </h1>
@@ -295,8 +272,8 @@ List&amp;lt;MainTvClick&amp;gt; mainTvClickList = new LinkedList&amp;lt;&amp;gt;
               <i class="fa fa-calendar-o"></i>
             </span>
             <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-24T22:54:05+08:00" content="2016-11-24">
-              2016-11-24
+            <time itemprop="dateCreated" datetime="2016-08-10T21:51:05+08:00" content="2016-08-10">
+              2016-08-10
             </time>
           </span>
 
@@ -309,8 +286,8 @@ List&amp;lt;MainTvClick&amp;gt; mainTvClickList = new LinkedList&amp;lt;&amp;gt;
               <span class="post-meta-item-text">分类于</span>
               
                 <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/安卓/" itemprop="url" rel="index">
-                    <span itemprop="name">安卓</span>
+                  <a href="/categories/异常/" itemprop="url" rel="index">
+                    <span itemprop="name">异常</span>
                   </a>
                 </span>
 
@@ -342,159 +319,47 @@ List&amp;lt;MainTvClick&amp;gt; mainTvClickList = new LinkedList&amp;lt;&amp;gt;
       
 
       
-        <p>这里我主要分为4个步骤</p>
-<ol>
-<li><p>定义被观察者Observabler接口</p>
-<pre><code>public interface MainTvClick {
-    void onChangeListener(String string);
-}
-</code></pre></li>
-<li><p>创建观察者集合</p>
-<pre><code>//观察者集合
-List&lt;MainTvClick&gt; mainTvClickList = new LinkedList&lt;&gt;();
-</code></pre><a id="more"></a>
-</li>
-<li><p>添加观察者</p>
-<pre><code>    /**
- * 添加观察者
- *
- * @param observer
- */
-public void addObserver(MainTvClick observer) {
-    if (null == observer) {
-        throw new NullPointerException(&quot;observer == null&quot;);
-    }
-    synchronized (this) {
-        if (!mainTvClickList.contains(observer)) {
-            mainTvClickList.add(observer);
-        }
-    }
-}
-</code></pre></li>
-<li><p>删除观察者</p>
-<pre><code> /**
- * 删除观察者
- *
- * @param observr
- */
-public synchronized void deleteMainObserver(MainTvClick observr) {
-    mainTvClickList.remove(observr);
-}
-</code></pre></li>
-<li><p>通知观察者</p>
-<pre><code>/**
-     * 通知观察者
-     *
-     * @param info
-     */
-    public void notifyMainObserver(String info) {
-        for (MainTvClick observer :
-                mainTvClickList) {
-            observer.onChangeListener(info);
-        }
-    }    
-</code></pre></li>
-<li><p>记得单例哟</p>
-<pre><code>public static MainActivity instance;
-
-/**
- * 单例
- *
- * @return
- */
-public static MainActivity getInstance() {
-    if (instance == null) {
-        synchronized (MainActivity.class) {
-            if (instance == null) {
-                instance = new MainActivity();
-            }
-        }
-    }
-    return instance;
-}
-</code></pre></li>
-</ol>
-<hr>
-<p>接下来就是使用了.</p>
-<ul>
-<li><p>实现观察者 并且添加到 集合中</p>
-<pre><code>public class HomeFragment extends BaseFragment implements MainActivity.MainTvClick 
-{...
-这里其实就是实现接口方法
-
-         fragment = new HomeFragment();
-//                HomeFragment fragment1 = new HomeFragment();
-                MainActivity.getInstance().addObserver((MainActivity.MainTvClick) fragment);
-</code></pre></li>
-<li><p>被观察者做出改变，通知观察者</p>
-<pre><code> mToolbarTv.setOnClickListener(new View.OnClickListener() {
-    @Override
-    public void onClick(View v) {
-        MainActivity.getInstance().notifyMainObserver(&quot;234&quot;);
-    }
-});
-</code></pre></li>
-</ul>
-<p>╔════════════════════════════════════════════════════════════════════════════════════════<br>1 ║ Thread: main<br>1 ╟────────────────────────────────────────────────────────────────────────────────────────<br>1 ║ APPFragment.onChangeListener  (APPFragment.java:72)<br>1 ║    Logger.e  (Logger.java:106)<br>1 ╟────────────────────────────────────────────────────────────────────────────────────────<br>11-24 13:34:31.936 11226-11226/com.tescoo.aat E/debugTAG: ║ 234</p>
-<p>可以看到打印出来234了</p>
-
+        
+          <h3 id="hexo博客出现command-not-found解决方案"><a href="#hexo博客出现command-not-found解决方案" class="headerlink" title="hexo博客出现command not found解决方案"></a>hexo博客出现command not found解决方案</h3><p>由于前一段时间一直忙着项目，好长时间没有更新博客了。今天更新了，提示command not found 的问题，</p>
+<p>想起来 前几天把电脑配置了下php的环境。是不是环境变量的问题。于是去看了下，还真的是</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2016/08/10/解决hexo的command-not-fount/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
       
     </div>
 
     <div>
       
-        
-
-      
     </div>
 
     <div>
-      
-        
-
       
     </div>
 
     <footer class="post-footer">
       
-        <div class="post-tags">
-          
-            <a href="/tags/android/" rel="tag">#android</a>
-          
-        </div>
+
       
 
       
-        <div class="post-nav">
-          <div class="post-nav-next post-nav-item">
-            
-              <a href="/2016/11/24/menu-创建没有icon的解决办法/" rel="next" title="menu 创建没有icon的解决办法">
-                <i class="fa fa-chevron-left"></i> menu 创建没有icon的解决办法
-              </a>
-            
-          </div>
-
-          <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/02/07/热更新实践/" rel="prev" title="热更新实践">
-                热更新实践 <i class="fa fa-chevron-right"></i>
-              </a>
-            
-          </div>
-        </div>
       
-
-      
+        <div class="post-eof"></div>
       
     </footer>
   </article>
 
 
+    
+  </section>
 
-    <div class="post-spread">
-      
-    </div>
-  </div>
+  
+  <nav class="pagination">
+    <a class="extend prev" rel="prev" href="/page/7/"><i class="fa fa-angle-left"></i></a><a class="page-number" href="/">1</a><span class="space">&hellip;</span><a class="page-number" href="/page/7/">7</a><span class="page-number current">8</span>
+  </nav>
+
 
 
           </div>
@@ -502,10 +367,6 @@ public static MainActivity getInstance() {
 
 
           
-  <div class="comments" id="comments">
-    
-  </div>
-
 
         </div>
         
@@ -525,17 +386,8 @@ public static MainActivity getInstance() {
       
 
       
-        <ul class="sidebar-nav motion-element">
-          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
-            文章目录
-          </li>
-          <li class="sidebar-nav-overview" data-target="site-overview">
-            站点概览
-          </li>
-        </ul>
-      
 
-      <section class="site-overview sidebar-panel ">
+      <section class="site-overview sidebar-panel  sidebar-panel-active ">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="/images/avatar.jpg"
@@ -614,17 +466,6 @@ public static MainActivity getInstance() {
 
       </section>
 
-      
-        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
-          <div class="post-toc">
-            
-              
-            
-            
-              <p class="post-toc-empty">此文章未包含目录</p>
-            
-          </div>
-        </section>
       
 
     </div>
@@ -728,10 +569,6 @@ public static MainActivity getInstance() {
 
 
   
-  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
-<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
-
-
 
   
 
