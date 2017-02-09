@@ -1,0 +1,879 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="android," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="android中的事件分发、焦点问题。
+啥都不管，这里先安利一个非常好用的方法。简直是解决事件冲突的利器啊。
+
+getParent()(父亲).request(请求)Disallow(不)Intercept(拦截)TouchEvent(touch事件)(true(同意));
+getParent().requestDisallowInterceptTouchEvent(true);
+我是在自定义柱形">
+<meta property="og:type" content="article">
+<meta property="og:title" content="事件分发">
+<meta property="og:url" content="http://yoursite.com/2017/02/09/事件分发/index.html">
+<meta property="og:site_name" content="Marc |">
+<meta property="og:description" content="android中的事件分发、焦点问题。
+啥都不管，这里先安利一个非常好用的方法。简直是解决事件冲突的利器啊。
+
+getParent()(父亲).request(请求)Disallow(不)Intercept(拦截)TouchEvent(touch事件)(true(同意));
+getParent().requestDisallowInterceptTouchEvent(true);
+我是在自定义柱形">
+<meta property="og:image" content="http://ogrzkg62w.bkt.clouddn.com/%E4%BA%8B%E4%BB%B6.png">
+<meta property="og:image" content="http://ogrzkg62w.bkt.clouddn.com/%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%911.png">
+<meta property="og:image" content="http://ogrzkg62w.bkt.clouddn.com/QQ%E5%9B%BE%E7%89%8720170209155158.png">
+<meta property="og:updated_time" content="2017-02-09T12:19:35.307Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="事件分发">
+<meta name="twitter:description" content="android中的事件分发、焦点问题。
+啥都不管，这里先安利一个非常好用的方法。简直是解决事件冲突的利器啊。
+
+getParent()(父亲).request(请求)Disallow(不)Intercept(拦截)TouchEvent(touch事件)(true(同意));
+getParent().requestDisallowInterceptTouchEvent(true);
+我是在自定义柱形">
+<meta name="twitter:image" content="http://ogrzkg62w.bkt.clouddn.com/%E4%BA%8B%E4%BB%B6.png">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/02/09/事件分发/"/>
+
+  <title> 事件分发 | Marc | </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Marc |</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">我的一生划船不用桨，全靠浪。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                事件分发
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-09T20:19:02+08:00" content="2017-02-09">
+              2017-02-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/安卓/" itemprop="url" rel="index">
+                    <span itemprop="name">安卓</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h3 id="android中的事件分发、焦点问题。"><a href="#android中的事件分发、焦点问题。" class="headerlink" title="android中的事件分发、焦点问题。"></a>android中的事件分发、焦点问题。</h3><blockquote>
+<p>啥都不管，这里先安利一个非常好用的方法。简直是解决事件冲突的利器啊。</p>
+</blockquote>
+<pre><code>getParent()(父亲).request(请求)Disallow(不)Intercept(拦截)TouchEvent(touch事件)(true(同意));
+getParent().requestDisallowInterceptTouchEvent(true);
+</code></pre><p>我是在自定义柱形图的左右滑动跟侧滑面板冲突的时候各种查阅找到的。灰常好用。</p>
+<a id="more"></a>
+<p>###OnTouch和OnTouchEvent</p>
+<pre><code>这2个方法都是在View的dispatchTouchEvent中调用的，onTouch优先于onTouchEvent执行。如果再onTouch方法中通过返回true，那么事件就被消费掉，那么onTouchEvent将不会再执行.
+
+另外需要注意的是，onTouch 能够得到执行需要两个前提条件，第一 mOnTouchListener 的值
+不能为空，第二当前点击的控件必须是 enable 的。因此如果你有一个控件是非 enable 的，那么给
+它注册 onTouch 事件将永远得不到执行。对于这一类控件，如果我们想要监听它的 touch 事件，就
+必须通过在该控件中重写 onTouchEvent 方法来实现。
+</code></pre><p>###Android 事件分发机制</p>
+<pre><code>Android 的事件分发机制主要是 Touch 事件分发，有两个主角:ViewGroup 和 View。Activity
+的 Touch 事件事实上是调用它内部的 ViewGroup 的 Touch 事件，可以直接当成 ViewGroup 处理。
+View 在 ViewGroup 内， ViewGroup 也可以在其他 ViewGroup 内， 这时候把内部的 ViewGroup
+当成 View 来分析。
+先分析 ViewGroup 的处理流程：首先得有个结构模型概念：ViewGroup 和 View 组成了一棵树
+形结构，最顶层为 Activity 的 ViewGroup，下面有若干的 ViewGroup 节点，每个节点之下又有若
+干的 ViewGroup 节点或者 View 节点，依次类推。如图：
+</code></pre><p><img src="http://ogrzkg62w.bkt.clouddn.com/%E4%BA%8B%E4%BB%B6.png" alt=""></p>
+<pre><code>当一个 Touch 事件(触摸事件为例)到达根节点，即 Acitivty 的 ViewGroup 时，它会依次下发，
+下发的过程是调用子 View(ViewGroup)的 dispatchTouchEvent 方法实现的。简单来说，就是
+ViewGroup 遍历它包含着的子 View，调用每个 View 的 dispatchTouchEvent 方法，而当子 View
+为 ViewGroup 时，又会通过调用 ViwGroup 的 dispatchTouchEvent 方法继续调用其内部的 View
+的 dispatchTouchEvent 方法。上述例子中的消息下发顺序是这样的：1-2-5-6-7-3-4.
+dispatchTouchEvent 方法只负责事件的分发，它拥有 boolean 类型的返回值，当返回为 true 时，
+顺序下发会中断。在上述例子中如果5的 dispatchTouchEvent 返回结果为 true，那么6-7-3-4
+将都接收不到本次 Touch 事件。    
+</code></pre><ol>
+<li><p>Touch事件分发中有2个主角：ViewGroup和View。</p>
+<p>  ViewGroup 包 含<br> onInterceptTouchEvent 、 dispatchTouchEvent 、 onTouchEvent 三 个 相 关 事 件 。 View 包 含<br> dispatchTouchEvent、onTouchEvent 两个相关事件。其中 ViewGroup 又继承于 View。</p>
+</li>
+<li><p>ViewGroup 和 View 组成了一个树状结构</p>
+<p> ViewGroup 和 View 组成了一个树状结构，根节点为 Activity 内部包含的一个 ViwGroup</p>
+</li>
+<li><p>触摸事件由 Action_Down、Action_Move、Aciton_UP 组成，其中一次完整的触摸事件中，<br>Down 和 Up 都只有一个，Move 有若干个，可以为 0 个。</p>
+</li>
+<li><p>当 Acitivty 接收到 Touch 事件时，将遍历子 View 进行 Down 事件的分发。ViewGroup 的遍<br>历可以看成是递归的。分发的目的是为了找到真正要处理本次完整触摸事件的 View，这个 View 会81<br>在 onTouchuEvent 结果返回 true。</p>
+</li>
+<li><p>当某个子 View 返回 true 时， 会中止 Down 事件的分发， 同时在 ViewGroup 中记录该子 View。<br>接下去的 Move 和 Up 事件将由该子 View 直接进行处理。 由于子 View 是保存在 ViewGroup 中的，<br>多层 ViewGroup 的节点结构时，上级 ViewGroup 保存的会是真实处理事件的 View 所在的<br>ViewGroup 对象:如 ViewGroup0-ViewGroup1-TextView 的结构中，TextView 返回了 true，它将<br>被保存在 ViewGroup1 中，而 ViewGroup1 也会返回 true，被保存在 ViewGroup0 中。当 Move<br>和 UP 事件来时，会先从 ViewGroup0 传递至 ViewGroup1，再由 ViewGroup1 传递至 TextView。</p>
+</li>
+<li><p>当 ViewGroup 中所有子 View 都不捕获 Down 事件时，将触发 ViewGroup 自身的 onTouch<br>事件。触发的方式是调用 super.dispatchTouchEvent 函数，即父类 View 的 dispatchTouchEvent<br>方法。在所有子 View 都不处理的情况下，触发 Acitivity 的 onTouchEvent 方法。</p>
+</li>
+<li><p>onInterceptTouchEvent 有两个作用：1.拦截 Down 事件的分发。2.中止 Up 和 Move 事件向<br>目标 View 传递，使得目标 View 所在的 ViewGroup 捕获 Up 和 Move 事件 </p>
+</li>
+</ol>
+<h3 id="方法相关"><a href="#方法相关" class="headerlink" title="方法相关"></a>方法相关</h3><ol>
+<li>viewgroup的相关事件有三个：onInterceptTouchEvent、dispatchTouchEvent和onTouchEvent</li>
+<li>view的相关事件少一个onInterceptTouchEvent，只有dispatchTouchEvent和onTouchEvent两个方法.</li>
+</ol>
+<blockquote>
+<p>onInterceptTouchEvent:拦截</p>
+<p>dispatchTouchEvent : 事件分发</p>
+<p>onTouchEvent:  消费处理</p>
+</blockquote>
+<p><img src="http://ogrzkg62w.bkt.clouddn.com/%E4%BA%8B%E4%BB%B6%E5%88%86%E5%8F%911.png" alt=""></p>
+<blockquote>
+<p>上图中不考虑拦截情况。事件分发顺序就是：1-2-5-6-3-4.跟上面的那种图是一样的。同样道理。假如6的 dispatchTouchEvent 返回true，那么3跟4就不会接收到。 <strong>规则：从外到里遍历所有的子view，遇到是viewgroup的遍历该viewgroup的所有子view</strong> </p>
+</blockquote>
+<p>###demo实践</p>
+<ol>
+<li><p>自定义一个button，继承自button,打印onTouch和dispatchTouchEvent中的log（这里咱不考虑move事件）</p>
+<pre><code>public class MyButton extends Button {
+    private static final String TAG = &quot;MyButton&quot;;
+
+    public MyButton(Context context) {
+        super(context);
+    }
+
+    public MyButton(Context context, AttributeSet attrs) {
+        super(context, attrs);
+    }
+
+    @Override
+    public boolean onTouchEvent(MotionEvent event) {
+        switch (event.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                Log.i(&quot;marc&quot;,&quot;My-Button-onTouchEvent-Action_DOWN&quot;);
+                break;
+            case MotionEvent.ACTION_MOVE:
+//                Logger.e(&quot;My-Button-onTouchEvent-Action_MOVE&quot;);
+                break;
+            case MotionEvent.ACTION_UP:
+                Log.i(&quot;marc&quot;,&quot;My-Button-onTouchEvent-Action_UP&quot;);
+        }
+        return super.onTouchEvent(event);
+    }
+
+    @Override
+    public boolean dispatchTouchEvent(MotionEvent event) {
+        switch (event.getAction()){
+            case MotionEvent.ACTION_DOWN:
+                Log.i(&quot;marc&quot;,&quot;My-Button-dispatchTouchEvent-Action_DOWN&quot;);
+                break;
+            case MotionEvent.ACTION_MOVE:
+                break;
+            case MotionEvent.ACTION_UP:
+                Log.i(&quot;marc&quot;,&quot;My-Button-dispatchTouchEvent-Action_DOWN&quot;);
+        }
+        return super.dispatchTouchEvent(event);
+    }
+}
+</code></pre></li>
+</ol>
+<ol>
+<li><p>该button在xml中使用。在activity中调用.</p>
+<pre><code>mButton.setOnTouchListener(new View.OnTouchListener() {
+         @Override
+         public boolean onTouch(View v, MotionEvent event) {
+             switch (event.getAction()) {
+                 case MotionEvent.ACTION_DOWN:
+                     Log.i(&quot;marc&quot;,TAG + &quot;-onTouch-Action_DOWN&quot;);
+                     break;
+                 case MotionEvent.ACTION_MOVE:
+                     break;
+                 case MotionEvent.ACTION_UP:
+                     Log.i(&quot;marc&quot;,TAG + &quot;-onTouch-Action_DOWN&quot;);
+             }
+             return false;
+         }
+     });
+</code></pre></li>
+<li><p>调用activity的dispatchTouchEvent方法</p>
+<pre><code>@Override
+public boolean dispatchTouchEvent(MotionEvent event) {
+    switch (event.getAction()) {
+        case MotionEvent.ACTION_DOWN:
+            Log.i(&quot;marc&quot;,TAG + &quot;-dispatchTouchEvent-Action_DOWN&quot;);
+            break;
+        case MotionEvent.ACTION_MOVE:
+            break;
+        case MotionEvent.ACTION_UP:
+            Log.i(&quot;marc&quot;,TAG + &quot;-dispatchTouchEvent-Action_DOWN&quot;);
+    }
+    return super.dispatchTouchEvent(event);
+}
+</code></pre></li>
+</ol>
+<p>log日志可以看到先后顺序</p>
+<p><img src="http://ogrzkg62w.bkt.clouddn.com/QQ%E5%9B%BE%E7%89%8720170209155158.png" alt=""></p>
+<p>可以跟上面的相印证：从外向里依次分发</p>
+<ol>
+<li><p>down事件</p>
+<ul>
+<li>首先执行Activity的dispatchTouchEvent方法,进行事件的分发,actiivity就是上面2图中的viewgroup（不考虑顶层布局啥的），这个时候遍历它，activity中有个button的view。</li>
+<li>接着是button该view拿到该事件，然后执行dispatchTouchEvent进行分发。但是他自己是view，而不是viewgroup，没有子view</li>
+<li>button就执行自己的onTouch事件(上面有说onTouch事件要早于onTouchEvent事件,若onTouch返回true，就不执行onTouchEvent)</li>
+<li>接着是执行onTouchEvent事件</li>
+</ul>
+</li>
+<li><p>down事件结束，开始up事件,跟上面流程一样</p>
+<ul>
+<li>首先执行Activity的dispatchTouchEvent方法,进行事件的分发,actiivity就是上面2图中的viewgroup（不考虑顶层布局啥的），这个时候遍历它，activity中有个button的view。</li>
+<li>接着是button该view拿到该事件，然后执行dispatchTouchEvent进行分发。但是他自己是view，而不是viewgroup，没有子view</li>
+<li>button就执行自己的onTouch事件(上面有说onTouch事件要早于onTouchEvent事件,若onTouch返回true，就不执行onTouchEvent)</li>
+<li>接着是执行onTouchEvent事件</li>
+</ul>
+</li>
+</ol>
+<blockquote>
+<p>ps:最后才会响应button的onClick事件方法。这里没有打印.</p>
+</blockquote>
+<p>####在activity中的修改dispatchTouchEvent down中返回false</p>
+<pre><code>@Override
+public boolean dispatchTouchEvent(MotionEvent event) {
+    switch (event.getAction()) {
+        case MotionEvent.ACTION_DOWN:
+            Log.i(&quot;marc&quot;, TAG + &quot;-dispatchTouchEvent-Action_DOWN&quot;);
+            //这里返回false,就不会继续向下把down事件分到到子view，反言之，子view就不能够响应。
+            return false;
+        case MotionEvent.ACTION_MOVE:
+            break;
+        case MotionEvent.ACTION_UP:
+            Log.i(&quot;marc&quot;, TAG + &quot;-dispatchTouchEvent-Action_UP&quot;);
+    }
+    return super.dispatchTouchEvent(event);
+}
+</code></pre><p>log日志如下：</p>
+<pre><code>02-09 16:01:10.483 18564-18564/? I/marc: MVPActivity-dispatchTouchEvent-Action_DOWN
+02-09 16:01:10.523 18564-18564/? I/marc: MVPActivity-dispatchTouchEvent-Action_UP
+02-09 16:01:10.523 18564-18564/? I/marc: MVPActivity-onTouchEvent-Action_UP
+</code></pre><blockquote>
+<p>可以看到在activity中的dispatchTouchEvent返回false后，就不进行下面的遍历分发了。直接执行接下来的Up事件的分发。这里up事件虽然没有返回false，但是没有down事件了。后续的move和up事件也就没了。所以直接还是执行activity的onTouchEvent事件</p>
+<p>但是返回true跟返回false 日志一样。那是因为在当前事件中，reture了，就跳出当前switch了。就不执行下面的了</p>
+<p>大家经常听过：在事件分发中，返回false表示不向下分发，返回true表示消费掉事件。这句话是针对ViewGroup说的。<strong>返回false不分发，返回true，消费掉也不分发了</strong></p>
+</blockquote>
+<hr>
+<p>###修改MyButton的dispatchTouchEvent的MotionEvent.ACTION_DOWN返回false</p>
+<pre><code> @Override
+public boolean dispatchTouchEvent(MotionEvent event) {
+    switch (event.getAction()){
+        case MotionEvent.ACTION_DOWN:
+            Log.i(&quot;marc&quot;,&quot;My-Button-dispatchTouchEvent-Action_DOWN&quot;);
+            return false;
+        case MotionEvent.ACTION_MOVE:
+            break;
+        case MotionEvent.ACTION_UP:
+            Log.i(&quot;marc&quot;,&quot;My-Button-dispatchTouchEvent-Action_UP&quot;);
+    }
+    return super.dispatchTouchEvent(event);
+}
+</code></pre><p>log日志打印如下：</p>
+<pre><code>02-09 16:26:34.633 29520-29520/? I/marc: MVPActivity-dispatchTouchEvent-Action_DOWN
+02-09 16:26:34.643 29520-29520/? I/marc: My-Button-dispatchTouchEvent-Action_DOWN
+02-09 16:26:34.653 29520-29520/? I/marc: MVPActivity-onTouchEvent-Action_DOWN
+02-09 16:26:34.653 29520-29520/? I/marc: MVPActivity-dispatchTouchEvent-Action_UP
+02-09 16:26:34.653 29520-29520/? I/marc: MVPActivity-onTouchEvent-Action_UP
+</code></pre><blockquote>
+<p>可以看到到down事件分发到button的dispatchTouchEvent中时，返回了false，就不进行分发了。所以button的后续的move、up、onTouch、onTouchEvent就都不会响应。</p>
+</blockquote>
+<p>###修改MyButton的dispatchTouchEvent的MotionEvent.ACTION_DOWN返回true</p>
+<p>log日志如下：</p>
+<pre><code>02-09 16:30:05.053 31599-31599/? I/marc: MVPActivity-dispatchTouchEvent-Action_DOWN
+02-09 16:30:05.053 31599-31599/? I/marc: My-Button-dispatchTouchEvent-Action_DOWN
+02-09 16:30:05.083 31599-31599/? I/marc: MVPActivity-dispatchTouchEvent-Action_UP
+02-09 16:30:05.083 31599-31599/? I/marc: My-Button-dispatchTouchEvent-Action_UP
+02-09 16:30:05.083 31599-31599/? I/marc: MVPActivity-onTouch-Action_UP
+02-09 16:30:05.083 31599-31599/? I/marc: My-Button-onTouchEvent-Action_UP
+</code></pre><blockquote>
+<p>可以看到button的dispatchTouchEvent 中的down返回true消费了。但是其他的move和up事件还是会继续响应的。<br>同理：在up中返回false或者true是一样的道理。唯一注意的是。up事件是一系列动作的结束，不像down事件是一系列动作的开始。</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/android/" rel="tag">#android</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/08/动画框架集合-贝塞尔曲线实践/" rel="next" title="动画框架集合-贝塞尔曲线实践">
+                <i class="fa fa-chevron-left"></i> 动画框架集合-贝塞尔曲线实践
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Xiemarc" />
+          <p class="site-author-name" itemprop="name">Xiemarc</p>
+          <p class="site-description motion-element" itemprop="description">android开发</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/">
+              <span class="site-state-item-count">38</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Xiemarc" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/1750579585/home?wvr=5&lf=reg" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/u012721933" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-fw fa-blog"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#android中的事件分发、焦点问题。"><span class="nav-number">1.</span> <span class="nav-text">android中的事件分发、焦点问题。</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#方法相关"><span class="nav-number">2.</span> <span class="nav-text">方法相关</span></a></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiemarc</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
