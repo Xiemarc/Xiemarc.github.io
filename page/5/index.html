@@ -514,8 +514,8 @@
             
               
                 
-                <a class="post-title-link" href="/2016/08/10/Fragment取消预加载/" itemprop="url">
-                  Fragment取消预加载
+                <a class="post-title-link" href="/2016/08/10/接口和自定义观察者模式/" itemprop="url">
+                  接口和自定义观察者模式
                 </a>
               
             
@@ -576,25 +576,10 @@
 
       
         
-          <pre><code>public abstract class BaseFragment extends Fragment {
-
-
-protected boolean isViewInitiated;
-protected boolean isVisiableToUser;
-protected boolean isDataInitiated;
-
-@Override
-public void onCreate(@Nullable Bundle savedInstanceState) {
-    super.onCreate(savedInstanceState);
-}
-
-@Override
-public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-
-}
-</code></pre>
+          <p>###接口回调、自定义观察者模式和EvnetBus</p>
+<p>众所周知，android中经常要用到activity、fragment中互相传递参数。或者framgent中的数据改变，另外的fragment或者activity中需要跟着改变。这个时候 通常都会用接口的方式实现。<br>        }<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/10/Fragment取消预加载/#more" rel="contents">
+            <a class="btn" href="/2016/08/10/接口和自定义观察者模式/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -645,8 +630,8 @@ public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle sa
             
               
                 
-                <a class="post-title-link" href="/2016/08/10/圆形imageview以及Blur实现/" itemprop="url">
-                  圆形imageview以及Blur实现
+                <a class="post-title-link" href="/2016/08/10/关于登陆/" itemprop="url">
+                  关于登陆
                 </a>
               
             
@@ -707,10 +692,10 @@ public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle sa
 
       
         
-          <p>###圆形Imageview以及Blur<br>首先效果图</p>
-<p><img src="http://i.imgur.com/cQ2vE7e.gif" alt=""><br><img src="http://i.imgur.com/tbZqygR.gif" alt=""><br>
+          <p>#登录</p>
+<p>###javaweb中如何去维持登录状态<br>    1.登录后 信息放入 session中<br>    2.页面内验证session中是否有登录信息<br>    3.如果有,不需要再次登录<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/10/圆形imageview以及Blur实现/#more" rel="contents">
+            <a class="btn" href="/2016/08/10/关于登陆/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -761,8 +746,8 @@ public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle sa
             
               
                 
-                <a class="post-title-link" href="/2016/08/10/my-new-post/" itemprop="url">
-                  关于线程池
+                <a class="post-title-link" href="/2016/08/10/drawable动画以及CounterView计数/" itemprop="url">
+                  drawable动画以及CounterView计数
                 </a>
               
             
@@ -823,14 +808,13 @@ public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle sa
 
       
         
-          <p>##线程的运行机制</p>
-<blockquote>
-<ul>
-<li>开启线程过多,会消耗cpu</li>
-<li>单核cpu,同一时刻只能处理一个线程,多核cpu同一时刻可以处理多个线程</li>
-<li>操作系统为每个运行线程安排一定的CPU时间—-<code>时间片</code>,系统通过一种循环的方式为线程提供时间片,线程在自己的时间内运行,因为时间相当短,多个线程频繁地发生切换,因此给用户的感觉就是好像多个线程同时运行一样,但是如果计算机有多个CPU,线程就能真正意义上的同时运行了.<br><img src="img/thread1.png" alt="">
+          <blockquote>
+<p>照例：效果图</p>
+</blockquote>
+<p><img src="http://i.imgur.com/ZEoXES4.gif" alt=""></p>
+<p>###具体实现<br>
           <div class="post-more-link text-center">
-            <a class="btn" href="/2016/08/10/my-new-post/#more" rel="contents">
+            <a class="btn" href="/2016/08/10/drawable动画以及CounterView计数/#more" rel="contents">
               阅读全文 &raquo;
             </a>
           </div>
@@ -905,7 +889,7 @@ public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle sa
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/">
-              <span class="site-state-item-count">38</span>
+              <span class="site-state-item-count">39</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

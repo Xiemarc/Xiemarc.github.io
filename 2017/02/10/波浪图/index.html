@@ -1,0 +1,1198 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="android," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="前几天撸了个贝塞尔曲线，最近看到波浪图很敢兴趣，想着也是贝塞尔曲线。真实做的时候使用的不是贝塞尔但是也是数学公式。其实贝塞尔曲线一样能做出来。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="波浪图">
+<meta property="og:url" content="http://yoursite.com/2017/02/10/波浪图/index.html">
+<meta property="og:site_name" content="Marc |">
+<meta property="og:description" content="前几天撸了个贝塞尔曲线，最近看到波浪图很敢兴趣，想着也是贝塞尔曲线。真实做的时候使用的不是贝塞尔但是也是数学公式。其实贝塞尔曲线一样能做出来。">
+<meta property="og:image" content="http://ogrzkg62w.bkt.clouddn.com/%E6%B3%A2%E6%B5%AA%E5%9B%BE%E8%B4%9D%E5%A1%9E%E5%B0%94%E6%9B%B2%E7%BA%BF.gif">
+<meta property="og:updated_time" content="2017-02-10T15:54:25.886Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="波浪图">
+<meta name="twitter:description" content="前几天撸了个贝塞尔曲线，最近看到波浪图很敢兴趣，想着也是贝塞尔曲线。真实做的时候使用的不是贝塞尔但是也是数学公式。其实贝塞尔曲线一样能做出来。">
+<meta name="twitter:image" content="http://ogrzkg62w.bkt.clouddn.com/%E6%B3%A2%E6%B5%AA%E5%9B%BE%E8%B4%9D%E5%A1%9E%E5%B0%94%E6%9B%B2%E7%BA%BF.gif">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/02/10/波浪图/"/>
+
+  <title> 波浪图 | Marc | </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Marc |</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">我的一生划船不用桨，全靠浪。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                波浪图
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-10T23:54:03+08:00" content="2017-02-10">
+              2017-02-10
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/安卓/" itemprop="url" rel="index">
+                    <span itemprop="name">安卓</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>前几天撸了个贝塞尔曲线，最近看到波浪图很敢兴趣，想着也是贝塞尔曲线。真实做的时候使用的不是贝塞尔但是也是数学公式。其实贝塞尔曲线一样能做出来。</p>
+<a id="more"></a>
+<p><img src="http://ogrzkg62w.bkt.clouddn.com/%E6%B3%A2%E6%B5%AA%E5%9B%BE%E8%B4%9D%E5%A1%9E%E5%B0%94%E6%9B%B2%E7%BA%BF.gif" alt=""></p>
+<blockquote>
+<p>注意看那个浅红色部分。特意使用颜色不一样的</p>
+</blockquote>
+<hr>
+<ul>
+<li><p>WaveView,主要靠做bitmap然后通过正弦直接看代码</p>
+<pre><code>public class WaveView extends View {
+    //*************属性开始**************//
+    /**
+     * 振幅比例
+     */
+    private static final float DEFAULT_AMPLITUDE_RATIO = 0.05f;
+    /**
+     * 水位比例
+     */
+    private static final float DEFAULT_WATER_LEVEL_RATIO = 0.5f;
+    /**
+     * 波长比例
+     */
+    private static final float DEFAULT_WAVE_LENGTH_RATIO = 1.0f;
+    /**
+     * 偏移
+     */
+    private static final float DEFAULT_WAVE_SHIFT_RATIO = 0.0f;
+    /**
+     * 后面波浪的颜色
+     */
+    public static final int DEFAULT_BEHIND_WAVE_COLOR = Color.parseColor(&quot;#28FFFFFF&quot;);
+    /**
+     * 前面波浪的颜色
+     */
+    public static final int DEFAULT_FRONT_WAVE_COLOR = Color.parseColor(&quot;#3CFFFFFF&quot;);
+    /**
+     * 外观样式
+     */
+    public static final ShapeType DEFAULT_WAVE_SHAPE = ShapeType.CIRCLE;
+
+    public enum ShapeType {
+        CIRCLE,
+        SQUARE
+    }
+
+    /**
+     * 是否展示波浪动画
+     */
+    private boolean mShowWave;
+    /**
+     * 着色器
+     */
+    private BitmapShader mWaveShader;
+    /**
+     * shader矩阵
+     */
+    private Matrix mShaderMatrix;
+    /**
+     * view的画笔
+     */
+    private Paint mViewPaint;
+    /**
+     * 边界border的画笔
+     */
+    private Paint mBorderPaint;
+    /**
+     * 默认振幅
+     */
+    private float mDefaultAmplitude;
+    /**
+     * 默认水位
+     */
+    private float mDefaultWaterLevel;
+    /**
+     * 默认wave宽度
+     */
+    private float mDefaultWaveLength;
+    /**
+     * 默认波浪角频率
+     */
+    private double mDefaultAngularFrequency;
+    /**
+     * 默认振幅比例
+     */
+    private float mAmplitudeRatio = DEFAULT_AMPLITUDE_RATIO;
+    /**
+     * 波浪宽度
+     */
+    private float mWaveLengthRatio = DEFAULT_WAVE_LENGTH_RATIO;
+    /**
+     * 波浪水位
+     */
+    private float mWaterLevelRatio = DEFAULT_WATER_LEVEL_RATIO;
+    /**
+     * 位移
+     */
+    private float mWaveShiftRatio = DEFAULT_WAVE_SHIFT_RATIO;
+    /**
+     * 默认后面波浪颜色
+     */
+    private int mBehindWaveColor = DEFAULT_BEHIND_WAVE_COLOR;
+    /**
+     * 默认前面波浪颜色
+     */
+    private int mFrontWaveColor = DEFAULT_FRONT_WAVE_COLOR;
+    /**
+     * 默认着色外观
+     */
+    private ShapeType mShapeType = DEFAULT_WAVE_SHAPE;
+    //*************属性结束**************//
+
+    public WaveView(Context context) {
+        super(context);
+        init();
+    }
+
+    public WaveView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        init();
+    }
+
+    public WaveView(Context context, AttributeSet attrs, int defStyleAttr) {
+        super(context, attrs, defStyleAttr);
+        init();
+    }
+
+    /**
+     * 做一些初始化的操作
+     */
+    private void init() {
+        mShaderMatrix = new Matrix();
+        mViewPaint = new Paint();
+        mViewPaint.setAntiAlias(true);
+    }
+
+    @Override
+    protected void onSizeChanged(int w, int h, int oldw, int oldh) {
+        super.onSizeChanged(w, h, oldw, oldh);
+        createShader();
+    }
+
+    /**
+     * 绘制初始波形
+     */
+    private void createShader() {
+        mDefaultAngularFrequency = 2.0f * Math.PI / DEFAULT_WAVE_LENGTH_RATIO / getWidth();
+        //默认振幅（）= 控件的高度* 默认振幅比例
+        mDefaultAmplitude = getHeight() * DEFAULT_AMPLITUDE_RATIO;
+        mDefaultWaterLevel = getHeight() * DEFAULT_WATER_LEVEL_RATIO;
+        mDefaultWaveLength = getWidth();
+
+        //创建长宽恰等于WaveView的Bitmap
+        Bitmap bitmap = Bitmap.createBitmap(getWidth(), getHeight(), Bitmap.Config.ARGB_8888);
+        Canvas canvas = new Canvas(bitmap);
+
+        Paint wavePaint = new Paint();
+        wavePaint.setStrokeWidth(2);
+        wavePaint.setAntiAlias(true);
+        //把波浪画到bitmap上面
+        //画一个正弦曲线
+        // y=Asin(ωx+φ)+h
+        final int endX = getWidth() + 1;
+        final int endY = getHeight() + 1;
+
+        float[] waveY = new float[endX];
+        //初始化后面波浪
+        wavePaint.setColor(mBehindWaveColor);
+        for (int beginX = 0; beginX &lt; endX; beginX++) {
+            //波浪形的x
+            double wx = beginX * mDefaultAngularFrequency;
+            //开始y的值通过公式计算
+            float beginY = (float) (mDefaultWaterLevel + mDefaultAmplitude * Math.sin(wx));
+            canvas.drawLine(beginX, beginY, beginX, endY, wavePaint);
+
+            waveY[beginX] = beginY;
+        }
+        //初始化前面波浪  前面波浪相对于后面波浪的偏移量
+        wavePaint.setColor(mFrontWaveColor);
+        final int wave2Shift = (int) (mDefaultWaveLength / 4);
+        for (int beginX = 0; beginX &lt; endX; beginX++) {
+            canvas.drawLine(beginX, waveY[(beginX + wave2Shift) % endX], beginX, endY, wavePaint);
+        }
+        //产生一个画有一个位图的渲染器  ,
+        // Shader.TileMode.REPEAT: 在x轴上面的平铺模式、REPEAT:横向和纵向的重复渲染器图片，平铺
+        //Shader.TileMode.CLAMP  渲染器超出原始边界范围，会复制范围内边缘染色
+        // 在x轴采用横向和纵向平铺。在y轴采用渲染器超出原始边界范围，会复制范围内边缘染色
+        mWaveShader = new BitmapShader(bitmap, Shader.TileMode.REPEAT, Shader.TileMode.CLAMP);
+        mViewPaint.setShader(mWaveShader);
+    }
+
+    @Override
+    protected void onDraw(Canvas canvas) {
+        //如果当前未显示wave
+        if (mShowWave &amp;&amp; mWaveShader != null) {
+            //还必须确定自定义控件的shader 不能为空
+            if (mViewPaint.getShader() == null) {
+                mViewPaint.setShader(mWaveShader);
+            }
+            //先做缩放变换
+            mShaderMatrix.setScale(
+                    mWaveLengthRatio / DEFAULT_WAVE_LENGTH_RATIO,//x轴的缩放比例
+                    mAmplitudeRatio / DEFAULT_AMPLITUDE_RATIO,//y轴的缩放该比例
+                    0,//中心点x
+                    mDefaultWaterLevel);//中心点y
+            //再做平移,这里注意下，是postTranslate ，不是setTranslate.是因为需要后乘
+            mShaderMatrix.postTranslate(mWaveShiftRatio * getWidth(),//在x轴移动的量
+                 (DEFAULT_WATER_LEVEL_RATIO - mWaterLevelRatio) * getHeight());   //在y轴移动的量,
+                                                                             //y轴上使用正数进行平移将向下移动图像，而使用负数将向上移动图像。
+            mWaveShader.setLocalMatrix(mShaderMatrix);
+
+            //自定义控件的边框宽度
+            float borderWidth = mBorderPaint == null ? 0f : mBorderPaint.getStrokeWidth();
+            switch (mShapeType) {
+                case CIRCLE:
+                    if (borderWidth &gt; 0) {
+                        //如果边框的宽度大于0，则绘制出一个挨着自定义控件的圆形。
+                        //该圆的中心肯定在自定义控件的中心。
+                        canvas.drawCircle(getWidth() / 2f, getHeight() / 2f,
+                                (getWidth() - borderWidth) / 2f - 1f, mBorderPaint);
+                    }
+                    //绘制自定义控件
+                    float radius = getWidth() / 2f - borderWidth;
+                    //波形图已经在mViewPaint 中的shader中了
+                    canvas.drawCircle(getWidth() / 2f, getHeight() / 2f, radius, mViewPaint);
+                    break;
+                case SQUARE:
+                    if (borderWidth &gt; 0) {
+                        canvas.drawRect(
+                                borderWidth / 2f,
+                                borderWidth / 2f,
+                                getWidth() - borderWidth / 2f - 0.5f,
+                                getHeight() - borderWidth / 2f - 0.5f,
+                                mBorderPaint);
+                    }
+                    canvas.drawRect(borderWidth, borderWidth, getWidth() - borderWidth,
+                            getHeight() - borderWidth, mViewPaint);
+                    break;
+            }
+        } else {
+            mViewPaint.setShader(null);
+        }
+    }
+
+    //*********************get和set开始********************************//
+
+    /**
+     * 得到偏移比例
+     *
+     * @return 获得偏移的比例
+     */
+    public float getWaveShiftRatio() {
+        return mWaveShiftRatio;
+    }
+
+    /**
+     * 设置波浪转换偏移比例
+     *
+     * @param waveShiftRatio waveShiftRatio 必须是 0 ~ 1.0的值，默认是0
+     */
+    public void setWaveShiftRatio(float waveShiftRatio) {
+        if (mWaveShiftRatio != waveShiftRatio) {
+            mWaveShiftRatio = waveShiftRatio;
+            invalidate();
+        }
+    }
+
+    /**
+     * 得到 水位比例
+     *
+     * @return
+     */
+    public float getWaterLevelRatio() {
+        return mWaterLevelRatio;
+    }
+
+    /**
+     * 设置水位比例
+     *
+     * @param waterLevelRatio 必须是 0 ~ 1. 默认0.5f
+     */
+    public void setWaterLevelRatio(float waterLevelRatio) {
+        if (mWaterLevelRatio != waterLevelRatio) {
+            mWaterLevelRatio = waterLevelRatio;
+            invalidate();
+        }
+    }
+
+    /**
+     * 得到振幅比例
+     *
+     * @return
+     */
+    public float getAmplitudeRatio() {
+        return mAmplitudeRatio;
+    }
+</code></pre></li>
+</ul>
+<pre><code>    /**
+     * 设置振幅比例
+     *
+     * @param amplitudeRatio 默认是 0.05. 不能大于1
+     */
+    public void setAmplitudeRatio(float amplitudeRatio) {
+        if (mAmplitudeRatio != amplitudeRatio) {
+            mAmplitudeRatio = amplitudeRatio;
+            invalidate();
+        }
+    }
+
+    /**
+     * 得到宽度
+     *
+     * @return
+     */
+    public float getWaveLengthRatio() {
+        return mWaveLengthRatio;
+    }
+
+    /**
+     * 设置横向波浪宽度的比例
+     *
+     * @param waveLengthRatio 默认1
+     */
+    public void setWaveLengthRatio(float waveLengthRatio) {
+        mWaveLengthRatio = waveLengthRatio;
+    }
+
+    public boolean isShowWave() {
+        return mShowWave;
+    }
+
+    public void setShowWave(boolean showWave) {
+        mShowWave = showWave;
+    }
+
+    /**
+     * 设置 边框的宽度和颜色
+     *
+     * @param width
+     * @param color
+     */
+    public void setBorder(int width, int color) {
+        if (mBorderPaint == null) {
+            mBorderPaint = new Paint();
+            mBorderPaint.setAntiAlias(true);
+            mBorderPaint.setStyle(Paint.Style.STROKE);
+        }
+        mBorderPaint.setColor(color);
+        mBorderPaint.setStrokeWidth(width);
+
+        invalidate();
+    }
+
+    /**
+     * 设置 波浪的颜色
+     *
+     * @param behindWaveColor 后面波浪的颜色
+     * @param frontWaveColor  前面波浪的颜色
+     */
+    public void setWaveColor(int behindWaveColor, int frontWaveColor) {
+        mBehindWaveColor = behindWaveColor;
+        mFrontWaveColor = frontWaveColor;
+
+        if (getWidth() &gt; 0 &amp;&amp; getHeight() &gt; 0) {
+            // need to recreate shader when color changed
+            mWaveShader = null;
+            createShader();
+            invalidate();
+        }
+    }
+
+    /**
+     * 设置外形
+     *
+     * @param shapeType
+     */
+    public void setShapeType(ShapeType shapeType) {
+        mShapeType = shapeType;
+        invalidate();
+    }
+
+    //*********************get和set结束********************************//
+}
+</code></pre><ul>
+<li><p>WaveAnimatorHelper类，这个还有问题。太晚了。。睡觉去</p>
+<pre><code>public class WaveAnimatorHelper {
+    /**
+     * 动画集合
+     */
+    private static AnimatorSet mAnimatorSet;
+
+    private static List&lt;Animator&gt; animators;
+    /**
+     * 偏移量动画
+     */
+    private static ObjectAnimator waveShiftAnim;
+    /**
+     * 水位高度动画
+     */
+    private  static ObjectAnimator waterLevelAnim;
+    /**
+     * 振幅角度动画
+     */
+    private static ObjectAnimator amplitudeAnim;
+    private static ObjectAnimator objectAnimator;
+    /**
+     * 是否暂停
+     */
+    private static boolean isPause = false;
+
+    public enum ANIMATORTYPE {
+        PROPERTYVALUES,
+        ANIMATORSET
+    }
+</code></pre></li>
+</ul>
+<pre><code>    /**
+     * 工具类的构造方法通常私有化
+     */
+    private WaveAnimatorHelper(ANIMATORTYPE type, float waterLevelStart, float waterLevelEnd, float waveShiftStart,
+                               float waveShiftEnd, float amplitudeStart, float amplitudeEnd, WaveView mWaveView, int duration) {
+        //改变偏移量
+        if (type == ANIMATORTYPE.PROPERTYVALUES) {
+//        PropertyValuesHolder waterLevelAnim = PropertyValuesHolder.ofFloat(&quot;waterLevelRatio&quot;, 0.0f, 0.5f);
+            PropertyValuesHolder waterLevelAnim = PropertyValuesHolder.ofFloat(&quot;waterLevelRatio&quot;, waterLevelStart, waterLevelEnd);
+//        PropertyValuesHolder waveShiftAnim = PropertyValuesHolder.ofFloat(&quot;waveShiftRatio&quot;, 0f, 1f);
+            PropertyValuesHolder waveShiftAnim = PropertyValuesHolder.ofFloat(&quot;waveShiftRatio&quot;, waveShiftStart, waveShiftEnd);
+//        PropertyValuesHolder amplitudeAnim = PropertyValuesHolder.ofFloat(&quot;amplitudeRatio&quot;, 0.0001f, 0.08f);
+            PropertyValuesHolder amplitudeAnim = PropertyValuesHolder.ofFloat(&quot;amplitudeRatio&quot;, amplitudeStart, amplitudeEnd);
+            objectAnimator = ObjectAnimator.ofPropertyValuesHolder(mWaveView, waterLevelAnim, waveShiftAnim, amplitudeAnim);
+            objectAnimator.setDuration(duration);
+            objectAnimator.setRepeatMode(REVERSE);
+            objectAnimator.setRepeatCount(INFINITE);
+            objectAnimator.start();
+        } else {
+            animators = new ArrayList&lt;&gt;();
+            waveShiftAnim = ObjectAnimator.ofFloat(
+                    mWaveView, &quot;waveShiftRatio&quot;, waveShiftStart, waveShiftEnd);
+            // 无限 循环
+            waveShiftAnim.setRepeatCount(ValueAnimator.INFINITE);
+            waveShiftAnim.setDuration(duration);
+            //匀速线性差值器
+            waveShiftAnim.setInterpolator(new LinearInterpolator());
+            animators.add(waveShiftAnim);
+
+//            改变水位比例
+            waterLevelAnim = ObjectAnimator.ofFloat(
+                    mWaveView, &quot;waterLevelRatio&quot;, waterLevelStart, waterLevelEnd);
+            waterLevelAnim.setDuration(duration * 3);
+            waterLevelAnim.setRepeatCount(ValueAnimator.INFINITE);
+            waterLevelAnim.setRepeatMode(ValueAnimator.REVERSE);
+            //减速差值器
+            waterLevelAnim.setInterpolator(new DecelerateInterpolator());
+            animators.add(waterLevelAnim);
+
+//            改变振幅比例
+            amplitudeAnim = ObjectAnimator.ofFloat(
+                    mWaveView, &quot;amplitudeRatio&quot;, amplitudeStart, amplitudeEnd);
+            amplitudeAnim.setRepeatCount(ValueAnimator.INFINITE);
+            amplitudeAnim.setRepeatMode(ValueAnimator.REVERSE);
+            amplitudeAnim.setDuration(duration * 2);
+            amplitudeAnim.setInterpolator(new LinearInterpolator());
+            animators.add(amplitudeAnim);
+            mAnimatorSet = new AnimatorSet();
+            mAnimatorSet.playTogether(animators);
+            if (mAnimatorSet != null) {
+                mAnimatorSet.start();
+            }
+        }
+    }
+
+
+    /**
+     * 通过ObjectAnimator.ofPropertyValuesHolder方式启动动画。3个动画持续时间相同
+     *
+     * @param waterLevelStart 水位开始位置
+     * @param waterLevelEnd   水位结束位置
+     * @param waveShiftStart  偏移开始位置
+     * @param waveShiftEnd    偏移结束位置
+     * @param amplitudeStart  振幅开始
+     * @param amplitudeEnd    振幅结束
+     * @param waveView        当前waveview
+     * @param duration        持续时间
+     * @return
+     */
+    public static WaveAnimatorHelper startAnimatorWithPropertyValuesHolder
+    (float waterLevelStart, float waterLevelEnd, float waveShiftStart,
+     float waveShiftEnd, float amplitudeStart, float amplitudeEnd, WaveView waveView, int duration) {
+        return new WaveAnimatorHelper(ANIMATORTYPE.PROPERTYVALUES, waterLevelStart, waterLevelEnd, waveShiftStart,
+                waveShiftEnd, amplitudeStart, amplitudeEnd, waveView, duration);
+    }
+
+    /**
+     * 通过ObjectAnimator.ofPropertyValuesHolder方式启动动画。3个动画持续时间相同
+     *
+     * @param waterLevelStart 水位开始位置
+     * @param waterLevelEnd   水位结束位置
+     * @param waveShiftStart  偏移开始位置
+     * @param waveShiftEnd    偏移结束位置
+     * @param amplitudeStart  振幅开始
+     * @param amplitudeEnd    振幅结束
+     * @param waveView        当前waveview
+     * @param duration        持续时间
+     * @return
+     */
+    public static WaveAnimatorHelper startAnimatorWithAnimatorSet
+    (float waterLevelStart, float waterLevelEnd, float waveShiftStart,
+     float waveShiftEnd, float amplitudeStart, float amplitudeEnd, WaveView waveView, int duration) {
+        return new WaveAnimatorHelper(ANIMATORTYPE.ANIMATORSET, waterLevelStart, waterLevelEnd, waveShiftStart,
+                waveShiftEnd, amplitudeStart, amplitudeEnd, waveView, duration);
+    }
+
+
+    /**
+     * 暂停PropertyValuesHolder动画
+     */
+    @TargetApi(Build.VERSION_CODES.KITKAT)
+    public static void stopAnimatorWithPropertyValuesHolder() {
+        if (objectAnimator != null) {
+            if (!isPause) {
+                objectAnimator.pause();
+                isPause = true;
+            }
+        }
+    }
+
+    /**
+     * 继续PropertyValuesHolder动画
+     */
+    @TargetApi(Build.VERSION_CODES.KITKAT)
+    public static void resumePropertyValuesHolder() {
+        if (objectAnimator != null) {
+            if (isPause) {
+                objectAnimator.resume();
+                isPause = false;
+                return;
+            }
+            objectAnimator.resume();
+        }
+    }
+
+    public static void stopAnimationWithAnimatorSet(){
+        if(mAnimatorSet != null){
+
+        }
+    }
+}
+</code></pre><ul>
+<li><p>在activity中多了几行代码</p>
+<pre><code>waveView = (WaveView) findViewById(R.id.wave1);
+       waveView.setShowWave(true);
+       waveView.setWaveColor(
+               Color.parseColor(&quot;#28f16d7a&quot;),
+               Color.parseColor(&quot;#3cf16d7a&quot;));
+       waveView.setShapeType(WaveView.ShapeType.SQUARE);
+       WaveAnimatorHelper.startAnimatorWithAnimatorSet(0.0f, 0.4f, 0f, 1f, 0.0001f, 0.2f, waveView, 1000);
+</code></pre></li>
+</ul>
+<p><a href="https://github.com/Xiemarc/DesignPatterns" target="_blank">GitHub地址</a></p>
+<p><a href="http://blog.csdn.net/u012721933/article/details/54976423" target="_blank">CSDN地址</a></p>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/android/" rel="tag">#android</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/09/事件分发/" rel="next" title="事件分发">
+                <i class="fa fa-chevron-left"></i> 事件分发
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Xiemarc" />
+          <p class="site-author-name" itemprop="name">Xiemarc</p>
+          <p class="site-description motion-element" itemprop="description">android开发</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/">
+              <span class="site-state-item-count">39</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Xiemarc" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/1750579585/home?wvr=5&lf=reg" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/u012721933" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-fw fa-blog"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <p class="post-toc-empty">此文章未包含目录</p>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiemarc</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
