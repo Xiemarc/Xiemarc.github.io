@@ -1,0 +1,939 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="android," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="首先看效果图">
+<meta property="og:type" content="article">
+<meta property="og:title" content="仿地图弹窗">
+<meta property="og:url" content="http://yoursite.com/2017/02/22/仿地图弹窗/index.html">
+<meta property="og:site_name" content="Marc |">
+<meta property="og:description" content="首先看效果图">
+<meta property="og:image" content="http://ogrzkg62w.bkt.clouddn.com/%E5%BC%B9%E7%AA%97.gif">
+<meta property="og:updated_time" content="2017-02-22T14:07:41.207Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="仿地图弹窗">
+<meta name="twitter:description" content="首先看效果图">
+<meta name="twitter:image" content="http://ogrzkg62w.bkt.clouddn.com/%E5%BC%B9%E7%AA%97.gif">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/02/22/仿地图弹窗/"/>
+
+  <title> 仿地图弹窗 | Marc | </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Marc |</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">我的一生划船不用桨，全靠浪。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                仿地图弹窗
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-22T16:46:46+08:00" content="2017-02-22">
+              2017-02-22
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/安卓/" itemprop="url" rel="index">
+                    <span itemprop="name">安卓</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p>首先看效果图</p>
+<p><img src="http://ogrzkg62w.bkt.clouddn.com/%E5%BC%B9%E7%AA%97.gif" alt=""></p>
+<a id="more"></a>
+<blockquote>
+<p>当然了这个高度和宽度是可控的。想详细修改的话去代码里面修改吧.</p>
+</blockquote>
+<h3 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法"></a>使用方法</h3><pre><code>BouncingMenu.makeMenu(findViewById(R.id.rl), R.layout.layout_rv_sweet, adapter).show();
+</code></pre><blockquote>
+<p>是的，你没看错，就是这么简单。<br>只需要传入view，布局id，以及adapter（这里使用的是recycleview.Adapter）。想修改其他的话直接去修改代码吧。</p>
+</blockquote>
+<h3 id="具体实现"><a href="#具体实现" class="headerlink" title="具体实现"></a>具体实现</h3><h5 id="首先是activity的布局-很简单，就是放了各种ImageView，然后上面放了个searchView。"><a href="#首先是activity的布局-很简单，就是放了各种ImageView，然后上面放了个searchView。" class="headerlink" title="首先是activity的布局,很简单，就是放了各种ImageView，然后上面放了个searchView。"></a>首先是activity的布局,很简单，就是放了各种ImageView，然后上面放了个searchView。</h5><pre><code>这里就不写详细布局了
+</code></pre><h5 id="弹出视图"><a href="#弹出视图" class="headerlink" title="弹出视图"></a>弹出视图</h5><p>这里把视图分成2部分了。</p>
+<ol>
+<li>RecycleView部分。使用的是LayoutAnimation。从下往上</li>
+</ol>
+<pre><code>布局：
+
+    &lt;?xml version=&quot;1.0&quot; encoding=&quot;utf-8&quot;?&gt;
+    &lt;FrameLayout xmlns:android=&quot;http://schemas.android.com/apk/res/android&quot;
+        android:layout_width=&quot;match_parent&quot;
+        android:layout_height=&quot;match_parent&quot;
+        android:background=&quot;@android:color/transparent&quot;
+        android:orientation=&quot;vertical&quot;&gt;
+
+        &lt;RelativeLayout
+            android:id=&quot;@+id/freeGrowUpParent&quot;
+            android:layout_width=&quot;match_parent&quot;
+            android:layout_height=&quot;@dimen/sheet_height&quot;
+            android:layout_gravity=&quot;bottom&quot;
+            android:background=&quot;@android:color/transparent&quot;&gt;
+            &lt;!--自定义控件，就是那个波动view--&gt;
+            &lt;com.xie.designpatterns.widget.BouncingView
+                android:id=&quot;@+id/sv&quot;
+                android:layout_width=&quot;match_parent&quot;
+                android:layout_height=&quot;wrap_content&quot;
+                android:layout_marginLeft=&quot;10dp&quot;
+                android:layout_marginRight=&quot;10dp&quot; /&gt;
+
+            &lt;android.support.v7.widget.RecyclerView
+                android:id=&quot;@+id/rv&quot;
+                android:layout_width=&quot;match_parent&quot;
+                android:layout_height=&quot;match_parent&quot;
+                android:layout_gravity=&quot;bottom&quot;
+                android:layout_marginLeft=&quot;10dp&quot;
+                android:layout_marginRight=&quot;10dp&quot;
+                android:layout_marginTop=&quot;30dp&quot;
+                android:clipChildren=&quot;false&quot;
+                android:overScrollMode=&quot;never&quot; /&gt;
+
+        &lt;/RelativeLayout&gt;
+    &lt;/FrameLayout&gt;
+
+BouncingMenu：
+
+    public class BouncingMenu {
+
+        private final ViewGroup mParentViewGroup;
+        private View rootView;
+        private final BouncingView boucingView;
+        private final RecyclerView recycleView;
+        private RecyclerView.Adapter adapter;
+        private int screenWidht;
+        private int screenHeight;
+
+        /**
+         * @param resId   布局资源id
+         * @param adapter
+         */
+        public BouncingMenu(View view, int resId, RecyclerView.Adapter adapter) {
+            this.adapter = adapter;
+            //不断地往上追溯找到 系统id为content的帧布局，添加进去.这里就是利用了这个。
+            // @android:id/content 就是锚点view
+            mParentViewGroup = findRootParent(view);
+            //渲染
+            rootView = LayoutInflater.from(view.getContext()).inflate(resId, null, false);
+            //拿到高度,然后把rootview的高度设置为0
+            Logger.i(&quot;视图的跟布局是&quot; + rootView);
+            boucingView = (BouncingView) rootView.findViewById(R.id.sv);
+            boucingView.setAnimationListener(new MyAnimationListener());
+            recycleView = (RecyclerView) rootView.findViewById(R.id.rv);
+            recycleView.setAnimation(AnimationUtils.loadAnimation(view.getContext(), R.anim.rv_layout_animation));
+            recycleView.setLayoutManager(new LinearLayoutManager(view.getContext()));
+
+            getScreentWight(view.getContext());
+        }
+
+        private ViewGroup findRootParent(View view) {
+            do {
+                //判断是帧布局
+                if (view instanceof FrameLayout) {
+                    if (view.getId() == android.R.id.content) {
+                        //判断布局id为content
+                        return (ViewGroup) view;
+                    }
+                }
+                //没找到 ，就不断的往上找
+                if (view != null) {
+                    ViewParent parent = view.getParent();
+                    //如果父布局是view的话往上继续找
+                    view = parent instanceof View ? (View) parent : null;
+                }
+            } while (view != null);
+            return null;
+        }
+
+        public static BouncingMenu makeMenu(View view, int resId, RecyclerView.Adapter adapter) {
+
+            return new BouncingMenu(view, resId, adapter);
+        }
+
+        /**
+         * 显示
+         *
+         * @return
+         */
+        @TargetApi(Build.VERSION_CODES.JELLY_BEAN)
+        public BouncingMenu show() {
+            //显示,往帧布局里面addView（xxxView）
+            if (rootView.getParent() != null) {
+                //防止已经show了再次show
+                mParentViewGroup.removeView(rootView);
+            }
+            FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.MATCH_PARENT);
+            rootView.setLayoutParams(params);
+            mParentViewGroup.addView(rootView);
+            boucingView.show();
+            return this;
+        }
+
+        /**
+         * 关闭
+         */
+        public void dissmiss() {
+            //属性动画实现消失
+            ObjectAnimator animator = ObjectAnimator.ofFloat(rootView, &quot;translationY&quot;, 0, rootView.getHeight());
+            animator.setDuration(1000);
+            animator.addListener(new AnimatorListenerAdapter() {
+                @Override
+                public void onAnimationEnd(Animator animation) {
+                    //动画结束
+                    super.onAnimationEnd(animation);
+                    mParentViewGroup.removeView(rootView);
+                    rootView = null;
+                }
+            });
+            animator.start();
+        }
+
+        private class MyAnimationListener implements BouncingView.AnimationListener {
+            @Override
+            public void onShowContent() {
+                recycleView.setVisibility(View.VISIBLE);
+                recycleView.setAdapter(adapter);
+                recycleView.scheduleLayoutAnimation();
+            }
+        }
+
+        private void getScreentWight(Context context) {
+            WindowManager wm = (WindowManager) context
+                    .getSystemService(Context.WINDOW_SERVICE);
+
+            screenWidht = wm.getDefaultDisplay().getWidth();
+            screenHeight = wm.getDefaultDisplay().getHeight();
+        }
+    }
+</code></pre><ol>
+<li><p>BouncingView(弹动部分)</p>
+<pre><code>public class BouncingView extends View {
+    private Paint mPaint;
+    private int mArcHeight;//当前弧度
+    private int mMaxArcHeight;//最高弧度
+    private Status mStatus = Status.NONE;
+    private Path mPath = new Path();
+    private AnimationListener animationListener;
+
+    private enum Status {
+        NONE,
+        STATUS_SMOOTH_UP,
+        STATUS_DOWN
+    }
+
+    public BouncingView(Context context) {
+        super(context);
+        init();
+    }
+
+    public BouncingView(Context context, AttributeSet attrs) {
+        super(context, attrs);
+        init();
+    }
+</code></pre></li>
+</ol>
+<pre><code>    private void init() {
+        mPaint = new Paint();
+        mPaint.setAntiAlias(true);
+        mPaint.setStyle(Paint.Style.FILL);
+        mPaint.setColor(getResources().getColor(android.R.color.white));
+        mMaxArcHeight = getResources().getDimensionPixelSize(R.dimen.arc_max_height);
+    }
+
+
+    //绘制贝塞尔曲线
+    @Override
+    protected void onDraw(Canvas canvas) {
+        super.onDraw(canvas);
+
+        int currentPointY = 0;
+        //判断当前状态
+        switch (mStatus) {
+            case NONE:
+                currentPointY = 0;
+                break;
+            case STATUS_SMOOTH_UP://往上走
+                //currentPointY 的值 跟mArcHeight变化率是一样的
+                //getHeight()~0  (自定义控件最上面是0)           跟mArcHeight:0~mMaxArcHeight
+                currentPointY = (int) (getHeight() * (1 - (float) mArcHeight / mMaxArcHeight) + mMaxArcHeight);
+                break;
+            case STATUS_DOWN://往下走
+                currentPointY = mMaxArcHeight;
+                break;
+
+        }
+        mPath.reset();
+        //先落笔到左上角
+        mPath.moveTo(0, currentPointY);
+        //画上面的线二阶贝塞尔曲线  ,需要起始点 终点，跟拐点。起点就是（0，currentPotintY），拐点就是最中间(getWidth()/2,)
+        mPath.quadTo(getWidth() / 2, currentPointY - mArcHeight, getWidth(), currentPointY);
+        //右边线
+        mPath.lineTo(getWidth(), getHeight());
+        //最下面的直线
+        mPath.lineTo(0, getHeight());
+        //自动画最后一条线
+        mPath.close();
+        canvas.drawPath(mPath, mPaint);
+    }
+
+    public void show() {
+
+        if (animationListener != null) {
+            this.postDelayed(new Runnable() {
+                @Override
+                public void run() {
+                    //延迟显示数据
+                    animationListener.onShowContent();
+                }
+            }, 600);
+        }
+
+        //不短的控制mArcHeight的高度
+        mStatus = Status.STATUS_SMOOTH_UP;
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(0, mMaxArcHeight);
+        valueAnimator.setDuration(800);
+        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                mArcHeight = (int) animation.getAnimatedValue();
+                if (mArcHeight == mMaxArcHeight) {
+                    //出现谈一下动画
+                    bounce();
+                }
+                //不断的刷新调用ondraw方法
+                invalidate();
+            }
+
+
+        });
+        valueAnimator.start();
+    }
+
+    /**
+     * 回弹动画
+     */
+    private void bounce() {
+        mStatus = Status.STATUS_DOWN;
+        ValueAnimator valueAnimator = ValueAnimator.ofInt(mMaxArcHeight, 0);
+        valueAnimator.setDuration(800);
+        valueAnimator.addUpdateListener(new ValueAnimator.AnimatorUpdateListener() {
+            @Override
+            public void onAnimationUpdate(ValueAnimator animation) {
+                mArcHeight = (int) animation.getAnimatedValue();
+                //不断的刷新调用ondraw方法
+                invalidate();
+            }
+
+
+        });
+        valueAnimator.start();
+    }
+
+    public void setAnimationListener(AnimationListener listener) {
+        this.animationListener = listener;
+    }
+
+    public interface AnimationListener {
+        void onShowContent();
+    }
+
+}
+</code></pre><blockquote>
+<p>具体需求自己可以设置进入改</p>
+</blockquote>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/android/" rel="tag">#android</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/10/波浪图/" rel="next" title="波浪图">
+                <i class="fa fa-chevron-left"></i> 波浪图
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Xiemarc" />
+          <p class="site-author-name" itemprop="name">Xiemarc</p>
+          <p class="site-description motion-element" itemprop="description">android开发</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/">
+              <span class="site-state-item-count">40</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Xiemarc" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/1750579585/home?wvr=5&lf=reg" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/u012721933" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-fw fa-blog"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#使用方法"><span class="nav-number">1.</span> <span class="nav-text">使用方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#具体实现"><span class="nav-number">2.</span> <span class="nav-text">具体实现</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#首先是activity的布局-很简单，就是放了各种ImageView，然后上面放了个searchView。"><span class="nav-number">2.0.1.</span> <span class="nav-text">首先是activity的布局,很简单，就是放了各种ImageView，然后上面放了个searchView。</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#弹出视图"><span class="nav-number">2.0.2.</span> <span class="nav-text">弹出视图</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiemarc</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
