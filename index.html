@@ -258,6 +258,122 @@
             
               
                 
+                <a class="post-title-link" href="/2017/06/29/android6-0权限笔记/" itemprop="url">
+                  android6.0权限笔记
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-29T00:49:35+08:00" content="2017-06-29">
+              2017-06-29
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/安卓/" itemprop="url" rel="index">
+                    <span itemprop="name">安卓</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h1 id="6-0权限回顾"><a href="#6-0权限回顾" class="headerlink" title="6.0权限回顾"></a>6.0权限回顾</h1><p>自android 6.0后权限需要动态的去检测，如果6.0不对权限做处理，那么会出现一些意想不到的问题，例如拿不到联系人，拿不到sd卡信息。</p>
+<h3 id="Android6-0之后的权限差别"><a href="#Android6-0之后的权限差别" class="headerlink" title="Android6.0之后的权限差别"></a>Android6.0之后的权限差别</h3><p>对于6.0以下的权限及在安装的时候，根据权限声明产生一个权限列表，用户只有在同意之后才能完成app的安装。而在6.0以后，我们可以直接安装，当app需要权限是会给予用户提示用户可以选择同意和拒绝。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/06/29/android6-0权限笔记/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/06/29/Material-Design-过渡动画/" itemprop="url">
                   Material Design 过渡动画
                 </a>
@@ -702,126 +818,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/02/09/事件分发/" itemprop="url">
-                  事件分发
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2017-02-09T20:19:02+08:00" content="2017-02-09">
-              2017-02-09
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/安卓/" itemprop="url" rel="index">
-                    <span itemprop="name">安卓</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <h3 id="android中的事件分发、焦点问题。"><a href="#android中的事件分发、焦点问题。" class="headerlink" title="android中的事件分发、焦点问题。"></a>android中的事件分发、焦点问题。</h3><blockquote>
-<p>啥都不管，这里先安利一个非常好用的方法。简直是解决事件冲突的利器啊。</p>
-</blockquote>
-<pre><code>getParent()(父亲).request(请求)Disallow(不)Intercept(拦截)TouchEvent(touch事件)(true(同意));
-getParent().requestDisallowInterceptTouchEvent(true);
-</code></pre><p>我是在自定义柱形图的左右滑动跟侧滑面板冲突的时候各种查阅找到的。灰常好用。</p>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2017/02/09/事件分发/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -867,7 +863,7 @@ getParent().requestDisallowInterceptTouchEvent(true);
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/">
-              <span class="site-state-item-count">42</span>
+              <span class="site-state-item-count">43</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>

@@ -258,6 +258,126 @@
             
               
                 
+                <a class="post-title-link" href="/2017/02/09/事件分发/" itemprop="url">
+                  事件分发
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-02-09T20:19:02+08:00" content="2017-02-09">
+              2017-02-09
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/安卓/" itemprop="url" rel="index">
+                    <span itemprop="name">安卓</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          <h3 id="android中的事件分发、焦点问题。"><a href="#android中的事件分发、焦点问题。" class="headerlink" title="android中的事件分发、焦点问题。"></a>android中的事件分发、焦点问题。</h3><blockquote>
+<p>啥都不管，这里先安利一个非常好用的方法。简直是解决事件冲突的利器啊。</p>
+</blockquote>
+<pre><code>getParent()(父亲).request(请求)Disallow(不)Intercept(拦截)TouchEvent(touch事件)(true(同意));
+getParent().requestDisallowInterceptTouchEvent(true);
+</code></pre><p>我是在自定义柱形图的左右滑动跟侧滑面板冲突的时候各种查阅找到的。灰常好用。</p>
+          <div class="post-more-link text-center">
+            <a class="btn" href="/2017/02/09/事件分发/#more" rel="contents">
+              阅读全文 &raquo;
+            </a>
+          </div>
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
                 <a class="post-title-link" href="/2017/02/08/动画框架集合-贝塞尔曲线实践/" itemprop="url">
                   动画框架集合-贝塞尔曲线实践
                 </a>
@@ -698,131 +818,6 @@
 
 
     
-      
-
-  
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2016/11/24/自定义观察者模式实现对状态的监听/" itemprop="url">
-                  自定义观察者模式实现对状态的监听
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            <span class="post-meta-item-icon">
-              <i class="fa fa-calendar-o"></i>
-            </span>
-            <span class="post-meta-item-text">发表于</span>
-            <time itemprop="dateCreated" datetime="2016-11-24T22:54:05+08:00" content="2016-11-24">
-              2016-11-24
-            </time>
-          </span>
-
-          
-            <span class="post-category" >
-              &nbsp; | &nbsp;
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              <span class="post-meta-item-text">分类于</span>
-              
-                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
-                  <a href="/categories/安卓/" itemprop="url" rel="index">
-                    <span itemprop="name">安卓</span>
-                  </a>
-                </span>
-
-                
-                
-
-              
-            </span>
-          
-
-          
-            
-          
-
-          
-
-          
-          
-
-          
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p>这里我主要分为4个步骤</p>
-<ol>
-<li><p>定义被观察者Observabler接口</p>
-<pre><code>public interface MainTvClick {
-    void onChangeListener(String string);
-}
-</code></pre></li>
-<li><p>创建观察者集合</p>
-<pre><code>//观察者集合
-List&lt;MainTvClick&gt; mainTvClickList = new LinkedList&lt;&gt;();
-</code></pre>
-          <div class="post-more-link text-center">
-            <a class="btn" href="/2016/11/24/自定义观察者模式实现对状态的监听/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -868,7 +863,7 @@ List&lt;MainTvClick&gt; mainTvClickList = new LinkedList&lt;&gt;();
         <nav class="site-state motion-element">
           <div class="site-state-item site-state-posts">
             <a href="/">
-              <span class="site-state-item-count">42</span>
+              <span class="site-state-item-count">43</span>
               <span class="site-state-item-name">日志</span>
             </a>
           </div>
