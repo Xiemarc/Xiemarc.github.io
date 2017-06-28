@@ -1,0 +1,867 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.4.0" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.0.1" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="android," />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.0.1" />
+
+
+
+
+
+
+<meta name="description" content="android深入学习-PathMeasurecsdn博客地址
+github个人地址
+仓库地址">
+<meta property="og:type" content="article">
+<meta property="og:title" content="android深入学习-PathMeasure">
+<meta property="og:url" content="http://yoursite.com/2017/06/29/android深入学习-PathMeasure/index.html">
+<meta property="og:site_name" content="Marc |">
+<meta property="og:description" content="android深入学习-PathMeasurecsdn博客地址
+github个人地址
+仓库地址">
+<meta property="og:image" content="http://ogrzkg62w.bkt.clouddn.com/path.gif">
+<meta property="og:image" content="http://ogrzkg62w.bkt.clouddn.com/path.gif">
+<meta property="og:updated_time" content="2017-06-28T16:39:29.191Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="android深入学习-PathMeasure">
+<meta name="twitter:description" content="android深入学习-PathMeasurecsdn博客地址
+github个人地址
+仓库地址">
+<meta name="twitter:image" content="http://ogrzkg62w.bkt.clouddn.com/path.gif">
+
+
+
+<script type="text/javascript" id="hexo.configuration">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    scheme: 'Pisces',
+    sidebar: {"position":"left","display":"post"},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: 0,
+      author: '博主'
+    }
+  };
+</script>
+
+
+
+
+  <link rel="canonical" href="http://yoursite.com/2017/06/29/android深入学习-PathMeasure/"/>
+
+  <title> android深入学习-PathMeasure | Marc | </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-left page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-meta ">
+  
+
+  <div class="custom-logo-site-title">
+    <a href="/"  class="brand" rel="start">
+      <span class="logo-line-before"><i></i></span>
+      <span class="site-title">Marc |</span>
+      <span class="logo-line-after"><i></i></span>
+    </a>
+  </div>
+  <p class="site-subtitle">我的一生划船不用桨，全靠浪。</p>
+</div>
+
+<div class="site-nav-toggle">
+  <button>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+    <span class="btn-bar"></span>
+  </button>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-about">
+          <a href="/about" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-user"></i> <br />
+            
+            关于
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-tags">
+          <a href="/tags" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-tags"></i> <br />
+            
+            标签
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-commonweal">
+          <a href="/404.html" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-heartbeat"></i> <br />
+            
+            公益404
+          </a>
+        </li>
+      
+
+      
+    </ul>
+  
+
+  
+</nav>
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                android深入学习-PathMeasure
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            <span class="post-meta-item-icon">
+              <i class="fa fa-calendar-o"></i>
+            </span>
+            <span class="post-meta-item-text">发表于</span>
+            <time itemprop="dateCreated" datetime="2017-06-29T00:37:07+08:00" content="2017-06-29">
+              2017-06-29
+            </time>
+          </span>
+
+          
+            <span class="post-category" >
+              &nbsp; | &nbsp;
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              <span class="post-meta-item-text">分类于</span>
+              
+                <span itemprop="about" itemscope itemtype="https://schema.org/Thing">
+                  <a href="/categories/安卓/" itemprop="url" rel="index">
+                    <span itemprop="name">安卓</span>
+                  </a>
+                </span>
+
+                
+                
+
+              
+            </span>
+          
+
+          
+            
+          
+
+          
+
+          
+          
+
+          
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <h1 id="android深入学习-PathMeasure"><a href="#android深入学习-PathMeasure" class="headerlink" title="android深入学习-PathMeasure"></a>android深入学习-PathMeasure</h1><p><a href="http://blog.csdn.net/u012721933" target="_blank" rel="external">csdn博客地址</a></p>
+<p><a href="https://xiemarc.github.io/" target="_blank" rel="external">github个人地址</a></p>
+<p><a href="https://github.com/Xiemarc/DesignPatterns" target="_blank" rel="external">仓库地址</a></p>
+<p><img src="http://ogrzkg62w.bkt.clouddn.com/path.gif" alt="这里写图片描述"></p>
+<a id="more"></a>
+<p>顾名思义，PathMeasure是一个用来测量Path的类，主要有以下方法:</p>
+<h3 id="构造方法"><a href="#构造方法" class="headerlink" title="构造方法"></a>构造方法</h3><table>
+<thead>
+<tr>
+<th>方法名</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>PathMeasure()</td>
+<td>创建一个空的PathMeasure</td>
+</tr>
+<tr>
+<td>PathMeasure(Path path, boolean forceClosed)</td>
+<td>创建 PathMeasure 并关联一个指定的Path(Path需要已经创建完成)。</td>
+</tr>
+</tbody>
+</table>
+<h3 id="公共方法"><a href="#公共方法" class="headerlink" title="公共方法"></a>公共方法</h3><table>
+<thead>
+<tr>
+<th>返回值</th>
+<th>方法名</th>
+<th>释义</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>void</td>
+<td>setPath(Path path, boolean forceClosed)</td>
+<td>关联一个Path</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>isClosed()</td>
+<td>是否闭合</td>
+</tr>
+<tr>
+<td>float</td>
+<td>getLength()</td>
+<td>获取Path的长度</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>nextContour()</td>
+<td>跳转到下一个轮廓</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>getSegment(float startD, float stopD, Path dst, boolean startWithMoveTo)</td>
+<td>截取片段</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>getPosTan(float distance, float[] pos, float[] tan)</td>
+<td>获取指定长度的位置坐标及该点切线值tangle (正切值)</td>
+</tr>
+<tr>
+<td>boolean</td>
+<td>getMatrix(float distance, Matrix matrix, int flags)</td>
+<td>获取指定长度的位置坐标及该点Matrix(矩阵)</td>
+</tr>
+</tbody>
+</table>
+<h3 id="构造方法-1"><a href="#构造方法-1" class="headerlink" title="构造方法"></a>构造方法</h3><h4 id="无参构造方法"><a href="#无参构造方法" class="headerlink" title="无参构造方法"></a>无参构造方法</h4><p>PathMeasure()</p>
+<p>用这个构造函数可创建一个空的 PathMeasure，但是使用之前需要先调用 setPath 方法来与 Path 进行关联。被关联的 Path 必须是已经创建好的，如果关联之后 Path 内容进行了更改，则需要使用 setPath 方法重新关联。</p>
+<h4 id="有参构造"><a href="#有参构造" class="headerlink" title="有参构造"></a>有参构造</h4><p>PathMeasure(Path path,boolean forceClosed)</p>
+<p>用这个构造函数是创建一个 PathMeasure 并关联一个 Path， 其实和创建一个空的 PathMeasure 后调用 setPath 进行关联效果是一样的，同样，被关联的 Path 也必须是已经创建好的，如果关联之后 Path 内容进行了更改，则需要使用 setPath 方法重新关联。</p>
+<p>该方法有两个参数，第一个参数自然就是被关联的 Path 了，第二个参数是用来确保 Path 闭合，如果设置为 true， 则不论之前Path是否闭合，都会自动闭合该 Path(如果Path可以闭合的话)。</p>
+<p>注意：</p>
+<ul>
+<li>不论 forceClosed 设置为何种状态(true 或者 false)， 都不会影响原有Path的状态，即 Path 与 PathMeasure 关联之后，之前的的 Path 不会有任何改变。</li>
+<li>forceClosed 的设置状态可能会影响测量结果，如果 Path 未闭合但在与 PathMeasure 关联的时候设置 forceClosed 为 true 时，测量结果可能会比 Path 实际长度稍长一点，获取到到是该 Path 闭合时的状态。</li>
+</ul>
+<h3 id="setPath、isClosed、getLength"><a href="#setPath、isClosed、getLength" class="headerlink" title="setPath、isClosed、getLength"></a>setPath、isClosed、getLength</h3><p>这三个方法都如字面意思一样，非常简单，这里就简单是叙述一下，不再过多讲解。</p>
+<p>setPath 是 PathMeasure 与 Path 关联的重要方法，效果和 构造函数 中两个参数的作用是一样的。</p>
+<p>isClosed 用于判断 Path 是否闭合，但是如果你在关联 Path 的时候设置 forceClosed 为 true 的话，这个方法的返回值则一定为true。</p>
+<p>getLength 用于获取 Path 的总长度，在之前的测试中已经用过了。</p>
+<h3 id="getSegment"><a href="#getSegment" class="headerlink" title="getSegment"></a>getSegment</h3><p>getSegment 用于获取Path的一个片段，方法如下：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">getSegment</span> <span class="params">(<span class="keyword">float</span> startD, <span class="keyword">float</span> stopD, Path dst, <span class="keyword">boolean</span> startWithMoveTo)</span></span></div></pre></td></tr></table></figure>
+<p>方法各个参数释义：</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>返回值(boolean)</td>
+<td>判断截取是否成功</td>
+<td>true 表示截取成功，结果存入dst中，false 截取失败，不会改变dst中内容</td>
+</tr>
+<tr>
+<td>startD</td>
+<td>开始截取位置距离 Path 起点的长度</td>
+<td>取值范围: 0 &lt;= startD &lt; stopD &lt;= Path总长度</td>
+</tr>
+<tr>
+<td>stopD</td>
+<td>结束截取位置距离 Path 起点的长度</td>
+<td>取值范围: 0 &lt;= startD &lt; stopD &lt;= Path总长度</td>
+</tr>
+<tr>
+<td>dst</td>
+<td>截取的 Path 将会添加到 dst 中</td>
+<td>注意: 是添加，而不是替换</td>
+</tr>
+<tr>
+<td>startWithMoveTo</td>
+<td>起始点是否使用 moveTo</td>
+<td>用于保证截取的 Path 第一个点位置不变</td>
+</tr>
+</tbody>
+</table>
+<ul>
+<li>· 如果 startD、stopD 的数值不在取值范围 [0, getLength] 内，或者 startD == stopD 则返回值为 false，不会改变 dst 内容。</li>
+<li>如果在安卓4.4或者之前的版本，在默认开启硬件加速的情况下，更改 dst 的内容后可能绘制会出现问题，请关闭硬件加速或者给 dst 添加一个单个操作，例如: dst.rLineTo(0, 0)</li>
+<li>· 可以用以下规则来判断 startWithMoveTo 的取值：</li>
+</ul>
+<table>
+<thead>
+<tr>
+<th>取值</th>
+<th>主要功用</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>true</td>
+<td>保证截取得到的 Path 片段不会发生形变</td>
+</tr>
+<tr>
+<td>false</td>
+<td>保证存储截取片段的 Path(dst) 的连续性</td>
+</tr>
+</tbody>
+</table>
+<h3 id="nextContour"><a href="#nextContour" class="headerlink" title="nextContour"></a>nextContour</h3><p>我们知道 Path 可以由多条曲线构成，但不论是 getLength , getgetSegment 或者是其它方法，都只会在其中第一条线段上运行，而这个 nextContour 就是用于跳转到下一条曲线到方法，<em>如果跳转成功，则返回 true， 如果跳转失败，则返回 false。</em></p>
+<h3 id="getPosTan"><a href="#getPosTan" class="headerlink" title="getPosTan"></a>getPosTan</h3><p>这个方法是用于得到路径上某一长度的位置以及该位置的正切值(那种跟着水波纹运动的通常都用到这个)：</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">getPosTan</span> <span class="params">(<span class="keyword">float</span> distance, <span class="keyword">float</span>[] pos, <span class="keyword">float</span>[] tan)</span></span></div></pre></td></tr></table></figure>
+<p>​    方法各个参数释义:</p>
+<table>
+<thead>
+<tr>
+<th>参数</th>
+<th>作用</th>
+<th>备注</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>返回值(boolean)</td>
+<td>判断获取是否成功</td>
+<td>true表示成功，数据会存入 pos 和 tan 中，false 表示失败，pos 和 tan 不会改变</td>
+</tr>
+<tr>
+<td>distance</td>
+<td>距离 Path 起点的长度</td>
+<td>取值范围: 0 &lt;= distance &lt;= getLength</td>
+</tr>
+<tr>
+<td>pos</td>
+<td>该点的坐标值</td>
+<td>坐标值: (x==[0], y==[1])</td>
+</tr>
+<tr>
+<td>tan</td>
+<td>该点的正切值</td>
+<td>正切值: (x==[0], y==[1])</td>
+</tr>
+</tbody>
+</table>
+<blockquote>
+<p>·通过tan得值计算出图片旋转的角度，tan 是 tangent 的缩写，即中学中常见的正切， 其中tan[0]是邻边边长，tan[1]是对边边长，而Math中 atan2 方法是根据正切是数值计算出该角度的大小,得到的单位是弧度，所以上面又将弧度转为了角度。pos是得到坐标点</p>
+</blockquote>
+<h3 id="getMatrix"><a href="#getMatrix" class="headerlink" title="getMatrix"></a>getMatrix</h3><p>这个方法是用于得到路径上某一长度的位置以及该位置的正切值的矩阵l</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">boolean</span> <span class="title">getMatrix</span> <span class="params">(<span class="keyword">float</span> distance, Matrix matrix, <span class="keyword">int</span> flags)</span></span></div></pre></td></tr></table></figure>
+<table>
+<thead>
+<tr>
+<th><strong>参数</strong></th>
+<th><strong>作用</strong></th>
+<th><strong>备注</strong></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>返回值(boolean)</td>
+<td>判断获取是否成功</td>
+<td>true表示成功，数据会存入matrix中，false 失败，matrix内容不会改变</td>
+</tr>
+<tr>
+<td>distance</td>
+<td>距离 Path 起点的长度</td>
+<td>取值范围: 0 &lt;= distance &lt;= getLength</td>
+</tr>
+<tr>
+<td>matrix</td>
+<td>根据 falgs 封装好的matrix</td>
+<td>会根据 flags 的设置而存入不同的内容</td>
+</tr>
+<tr>
+<td>flags</td>
+<td>规定哪些内容会存入到matrix中</td>
+<td>可选择POSITION_MATRIX_FLAG(位置) ANGENT_MATRIX_FLAG(正切)</td>
+</tr>
+</tbody>
+</table>
+<h1 id="实战"><a href="#实战" class="headerlink" title="实战"></a>实战</h1><p><img src="http://ogrzkg62w.bkt.clouddn.com/path.gif" alt="这里写图片描述"></p>
+<p>那个小船动画设置的太快了。可以自己修改的哟</p>
+<h3 id="上半部分的波浪加小船动画"><a href="#上半部分的波浪加小船动画" class="headerlink" title="上半部分的波浪加小船动画"></a>上半部分的波浪加小船动画</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WaveView</span> <span class="keyword">extends</span> <span class="title">View</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> Path path;</div><div class="line">    <span class="keyword">private</span> Paint paint;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> waveLength = <span class="number">800</span>;<span class="comment">//波长</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> dx;<span class="comment">//不断变化的增量</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> dy;</div><div class="line">    <span class="keyword">private</span> Bitmap mBitmap;</div><div class="line">    <span class="keyword">protected</span> <span class="keyword">float</span> fraction;</div><div class="line">    <span class="keyword">private</span> PathMeasure mPathMeasure;</div><div class="line">    <span class="keyword">private</span> PathMeasure pathMeasure;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span>[] pos;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span>[] tan;</div><div class="line">    <span class="keyword">private</span> Matrix mMatrix;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">WaveView</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(context, <span class="keyword">null</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">WaveView</span><span class="params">(Context context, AttributeSet attrs)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs);</div><div class="line">        init();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">init</span><span class="params">()</span> </span>&#123;</div><div class="line">        path = <span class="keyword">new</span> Path();</div><div class="line">        paint = <span class="keyword">new</span> Paint(Paint.ANTI_ALIAS_FLAG);</div><div class="line">        paint.setStyle(Paint.Style.FILL_AND_STROKE);</div><div class="line">        paint.setColor(Color.RED);</div><div class="line">        BitmapFactory.Options options = <span class="keyword">new</span> BitmapFactory.Options();</div><div class="line">        options.inSampleSize = <span class="number">3</span>;</div><div class="line">        mBitmap = BitmapFactory.decodeResource(getResources(), R.drawable.chuan, options);</div><div class="line">        mPathMeasure = <span class="keyword">new</span> PathMeasure();</div><div class="line">        pathMeasure = <span class="keyword">new</span> PathMeasure();</div><div class="line">        pos = <span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">2</span>];</div><div class="line">        tan = <span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">2</span>];</div><div class="line">        mMatrix = <span class="keyword">new</span> Matrix();</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">draw</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.draw(canvas);</div><div class="line">        path.reset();</div><div class="line">        <span class="keyword">int</span> originY = <span class="number">500</span>;<span class="comment">//波浪原始高度</span></div><div class="line">        <span class="comment">//半个波长,用来确定贝塞尔曲线的几个重要的点</span></div><div class="line">        <span class="keyword">int</span> halfLength = waveLength / <span class="number">2</span>;</div><div class="line">        <span class="comment">//起始点</span></div><div class="line">        path.moveTo(-waveLength + dx, originY + dy);</div><div class="line">        <span class="comment">//屏幕（控件）宽度画多少个波长</span></div><div class="line">        <span class="keyword">for</span> (<span class="keyword">int</span> i = -waveLength; i &lt; getWidth() + waveLength; i += waveLength) &#123;</div><div class="line">            <span class="comment">//有多少个波浪,r是相对绘制二阶贝塞尔曲线.相对于自己的起始点,也就是上一个曲线的终点(即是每次的moveTo的点)</span></div><div class="line">            path.rQuadTo(halfLength / <span class="number">2</span>, -<span class="number">150</span>, halfLength, <span class="number">0</span>);<span class="comment">//往上的波峰</span></div><div class="line">            <span class="comment">//x1，y1的点相对于上面的（halfLength, 0）。</span></div><div class="line">            path.rQuadTo(halfLength / <span class="number">2</span>, <span class="number">150</span>, halfLength, <span class="number">0</span>);<span class="comment">//往下的波峰</span></div><div class="line">        &#125;</div><div class="line">        <span class="comment">//颜色填充。画封闭的空间</span></div><div class="line">        path.lineTo(getWidth(), getHeight());<span class="comment">//最右下角</span></div><div class="line">        path.lineTo(<span class="number">0</span>, getHeight());<span class="comment">//最左下角</span></div><div class="line">        path.close();<span class="comment">//闭合</span></div><div class="line">        canvas.drawPath(path, paint);</div><div class="line">        mMatrix.reset();</div><div class="line">        mPathMeasure.setPath(path, <span class="keyword">false</span>);</div><div class="line">        <span class="keyword">float</span> length = mPathMeasure.getLength();</div><div class="line">        <span class="comment">//flag:表示要求哪一个值：tan或者pos</span></div><div class="line">        mPathMeasure.getMatrix(length * fraction, mMatrix, PathMeasure.TANGENT_MATRIX_FLAG | PathMeasure.POSITION_MATRIX_FLAG);</div><div class="line">        mMatrix.preTranslate(-mBitmap.getWidth() / <span class="number">2</span>, -mBitmap.getHeight());</div><div class="line">        canvas.drawBitmap(mBitmap, mMatrix, paint);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startAnimation</span><span class="params">()</span> </span>&#123;</div><div class="line">        ValueAnimator animator = ValueAnimator.ofInt(<span class="number">0</span>, waveLength);</div><div class="line">        animator.setDuration(<span class="number">3000</span>);</div><div class="line">        animator.setInterpolator(<span class="keyword">new</span> LinearInterpolator());</div><div class="line">        animator.setRepeatCount(ValueAnimator.INFINITE);<span class="comment">//循环</span></div><div class="line">        animator.addUpdateListener(animation -&gt; &#123;</div><div class="line">            dx = (<span class="keyword">int</span>) animation.getAnimatedValue();</div><div class="line">            postInvalidate();</div><div class="line">        &#125;);</div><div class="line">        <span class="comment">//y轴上下移动</span></div><div class="line">        ValueAnimator yAnimtor = ValueAnimator.ofInt(<span class="number">0</span>, <span class="number">300</span>);</div><div class="line">        yAnimtor.setDuration(<span class="number">10000</span>);</div><div class="line">        yAnimtor.setRepeatMode(ValueAnimator.REVERSE);</div><div class="line">        yAnimtor.setRepeatCount(ValueAnimator.INFINITE);</div><div class="line">        yAnimtor.addUpdateListener(animation -&gt; &#123;</div><div class="line">            dy = (<span class="keyword">int</span>) animation.getAnimatedValue();</div><div class="line">            postInvalidate();</div><div class="line">        &#125;);</div><div class="line">        animator.start();</div><div class="line">        yAnimtor.start();</div><div class="line">        <span class="comment">//小船</span></div><div class="line">        ValueAnimator mAnimator = ValueAnimator.ofFloat(<span class="number">0</span>, <span class="number">1</span>);</div><div class="line">        mAnimator.setDuration(<span class="number">5000</span>);</div><div class="line">        mAnimator.setRepeatCount(ValueAnimator.INFINITE);</div><div class="line">        mAnimator.setRepeatMode(ValueAnimator.RESTART);</div><div class="line">        mAnimator.addUpdateListener(animation -&gt; &#123;</div><div class="line">            fraction = (<span class="keyword">float</span>) animation.getAnimatedValue();</div><div class="line">            postInvalidate();</div><div class="line">        &#125;);</div><div class="line">        mAnimator.start();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<h3 id="下面的搜索动画"><a href="#下面的搜索动画" class="headerlink" title="下面的搜索动画"></a>下面的搜索动画</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div><div class="line">222</div><div class="line">223</div><div class="line">224</div><div class="line">225</div><div class="line">226</div><div class="line">227</div><div class="line">228</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">PathSearchView</span> <span class="keyword">extends</span> <span class="title">View</span> </span>&#123;</div><div class="line">    <span class="keyword">private</span> Paint mPaint;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mViewHeight;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> mViewWidth;</div><div class="line">    <span class="keyword">private</span> Path path_search;<span class="comment">//放大镜把手</span></div><div class="line">    <span class="keyword">private</span> Path path_circle;<span class="comment">//放大镜圆环</span></div><div class="line">    <span class="comment">//截取工具</span></div><div class="line">    <span class="keyword">private</span> PathMeasure mMeasure;</div><div class="line">    <span class="keyword">private</span> <span class="keyword">long</span> defaultDuration = <span class="number">2000</span>;<span class="comment">//默认动画时间</span></div><div class="line"></div><div class="line">    <span class="comment">//放大镜的三个状态</span></div><div class="line">    <span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">enum</span> State &#123;</div><div class="line">        NONE,</div><div class="line">        STARTING,</div><div class="line">        SEARCHING,</div><div class="line">        ENDING</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> State mCurrentState = State.NONE;</div><div class="line">    <span class="comment">// 控制各个过程的动画</span></div><div class="line">    <span class="keyword">private</span> ValueAnimator mStartingAnimator;</div><div class="line">    <span class="keyword">private</span> ValueAnimator mSearchingAnimator;</div><div class="line">    <span class="keyword">private</span> ValueAnimator mEndingAnimator;</div><div class="line">    <span class="comment">// 动画数值(用于控制动画状态,因为同一时间内只允许有一种状态出现,具体数值处理取决于当前状态)</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">float</span> mAnimatorValue = <span class="number">0</span>;</div><div class="line">    <span class="comment">// 动效过程监听器</span></div><div class="line">    <span class="keyword">private</span> ValueAnimator.AnimatorUpdateListener mUpdateListener;</div><div class="line">    <span class="keyword">private</span> Animator.AnimatorListener mAnimatorListener;</div><div class="line">    <span class="comment">// 用于控制动画状态转换</span></div><div class="line">    <span class="keyword">private</span> Handler mAnimatorHandler;</div><div class="line"></div><div class="line">    <span class="comment">// 判断是否已经搜索结束</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">boolean</span> isOver = <span class="keyword">false</span>;</div><div class="line">    <span class="comment">//转的圈数</span></div><div class="line">    <span class="keyword">private</span> <span class="keyword">int</span> count = <span class="number">0</span>;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PathSearchView</span><span class="params">(Context context)</span> </span>&#123;</div><div class="line">        <span class="keyword">this</span>(context, <span class="keyword">null</span>);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="title">PathSearchView</span><span class="params">(Context context, @Nullable AttributeSet attrs)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>(context, attrs);</div><div class="line">        initPaint();</div><div class="line">        initPath();</div><div class="line">        initListen();</div><div class="line">        initHandler();</div><div class="line">        initAnimator();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initListen</span><span class="params">()</span> </span>&#123;</div><div class="line">        mUpdateListener = (animator) -&gt; &#123;</div><div class="line">            mAnimatorValue = (<span class="keyword">float</span>) animator.getAnimatedValue();</div><div class="line">            invalidate();</div><div class="line">        &#125;;</div><div class="line">        mAnimatorListener = <span class="keyword">new</span> Animator.AnimatorListener() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationStart</span><span class="params">(Animator animation)</span> </span>&#123;</div><div class="line">                <span class="comment">//动画开始</span></div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationEnd</span><span class="params">(Animator animation)</span> </span>&#123;</div><div class="line">                <span class="comment">//动画结束,向handler发送消息</span></div><div class="line">                mAnimatorHandler.sendEmptyMessage(<span class="number">0</span>);</div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationCancel</span><span class="params">(Animator animation)</span> </span>&#123;</div><div class="line">                <span class="comment">//动画取消</span></div><div class="line">            &#125;</div><div class="line"></div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">onAnimationRepeat</span><span class="params">(Animator animation)</span> </span>&#123;</div><div class="line">                <span class="comment">//动画重复</span></div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initHandler</span><span class="params">()</span> </span>&#123;</div><div class="line">        mAnimatorHandler = <span class="keyword">new</span> Handler() &#123;</div><div class="line">            <span class="meta">@Override</span></div><div class="line">            <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">handleMessage</span><span class="params">(Message msg)</span> </span>&#123;</div><div class="line">                <span class="keyword">super</span>.handleMessage(msg);</div><div class="line">                <span class="comment">//根据当前状态去做具体操作</span></div><div class="line">                <span class="keyword">switch</span> (mCurrentState) &#123;</div><div class="line">                    <span class="keyword">case</span> STARTING:</div><div class="line">                        isOver = <span class="keyword">false</span>;<span class="comment">//动画未结束</span></div><div class="line">                        <span class="comment">//从开始动画转换为搜索动画</span></div><div class="line">                        mCurrentState = State.SEARCHING;</div><div class="line">                        mStartingAnimator.removeAllListeners();<span class="comment">//移除所有监听</span></div><div class="line">                        mSearchingAnimator.start();<span class="comment">//搜索动画开启</span></div><div class="line">                        <span class="keyword">break</span>;</div><div class="line">                    <span class="keyword">case</span> SEARCHING:</div><div class="line">                        <span class="keyword">if</span> (!isOver) &#123;</div><div class="line">                            <span class="comment">// 如果搜索未结束 则继续执行搜索动画</span></div><div class="line">                            mSearchingAnimator.start();</div><div class="line">                            count++;</div><div class="line">                            <span class="keyword">if</span> (count &gt; <span class="number">2</span>) &#123;</div><div class="line">                                <span class="comment">//count大于2 则让结束</span></div><div class="line">                                isOver = <span class="keyword">true</span>;</div><div class="line">                            &#125;</div><div class="line">                        &#125; <span class="keyword">else</span> &#123;</div><div class="line">                            <span class="comment">// 如果搜索已经结束 则进入结束动画</span></div><div class="line">                            mCurrentState = State.ENDING;</div><div class="line">                            mEndingAnimator.start();</div><div class="line">                        &#125;</div><div class="line">                        <span class="keyword">break</span>;</div><div class="line">                    <span class="keyword">case</span> ENDING:</div><div class="line">                        <span class="comment">// 从结束动画转变为无状态</span></div><div class="line">                        mCurrentState = State.NONE;</div><div class="line">                        <span class="keyword">break</span>;</div><div class="line">                &#125;</div><div class="line">            &#125;</div><div class="line">        &#125;;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initAnimator</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">//开始动画</span></div><div class="line">        mStartingAnimator = ValueAnimator.ofFloat(<span class="number">0</span>, <span class="number">1</span>).setDuration(defaultDuration);</div><div class="line">        <span class="comment">//搜索动画</span></div><div class="line">        mSearchingAnimator = ValueAnimator.ofFloat(<span class="number">0</span>, <span class="number">1</span>).setDuration(defaultDuration);</div><div class="line">        <span class="comment">//结束动画，反着来</span></div><div class="line">        mEndingAnimator = ValueAnimator.ofFloat(<span class="number">1</span>, <span class="number">0</span>).setDuration(defaultDuration);</div><div class="line"></div><div class="line">        mStartingAnimator.addUpdateListener(mUpdateListener);</div><div class="line">        mSearchingAnimator.addUpdateListener(mUpdateListener);</div><div class="line">        mEndingAnimator.addUpdateListener(mUpdateListener);</div><div class="line"></div><div class="line"></div><div class="line">        mSearchingAnimator.addListener(mAnimatorListener);</div><div class="line">        mEndingAnimator.addListener(mAnimatorListener);</div><div class="line">    &#125;</div><div class="line"></div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 初始化画笔</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initPaint</span><span class="params">()</span> </span>&#123;</div><div class="line">        mPaint = <span class="keyword">new</span> Paint();</div><div class="line">        mPaint.setStyle(Paint.Style.STROKE);</div><div class="line">        mPaint.setColor(Color.WHITE);</div><div class="line">        mPaint.setStrokeWidth(<span class="number">15</span>);</div><div class="line">        mPaint.setStrokeCap(Paint.Cap.ROUND);</div><div class="line">        mPaint.setAntiAlias(<span class="keyword">true</span>);</div><div class="line">        path_search = <span class="keyword">new</span> Path();</div><div class="line">        path_circle = <span class="keyword">new</span> Path();</div><div class="line">        mMeasure = <span class="keyword">new</span> PathMeasure();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 初始化路径</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">initPath</span><span class="params">()</span> </span>&#123;</div><div class="line">        <span class="comment">//画小圆</span></div><div class="line">        RectF oval1 = <span class="keyword">new</span> RectF(-<span class="number">50</span>, -<span class="number">50</span>, <span class="number">50</span>, <span class="number">50</span>);<span class="comment">//放大镜的外接矩形</span></div><div class="line">        path_search.addArc(oval1, <span class="number">45</span>, <span class="number">359.9f</span>);<span class="comment">//从45度开始画。</span></div><div class="line">        <span class="comment">//画大圆</span></div><div class="line">        RectF oval2 = <span class="keyword">new</span> RectF(-<span class="number">100</span>, -<span class="number">100</span>, <span class="number">100</span>, <span class="number">100</span>);</div><div class="line">        path_circle.addArc(oval2, <span class="number">45</span>, -<span class="number">359.9f</span>);<span class="comment">//这个大圆的路径跟小圆正好方向相反</span></div><div class="line">        <span class="keyword">float</span>[] pos = <span class="keyword">new</span> <span class="keyword">float</span>[<span class="number">2</span>];</div><div class="line">        mMeasure.setPath(path_circle, <span class="keyword">false</span>);</div><div class="line">        <span class="comment">//得到放大镜把手的坐标,不要正切值.也就是开始画圆的位置的起点的值</span></div><div class="line">        <span class="comment">//把手从小圆起点到大圆位置起点</span></div><div class="line">        mMeasure.getPosTan(<span class="number">0</span>, pos, <span class="keyword">null</span>);<span class="comment">//得到大圆起点位置的坐标</span></div><div class="line">        path_search.lineTo(pos[<span class="number">0</span>], pos[<span class="number">1</span>]);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">private</span> <span class="keyword">void</span> <span class="title">drawSearch</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">        mPaint.setColor(Color.WHITE);</div><div class="line">        <span class="comment">//画布移动中间</span></div><div class="line">        canvas.translate(mViewWidth / <span class="number">2</span>, mViewHeight / <span class="number">2</span>);</div><div class="line">        canvas.drawColor(Color.parseColor(<span class="string">"#0082D7"</span>));</div><div class="line">        <span class="keyword">switch</span> (mCurrentState) &#123;</div><div class="line">            <span class="keyword">case</span> NONE:</div><div class="line">                canvas.drawPath(path_search, mPaint);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> STARTING:</div><div class="line">                <span class="comment">//开始动画,画小圆</span></div><div class="line">                mMeasure.setPath(path_search, <span class="keyword">false</span>);</div><div class="line">                Path dst = <span class="keyword">new</span> Path();</div><div class="line">                <span class="comment">// 得到片段,给dst设置path值</span></div><div class="line">                mMeasure.getSegment(mMeasure.getLength() * mAnimatorValue, mMeasure.getLength(), dst, <span class="keyword">true</span>);</div><div class="line">                canvas.drawPath(dst, mPaint);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> SEARCHING:</div><div class="line">                <span class="comment">//搜索动画,画大圆</span></div><div class="line">                mMeasure.setPath(path_circle, <span class="keyword">false</span>);</div><div class="line">                Path dst2 = <span class="keyword">new</span> Path();</div><div class="line">                <span class="keyword">float</span> stop = mMeasure.getLength() * mAnimatorValue;</div><div class="line">                <span class="keyword">float</span> start = (<span class="keyword">float</span>) (stop - ((<span class="number">0.5</span> - Math.abs(mAnimatorValue - <span class="number">0.5</span>)) * <span class="number">200f</span>));</div><div class="line">                mMeasure.getSegment(start, stop, dst2, <span class="keyword">true</span>);</div><div class="line">                canvas.drawPath(dst2, mPaint);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">            <span class="keyword">case</span> ENDING:</div><div class="line">                <span class="comment">//结束动画画 小圆动画</span></div><div class="line">                mMeasure.setPath(path_search, <span class="keyword">false</span>);</div><div class="line">                Path dst3 = <span class="keyword">new</span> Path();</div><div class="line">                mMeasure.getSegment(mMeasure.getLength() * mAnimatorValue, mMeasure.getLength(), dst3, <span class="keyword">true</span>);</div><div class="line">                canvas.drawPath(dst3, mPaint);</div><div class="line">                <span class="keyword">break</span>;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onDraw</span><span class="params">(Canvas canvas)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onDraw(canvas);</div><div class="line">        drawSearch(canvas);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onSizeChanged</span><span class="params">(<span class="keyword">int</span> w, <span class="keyword">int</span> h, <span class="keyword">int</span> oldw, <span class="keyword">int</span> oldh)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onSizeChanged(w, h, oldw, oldh);</div><div class="line">        mViewWidth = w;</div><div class="line">        mViewHeight = h;</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="comment">/**</span></div><div class="line">     * 开始动画</div><div class="line">     */</div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">startAnimator</span><span class="params">()</span> </span>&#123;</div><div class="line">        mCurrentState = State.STARTING;</div><div class="line">        <span class="comment">//监听个数</span></div><div class="line">        ArrayList&lt;Animator.AnimatorListener&gt; listeners = mStartingAnimator.getListeners();</div><div class="line">        mStartingAnimator.addListener(mAnimatorListener);</div><div class="line">        mStartingAnimator.start();</div><div class="line">    &#125;</div><div class="line"></div><div class="line">&#125;</div></pre></td></tr></table></figure>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WaveActivity</span> <span class="keyword">extends</span> <span class="title">AppCompatActivity</span> </span>&#123;</div><div class="line"></div><div class="line">    <span class="keyword">private</span> PathSearchView searchView;</div><div class="line"></div><div class="line">    <span class="meta">@Override</span></div><div class="line">    <span class="function"><span class="keyword">protected</span> <span class="keyword">void</span> <span class="title">onCreate</span><span class="params">(@Nullable Bundle savedInstanceState)</span> </span>&#123;</div><div class="line">        <span class="keyword">super</span>.onCreate(savedInstanceState);</div><div class="line">        setContentView(R.layout.activity_besi_wave);</div><div class="line">        WaveView waveView  = (WaveView) findViewById(R.id.wave);</div><div class="line">        waveView.startAnimation();</div><div class="line">        searchView = (PathSearchView) findViewById(R.id.search);</div><div class="line">    &#125;</div><div class="line"></div><div class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">start</span><span class="params">(View v)</span></span>&#123;</div><div class="line">        searchView.startAnimator();</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/android/" rel="tag">#android</a>
+          
+        </div>
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/02/22/仿地图弹窗/" rel="next" title="仿地图弹窗">
+                <i class="fa fa-chevron-left"></i> 仿地图弹窗
+              </a>
+            
+          </div>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel ">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="/images/avatar.jpg"
+               alt="Xiemarc" />
+          <p class="site-author-name" itemprop="name">Xiemarc</p>
+          <p class="site-description motion-element" itemprop="description">android开发</p>
+        </div>
+        <nav class="site-state motion-element">
+          <div class="site-state-item site-state-posts">
+            <a href="/">
+              <span class="site-state-item-count">41</span>
+              <span class="site-state-item-name">日志</span>
+            </a>
+          </div>
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-tags">
+              <a href="/tags">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">标签</span>
+              </a>
+            </div>
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+            
+              <span class="links-of-author-item">
+                <a href="https://github.com/Xiemarc" target="_blank" title="GitHub">
+                  
+                    <i class="fa fa-fw fa-github"></i>
+                  
+                  GitHub
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://weibo.com/u/1750579585/home?wvr=5&lf=reg" target="_blank" title="微博">
+                  
+                    <i class="fa fa-fw fa-weibo"></i>
+                  
+                  微博
+                </a>
+              </span>
+            
+              <span class="links-of-author-item">
+                <a href="http://blog.csdn.net/u012721933" target="_blank" title="CSDN">
+                  
+                    <i class="fa fa-fw fa-blog"></i>
+                  
+                  CSDN
+                </a>
+              </span>
+            
+          
+        </div>
+
+        
+        
+
+        
+        
+
+      </section>
+
+      
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+            
+              
+            
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#android深入学习-PathMeasure"><span class="nav-number">1.</span> <span class="nav-text">android深入学习-PathMeasure</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#构造方法"><span class="nav-number">1.0.1.</span> <span class="nav-text">构造方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#公共方法"><span class="nav-number">1.0.2.</span> <span class="nav-text">公共方法</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#构造方法-1"><span class="nav-number">1.0.3.</span> <span class="nav-text">构造方法</span></a><ol class="nav-child"><li class="nav-item nav-level-4"><a class="nav-link" href="#无参构造方法"><span class="nav-number">1.0.3.1.</span> <span class="nav-text">无参构造方法</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#有参构造"><span class="nav-number">1.0.3.2.</span> <span class="nav-text">有参构造</span></a></li></ol></li><li class="nav-item nav-level-3"><a class="nav-link" href="#setPath、isClosed、getLength"><span class="nav-number">1.0.4.</span> <span class="nav-text">setPath、isClosed、getLength</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getSegment"><span class="nav-number">1.0.5.</span> <span class="nav-text">getSegment</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#nextContour"><span class="nav-number">1.0.6.</span> <span class="nav-text">nextContour</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getPosTan"><span class="nav-number">1.0.7.</span> <span class="nav-text">getPosTan</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#getMatrix"><span class="nav-number">1.0.8.</span> <span class="nav-text">getMatrix</span></a></li></ol></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#实战"><span class="nav-number">2.</span> <span class="nav-text">实战</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#上半部分的波浪加小船动画"><span class="nav-number">2.0.1.</span> <span class="nav-text">上半部分的波浪加小船动画</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#下面的搜索动画"><span class="nav-number">2.0.2.</span> <span class="nav-text">下面的搜索动画</span></a></li></ol></li></ol></li></ol></div>
+            
+          </div>
+        </section>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">Xiemarc</span>
+</div>
+
+<div class="powered-by">
+  由 <a class="theme-link" href="http://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+        
+
+        
+      </div>
+    </footer>
+
+    <div class="back-to-top">
+      <i class="fa fa-arrow-up"></i>
+    </div>
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.0.1"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.0.1"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.0.1"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.0.1"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.0.1"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.0.1"></script>
+
+
+
+  
+
+
+
+  
+
+
+
+
+  
+  
+
+  
+
+  
+
+  
+
+</body>
+</html>
